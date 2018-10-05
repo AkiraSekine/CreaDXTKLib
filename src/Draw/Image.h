@@ -11,6 +11,9 @@ namespace CreaDXTKLib
 {
 namespace Draw
 {
+    /// <summary>
+    /// ‰æ‘œ•`‰æƒNƒ‰ƒX
+    /// </summary>
     class Image final
     {
     private:
