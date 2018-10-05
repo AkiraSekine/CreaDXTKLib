@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #ifdef _DEBUG
 #pragma comment(lib, "Draw_d.lib")
@@ -12,7 +12,7 @@ namespace CreaDXTKLib
 namespace Draw
 {
     /// <summary>
-    /// ‰æ‘œ•`‰æƒNƒ‰ƒX
+    /// ç”»åƒæç”»ã‚¯ãƒ©ã‚¹
     /// </summary>
     class Image final
     {
