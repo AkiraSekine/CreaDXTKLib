@@ -38,6 +38,13 @@
     <ClCompile Include="..\src\Default\Game.cpp">
       <Filter>src\Default</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\CreaDXTKLib\GameManager.cpp">
+      <Filter>src\CreaDXTKLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TEST.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CreaDXTKLib\CreaDXTKLib.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Default\pch.h">
@@ -50,6 +57,15 @@
       <Filter>src\Default</Filter>
     </ClInclude>
     <ClInclude Include="..\src\CreaDXTKLib\CreaDXTKLib.h">
+      <Filter>src\CreaDXTKLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CreaDXTKLib\GameManager.h">
+      <Filter>src\CreaDXTKLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CreaDXTKLib\Scene.h">
+      <Filter>src\CreaDXTKLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CreaDXTKLib\GameManagerDetail.h">
       <Filter>src\CreaDXTKLib</Filter>
     </ClInclude>
   </ItemGroup>

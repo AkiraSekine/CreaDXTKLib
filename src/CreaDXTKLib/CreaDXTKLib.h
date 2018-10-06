@@ -1,8 +1,13 @@
 #pragma once
 
 #ifndef ABSTRACT
-#define ABSTRACT (=0)
+#define ABSTRACT = 0
 #endif // !ABSTRACT
+
+/// <summary>
+/// ゲームの設定
+/// </summary>
+void SetUp();
 
 namespace CreaDXTKLib
 {
@@ -15,4 +20,9 @@ namespace CreaDXTKLib
     /// 汎用的なクラス
     /// </summary>
     namespace Utility{ }
+
+    /// <summary>
+    /// 終了させる
+    /// </summary>
+    void ExitGame();
 }

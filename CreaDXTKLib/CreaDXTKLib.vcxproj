@@ -180,12 +180,18 @@
     <Manifest Include="settings.manifest" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\CreaDXTKLib\CreaDXTKLib.cpp" />
+    <ClCompile Include="..\src\CreaDXTKLib\GameManager.cpp" />
     <ClCompile Include="..\src\Default\Game.cpp" />
     <ClCompile Include="..\src\Default\Main.cpp" />
     <ClCompile Include="..\src\Default\pch.cpp" />
+    <ClCompile Include="..\src\TEST.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\CreaDXTKLib\CreaDXTKLib.h" />
+    <ClInclude Include="..\src\CreaDXTKLib\GameManager.h" />
+    <ClInclude Include="..\src\CreaDXTKLib\GameManagerDetail.h" />
+    <ClInclude Include="..\src\CreaDXTKLib\Scene.h" />
     <ClInclude Include="..\src\Default\Game.h" />
     <ClInclude Include="..\src\Default\pch.h" />
     <ClInclude Include="..\src\Default\StepTimer.h" />

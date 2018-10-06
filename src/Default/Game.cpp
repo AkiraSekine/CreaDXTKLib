@@ -5,13 +5,15 @@
 #include "pch.h"
 #include "Game.h"
 
-#include "../Utility/Debug.h"
+#include "../CreaDXTKLib/GameManager.h"
 
 extern void ExitGame();
 
 using namespace DirectX;
 
 using Microsoft::WRL::ComPtr;
+
+using namespace CreaDXTKLib;
 
 Game::Game() :
     m_window(nullptr),
@@ -59,7 +61,7 @@ void Game::Update(DX::StepTimer const& timer)
     // TODO: Add your game logic here.
     elapsedTime;
 
-    CreaDXTKLib::Utility::Debug::Log(L"%f\n", elapsedTime);
+    GameManager::Instance().Update();
 }
 
 // Draws the scene.
@@ -74,6 +76,7 @@ void Game::Render()
     Clear();
 
     // TODO: Add your rendering code here.
+    GameManager::Instance().OnRender();
 
     Present();
 }
@@ -217,6 +220,8 @@ void Game::CreateDevice()
     DX::ThrowIfFailed(context.As(&m_d3dContext));
 
     // TODO: Initialize device dependent objects here (independent of window size).
+
+    GameManager::Instance().Initialize();
 }
 
 // Allocate all memory resources that change on a window SizeChanged event.
@@ -324,6 +329,8 @@ void Game::OnDeviceLost()
     m_swapChain.Reset();
     m_d3dContext.Reset();
     m_d3dDevice.Reset();
+
+    GameManager::Instance().OnEnd();
 
     CreateDevice();
 
