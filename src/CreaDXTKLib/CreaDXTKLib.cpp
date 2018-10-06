@@ -2,7 +2,10 @@
 
 #include "../Default/pch.h"
 
-void CreaDXTKLib::ExitGame()
+namespace CreaDXTKLib
 {
-    PostQuitMessage(0);   
+    void ExitGame()
+    {
+        PostQuitMessage(0);
+    }
 }

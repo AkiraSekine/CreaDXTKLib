@@ -7,7 +7,7 @@
 /// <summary>
 /// ÉQÅ[ÉÄÇÃê›íË
 /// </summary>
-void SetUp();
+extern void SetUp();
 
 namespace CreaDXTKLib
 {
@@ -24,5 +24,5 @@ namespace CreaDXTKLib
     /// <summary>
     /// èIóπÇ≥ÇπÇÈ
     /// </summary>
-    void ExitGame();
+    extern void ExitGame();
 }
