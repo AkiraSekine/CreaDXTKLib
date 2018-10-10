@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include "pch.h"
+
 #include <exception>
 #include <stdint.h>
 
