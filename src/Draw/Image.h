@@ -33,8 +33,8 @@ namespace Draw
         static std::map<std::wstring, ImageData> m_imageData;
 
         static std::unique_ptr<DirectX::SpriteBatch> m_spriteBatch;
-
         static Microsoft::WRL::ComPtr<ID3D11Device1> m_device;
+        static std::unique_ptr<DirectX::CommonStates> m_states;
 
         Image();
 

@@ -48,6 +48,7 @@
 #endif
 
 #include "SpriteBatch.h"
+#include "CommonStates.h"
 #include "SimpleMath.h"
 #include "WICTextureLoader.h"
 
