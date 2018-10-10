@@ -20,6 +20,8 @@ namespace Draw
 
     ComPtr<ID3D11Device1> Image::m_device;
 
+    unique_ptr<CommonStates> Image::m_states;
+
     void Image::Initialize(ComPtr<ID3D11DeviceContext1> _context, ComPtr<ID3D11Device1>& _device)
     {
         static bool initialized = false;
@@ -35,6 +37,8 @@ namespace Draw
         m_spriteBatch = make_unique<SpriteBatch>(_context.Get());
 
         m_device = _device;
+
+        m_states = make_unique<CommonStates>(m_device.Get());
     }
 
     void Image::OnEnd()
@@ -55,6 +59,8 @@ namespace Draw
         }
 
         m_imageData.clear();
+
+        m_states.reset();
     }
 
     void Image::Load(wstring _fileName, wstring _name)
@@ -175,7 +181,8 @@ namespace Draw
         const FXMVECTOR _color,
         const Vector2 _pivot)
     {
-        m_spriteBatch->Begin();
+        m_spriteBatch->Begin(SpriteSortMode_Deferred,
+            m_states->NonPremultiplied());
 
         m_spriteBatch->Draw(
             m_imageData.at(_name).m_texture.Get(),
@@ -226,7 +233,8 @@ namespace Draw
         const XMVECTORF32 _color,
         const Vector2 _pivot)
     {
-        m_spriteBatch->Begin();
+        m_spriteBatch->Begin(SpriteSortMode_Deferred,
+            m_states->NonPremultiplied());
 
         m_spriteBatch->Draw(
             m_imageData.at(_name).m_texture.Get(),
