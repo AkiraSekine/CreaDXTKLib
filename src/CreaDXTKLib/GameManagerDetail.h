@@ -9,15 +9,11 @@ namespace CreaDXTKLib
     template<class StartScene>
     void SetStartScene()
     {
-        StartScene * parentCheck = new StartScene();
-
-        if (dynamic_cast<Scene *>(parentCheck) == nullptr)
+        if (!std::is_base_of<Scene, StartScene>::value)
         {
             Utility::Debug::Log(L"StartScene does not inherit the Scene class.\n");
             throw std::invalid_argument("StartScene does not inherit the Scene class.\n");
         }
-
-        delete parentCheck;
 
         GameManager::Instance().StartScene<StartScene>();
     }
@@ -25,15 +21,11 @@ namespace CreaDXTKLib
     template<class NextScene>
     void SceneTransition()
     {
-        NextScene * parentCheck = new NextScene();
-
-        if (dynamic_cast<Scene *>(parentCheck) == nullptr)
+        if (!std::is_base_of<Scene, NextScene>::value)
         {
             Utility::Debug::Log(L"NextScene does not inherit the Scene class.\n");
             throw std::invalid_argument("NextScene does not inherit the Scene class.\n");
         }
-
-        delete parentCheck;
 
         GameManager::Instance().SceneTransition<NextScene>();
     }

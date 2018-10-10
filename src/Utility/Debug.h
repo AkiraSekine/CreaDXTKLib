@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 #include "../CreaDXTKLib/CreaDXTKLib.h"
 
 #include "Singleton.h"
@@ -30,7 +32,13 @@ namespace Utility
         /// <para>Debug状態のみ使用可能</para>
         /// </summary>
         /// <param name="str">フォーマット</param>
-        static void Log(const wchar_t * str, ...);
+        static void Log(const std::wstring str, ...);
+        /// <summary>
+        /// <para>Visual Studioの出力ウィンドウに文字列を出力</para>
+        /// <para>Debug状態のみ使用可能</para>
+        /// </summary>
+        /// <param name="str">フォーマット</param>
+        static void Log(const std::string str, ...);
     };
 } // Utility
 } // CreaDXTKLib

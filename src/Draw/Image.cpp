@@ -19,7 +19,7 @@ namespace Draw
     unique_ptr<SpriteBatch> Image::m_spriteBatch;
 
     ComPtr<ID3D11Device1> Image::m_device;
-    
+
     void Image::Initialize(ComPtr<ID3D11DeviceContext1> _context, ComPtr<ID3D11Device1>& _device)
     {
         static bool initialized = false;
@@ -53,7 +53,7 @@ namespace Draw
         {
             i->second.m_texture.Reset();
         }
-        
+
         m_imageData.clear();
     }
 
