@@ -1,11 +1,17 @@
 #include "GameManager.h"
 
 #include "Scene.h"
+#include "../Draw/Image.h"
+
+using namespace Microsoft::WRL;
+using namespace CreaDXTKLib::Draw;
 
 namespace CreaDXTKLib
 {
-    void GameManager::Initialize()
+    void GameManager::Initialize(ComPtr<ID3D11DeviceContext1> _context, ComPtr<ID3D11Device1>& _device)
     {
+        Image::Initialize(_context, _device);
+
         SetUp();
     }
 

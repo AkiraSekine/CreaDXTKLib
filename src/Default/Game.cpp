@@ -221,7 +221,7 @@ void Game::CreateDevice()
 
     // TODO: Initialize device dependent objects here (independent of window size).
 
-    GameManager::Instance().Initialize();
+    GameManager::Instance().Initialize(m_d3dContext, m_d3dDevice);
 }
 
 // Allocate all memory resources that change on a window SizeChanged event.
