@@ -118,7 +118,7 @@
     </ProjectReference>
     <Lib>
       <OutputFile>$(SolutionDir)Lib\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalLibraryDirectories>$(SolutionDir)Lib\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(DXTK)\lib;$(SolutionDir)Lib\</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -159,7 +159,7 @@
     </ProjectReference>
     <Lib>
       <OutputFile>$(SolutionDir)Lib\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalLibraryDirectories>$(SolutionDir)Lib\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(DXTK)\lib;$(SolutionDir)Lib\</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

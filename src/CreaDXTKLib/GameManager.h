@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../Default/pch.h"
+
 #include "../Utility/Singleton.h"
 
 namespace CreaDXTKLib
@@ -46,7 +48,8 @@ namespace CreaDXTKLib
         /// <summary>
         /// ライブラリの初期設定
         /// </summary>
-        void Initialize();
+        void Initialize(Microsoft::WRL::ComPtr<ID3D11DeviceContext1> _context,
+            Microsoft::WRL::ComPtr<ID3D11Device1>& _device);
 
         /// <summary>
         /// 更新処理
