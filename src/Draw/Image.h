@@ -57,6 +57,10 @@ namespace Draw
         /// <param name="_name">ハンドル名</param>
         static void Load(std::wstring _fileName, std::wstring _name);
 
+        /// <summary>
+        /// 読み込んだ画像を破棄する
+        /// </summary>
+        /// <param name="_name">ハンドル名</param>
         static void Erase(std::wstring _name);
 
         /// <summary>
