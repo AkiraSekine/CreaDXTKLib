@@ -33,7 +33,8 @@ namespace Input
         m_mouse = make_unique<DirectX::Mouse>();
         m_mouse->SetWindow(window);
 
-        ShowCursor(m_isVisible);
+        // 最初にカーソルを表示状態にしておく
+        CursorVisible(true);
     }
 
     void Mouse::OnEnd()
@@ -89,11 +90,13 @@ namespace Input
 
     bool Mouse::GetInput(MouseButtons _button, CheckMode _mode)
     {
+        // 指定ボタンが指定した状態になっているかを返す
         return (bool)(m_buttonState[(char)_button] & (char)_mode);
     }
 
     Vector2 Mouse::Position()
     {
+        // カーソルの座標を取得して返す
         DirectX::Mouse::State state = m_mouse->GetState();
 
         return Vector2((float)state.x, (float)state.y);
@@ -118,6 +121,7 @@ namespace Input
     {
         m_isVisible = _isVisible;
 
+        // 表示状態(0)か非表示状態(-1)になるまで繰り返す
         while (ShowCursor(_isVisible) != ((_isVisible) ? 0 : -1));
     }
 

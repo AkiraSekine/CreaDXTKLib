@@ -51,6 +51,7 @@ namespace Input
 
     bool Keyboard::GetInput(Keys _key, CheckMode _mode)
     {
+        // 指定されたキーが指定された状態になっているかを返す
         return (bool)(m_keyState[(int)_key] & (char)_mode);
     }
 } // Input
