@@ -51,6 +51,8 @@
 #include "CommonStates.h"
 #include "SimpleMath.h"
 #include "WICTextureLoader.h"
+#include "Keyboard.h"
+#include "Mouse.h"
 
 namespace DX
 {
