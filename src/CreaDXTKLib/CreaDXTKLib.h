@@ -17,6 +17,11 @@ namespace CreaDXTKLib
     namespace Draw{ }
 
     /// <summary>
+    /// 入力関係
+    /// </summary>
+    namespace Input{ }
+
+    /// <summary>
     /// 汎用的なクラス
     /// </summary>
     namespace Utility{ }
