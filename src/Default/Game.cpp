@@ -6,6 +6,7 @@
 #include "Game.h"
 
 #include "../CreaDXTKLib/GameManager.h"
+#include "../Input/Mouse.hpp"
 
 extern void ExitGame();
 
@@ -36,6 +37,9 @@ void Game::Initialize(HWND window, int width, int height)
 
     // TODO: Change the timer settings if you want something other than the default variable timestep mode.
     // e.g. for 60 FPS fixed timestep update logic, call:
+
+    CreaDXTKLib::Input::Mouse::Initialize(window);
+
     /*
     m_timer.SetFixedTimeStep(true);
     m_timer.SetTargetElapsedSeconds(1.0 / 60);
