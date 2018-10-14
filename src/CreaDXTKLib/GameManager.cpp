@@ -34,6 +34,7 @@ namespace CreaDXTKLib
 
     void GameManager::OnEnd()
     {
+        Image::Instance().OnEnd();
         Keyboard::OnEnd();
         Mouse::OnEnd();
     }
