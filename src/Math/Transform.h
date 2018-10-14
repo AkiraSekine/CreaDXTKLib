@@ -90,7 +90,12 @@ namespace Math
         /// 前方向のベクトルを取得
         /// </summary>
         /// <returns>前方向のベクトル</returns>
-        virtual DirectX::SimpleMath::Vector2 GetForwardVector() const final;
+        virtual DirectX::SimpleMath::Vector2 GetUpVector() const final;
+        /// <summary>
+        /// 右方向のベクトルを取得
+        /// </summary>
+        /// <returns>右方向のベクトル</returns>
+        virtual DirectX::SimpleMath::Vector2 GetRightVector() const final;
 
         /// <summary>
         /// 親Transform2Dを設定

@@ -22,8 +22,11 @@ namespace Math
         m_position(_position),
         m_rotation(0.f),
         m_scale(Vector2::One),
-        m_parent(_parent)
+        m_parent(_parent),
+        m_localPosition(_position),
+        m_localRotation(0.f)
     {
+        // 親があればローカル値を計算する
         if (_parent != nullptr)
         {
             m_childNum = _parent->m_children.size();
@@ -42,8 +45,11 @@ namespace Math
         m_position(_position),
         m_rotation(CorrectionRotation(_rotation)),
         m_scale(Vector2::One),
-        m_parent(_parent)
+        m_parent(_parent),
+        m_localPosition(_position),
+        m_localRotation(m_rotation)
     {
+        // 親があればローカル値を計算する
         if (_parent != nullptr)
         {
             m_childNum = _parent->m_children.size();
@@ -63,8 +69,11 @@ namespace Math
         m_position(_position),
         m_rotation(CorrectionRotation(_rotation)),
         m_scale(_scale),
-        m_parent(_parent)
+        m_parent(_parent),
+        m_localPosition(_position),
+        m_localRotation(m_rotation)
     {
+        // 親があればローカル値を計算する
         if (_parent != nullptr)
         {
             m_childNum = _parent->m_children.size();
@@ -86,6 +95,7 @@ namespace Math
     {
         m_position = _newPos;
 
+        // 親があればローカル値を計算する
         if (m_parent != nullptr)
         {
             m_localPosition = m_position - m_parent->m_position;
@@ -95,6 +105,7 @@ namespace Math
             m_localPosition = m_position;
         }
 
+        // 子の値を計算する
         ChildrenCalc();
     }
 
@@ -112,6 +123,7 @@ namespace Math
     {
         m_rotation = CorrectionRotation(_newRot);
 
+        // 親があればローカル値を計算する
         if (m_parent != nullptr)
         {
             m_localRotation = m_rotation - m_parent->m_rotation;
@@ -123,6 +135,7 @@ namespace Math
 
         m_localRotation = CorrectionRotation(m_localRotation);
 
+        // 子の値を計算する
         ChildrenCalc();
     }
 
@@ -139,26 +152,40 @@ namespace Math
     void Transform2D::Scale(Vector2 _newScale)
     {
         m_scale = _newScale;
-
-        ChildrenCalc();
     }
 
-    Vector2 Transform2D::GetForwardVector() const
+    Vector2 Transform2D::GetUpVector() const
     {
-        Vector2 forward;
+        Vector2 up;
 
-        forward.x = cosf(m_rotation);
-        forward.y = sinf(m_rotation);
+        // 上方向のベクトルを計算
+        up.x = cosf(m_rotation - (float)M_PI_2);
+        up.y = sinf(m_rotation - (float)M_PI_2);
 
-        return forward;
+        return up;
+    }
+
+    Vector2 Transform2D::GetRightVector() const
+    {
+        Vector2 right;
+
+        // 右方向のベクトルを計算
+        right.x = cosf(m_rotation);
+        right.y = sinf(m_rotation);
+
+        return right;
     }
 
     void Transform2D::Parent(Transform2D * _parent)
     {
+        // 何番目の子か取得
         m_childNum = _parent->m_children.size();
+        // 親に子として登録
         _parent->m_children.push_back(this);
+        // 親を保存
         m_parent = _parent;
 
+        // ローカル値を計算
         m_localPosition = m_position - _parent->m_position;
         m_localRotation = CorrectionRotation(m_rotation - _parent->m_rotation);
     }
@@ -170,15 +197,18 @@ namespace Math
 
     void Transform2D::RemoveParent()
     {
+        // 親子関係を解除
         m_parent->m_children.erase(m_parent->m_children.begin() + m_childNum);
         m_parent = nullptr;
 
+        // ローカル値にワールド値を入れる
         m_localPosition = m_position;
         m_localRotation = m_rotation;
     }
 
     float Transform2D::CorrectionRotation(float _rotation)
     {
+        // 角度が -180°～180°になるように補正
         while (_rotation > (float)M_PI)
         {
             _rotation -= (float)M_PI * 2.f;
@@ -195,10 +225,13 @@ namespace Math
     {
         for (Transform2D * child : m_children)
         {
+            // 子の方向を計算
             float childAng = m_rotation +
                 atan2f(child->m_localPosition.y, child->m_localPosition.x);
+            // 子との距離を取得
             float length = child->m_localPosition.Length();
 
+            // 値を指定
             child->Rotation(m_rotation + child->m_localRotation);
 
             child->m_position = m_position +
