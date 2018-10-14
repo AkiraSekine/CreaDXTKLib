@@ -26,6 +26,8 @@
 // WinHelp is deprecated
 #define NOHELP
 
+#define _USE_MATH_DEFINES
+
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 

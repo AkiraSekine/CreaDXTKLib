@@ -32,9 +32,6 @@ namespace Input
     {
         m_mouse = make_unique<DirectX::Mouse>();
         m_mouse->SetWindow(window);
-
-        // 最初にカーソルを表示状態にしておく
-        CursorVisible(true);
     }
 
     void Mouse::OnEnd()
