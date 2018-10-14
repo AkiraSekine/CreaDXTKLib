@@ -13,7 +13,7 @@ namespace CreaDXTKLib
 {
     void GameManager::Initialize(ComPtr<ID3D11DeviceContext1> _context, ComPtr<ID3D11Device1>& _device)
     {
-        Image::Initialize(_context, _device);
+        Image::Instance().Initialize(_context, _device);
         Keyboard::Initialize();
 
         SetUp();

@@ -25,6 +25,9 @@
     <ClCompile Include="..\src\Draw\Image.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Math\Math.vcxproj">
+      <Project>{e826b46c-6502-4bb4-b613-21711b1a7eb2}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Utility\Utility.vcxproj">
       <Project>{c0576279-4b9b-4049-a314-9fde2db1952f}</Project>
     </ProjectReference>
