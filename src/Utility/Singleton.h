@@ -31,17 +31,6 @@ namespace Utility
     template<class T>
     class Singleton
     {
-    private:
-
-        inline Singleton(const Singleton&) { } // コピーコンストラクタの使用禁止
-
-        inline void operator = (const Singleton& obj) { } // 代入演算子の使用禁止
-
-    protected:
-
-        inline Singleton() { } // 外部でのインスタンス生成を禁止
-        inline virtual ~Singleton() { }
-
     public:
 
         /// <summary>
@@ -49,6 +38,17 @@ namespace Utility
         /// </summary>
         /// <returns>インスタンス</returns>
         static T & Instance();
+
+    protected:
+
+        inline Singleton() { } // 外部でのインスタンス生成を禁止
+        inline virtual ~Singleton() { }
+
+    private:
+
+        inline Singleton(const Singleton&) { } // コピーコンストラクタの使用禁止
+
+        inline void operator = (const Singleton& obj) { } // 代入演算子の使用禁止
 
     };
 

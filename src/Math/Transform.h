@@ -14,7 +14,7 @@ namespace CreaDXTKLib
 {
 namespace Math
 {
-    struct Transform2D
+    class Transform2D
     {
     public:
 

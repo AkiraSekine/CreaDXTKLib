@@ -34,7 +34,7 @@ namespace Input
     /// <summary>
     /// “ü—ÍŠÖŒW
     /// </summary>
-    struct Inputs final
+    class Inputs final
     {
     public:
 
@@ -48,26 +48,6 @@ namespace Input
             Press   = 0b0100,    //‰Ÿ‚µ‚Ä‚¢‚éŠÔ
             Release = 0b1000     //˜b‚µ‚Ä‚¢‚éŠÔ
         };
-
-    private:
-
-        struct InputSet
-        {
-            bool isKey;
-
-            union
-            {
-                DirectX::Keyboard::Keys key;
-                MouseButtons mouseButton;
-            } keyButton;
-
-            float value;
-            CheckMode checkMode;
-        };
-
-        static std::multimap<std::wstring, InputSet> m_inputSets;
-
-    public:
 
         /// <summary>
         /// “ü—Íİ’è‚ğ’Ç‰Á
@@ -92,6 +72,24 @@ namespace Input
         /// <param name="_name">–¼‘O</param>
         /// <returns>’l</returns>
         static float GetValue(const std::wstring _name);
+
+    private:
+
+        struct InputSet
+        {
+            bool isKey;
+
+            union
+            {
+                DirectX::Keyboard::Keys key;
+                MouseButtons mouseButton;
+            } keyButton;
+
+            float value;
+            CheckMode checkMode;
+        };
+
+        static std::multimap<std::wstring, InputSet> m_inputSets;\
     };
 
     /// <summary>

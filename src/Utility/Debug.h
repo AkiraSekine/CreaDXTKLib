@@ -21,10 +21,6 @@ namespace Utility
     /// </summary>
     class Debug
     {
-    private:
-
-        Debug(); // インスタンス生成を禁止
-
     public:
 
         /// <summary>
@@ -39,6 +35,11 @@ namespace Utility
         /// </summary>
         /// <param name="str">フォーマット</param>
         static void Log(const std::string str, ...);
+
+    private:
+
+        Debug(); // インスタンス生成を禁止
+
     };
 } // Utility
 } // CreaDXTKLib

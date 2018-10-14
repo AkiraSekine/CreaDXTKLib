@@ -11,26 +11,8 @@ namespace Input
     /// <summary>
     /// マウス入力
     /// </summary>
-    struct Mouse final
+    class Mouse final
     {
-    private:
-
-        static const int m_numOfButtons = 5;
-
-        static unsigned char m_buttonState[m_numOfButtons];
-
-        static DirectX::SimpleMath::Vector2 m_moveValue;
-
-        static int m_wheelValue;
-
-        static bool m_isVisible;
-
-        static std::unique_ptr<DirectX::Mouse> m_mouse;
-
-        Mouse();
-
-        static bool IsMouseDown(MouseButtons _button);
-
     public:
 
         /// <summary>
@@ -92,6 +74,24 @@ namespace Input
         /// </summary>
         /// <returns>カーソルを表示するか</returns>
         static bool CursorVisible();
+
+    private:
+
+        static const int m_numOfButtons = 5;
+
+        static unsigned char m_buttonState[m_numOfButtons];
+
+        static DirectX::SimpleMath::Vector2 m_moveValue;
+
+        static int m_wheelValue;
+
+        static bool m_isVisible;
+
+        static std::unique_ptr<DirectX::Mouse> m_mouse;
+
+        Mouse();
+
+        static bool IsMouseDown(MouseButtons _button);
     };
 
 } // Input

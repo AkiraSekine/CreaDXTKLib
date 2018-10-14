@@ -21,23 +21,6 @@ namespace Draw
     /// </summary>
     class Image final
     {
-    private:
-
-        struct ImageData
-        {
-            Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_texture;
-
-            DirectX::SimpleMath::Vector2 m_size;
-        };
-
-        static std::map<std::wstring, ImageData> m_imageData;
-
-        static std::unique_ptr<DirectX::SpriteBatch> m_spriteBatch;
-        static Microsoft::WRL::ComPtr<ID3D11Device1> m_device;
-        static std::unique_ptr<DirectX::CommonStates> m_states;
-
-        Image();
-
     public:
 
         /// <summary>
@@ -215,6 +198,23 @@ namespace Draw
             const RECT _rect,
             const DirectX::XMVECTORF32 _color,
             const DirectX::SimpleMath::Vector2 _pivot = DirectX::SimpleMath::Vector2::Zero);
+
+    private:
+
+        struct ImageData
+        {
+            Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_texture;
+
+            DirectX::SimpleMath::Vector2 m_size;
+        };
+
+        static std::map<std::wstring, ImageData> m_imageData;
+
+        static std::unique_ptr<DirectX::SpriteBatch> m_spriteBatch;
+        static Microsoft::WRL::ComPtr<ID3D11Device1> m_device;
+        static std::unique_ptr<DirectX::CommonStates> m_states;
+
+        Image();
     };
 } // Draw
 } // CreaDXTKLib

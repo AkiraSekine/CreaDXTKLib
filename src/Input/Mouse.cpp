@@ -12,21 +12,6 @@ namespace Input
     int Mouse::m_wheelValue = 0;
     bool Mouse::m_isVisible = true;
     unique_ptr<DirectX::Mouse> Mouse::m_mouse;
-    
-    bool Mouse::IsMouseDown(MouseButtons _button)
-    {
-        DirectX::Mouse::State state = m_mouse->GetState();
-
-        // すべてのボタンの状態を保存
-        bool ret[] = { 
-            state.leftButton,
-            state.middleButton,
-            state.rightButton,
-            state.xButton1,
-            state.xButton2 };
-
-        return ret[(char)_button];
-    }
 
     void Mouse::Initialize(HWND window)
     {
@@ -125,6 +110,21 @@ namespace Input
     bool Mouse::CursorVisible()
     {
         return m_isVisible;
+    }
+
+    bool Mouse::IsMouseDown(MouseButtons _button)
+    {
+        DirectX::Mouse::State state = m_mouse->GetState();
+
+        // すべてのボタンの状態を保存
+        bool ret[] = {
+            state.leftButton,
+            state.middleButton,
+            state.rightButton,
+            state.xButton1,
+            state.xButton2 };
+
+        return ret[(char)_button];
     }
 
 } // Input
