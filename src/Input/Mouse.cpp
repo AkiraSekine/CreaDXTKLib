@@ -7,34 +7,10 @@ namespace CreaDXTKLib
 {
 namespace Input
 {
-    unsigned char Mouse::m_buttonState[Mouse::m_numOfButtons];
-    Vector2 Mouse::m_moveValue = Vector2::Zero;
-    int Mouse::m_wheelValue = 0;
-    bool Mouse::m_isVisible = true;
-    unique_ptr<DirectX::Mouse> Mouse::m_mouse;
-    
-    bool Mouse::IsMouseDown(MouseButtons _button)
-    {
-        DirectX::Mouse::State state = m_mouse->GetState();
-
-        // すべてのボタンの状態を保存
-        bool ret[] = { 
-            state.leftButton,
-            state.middleButton,
-            state.rightButton,
-            state.xButton1,
-            state.xButton2 };
-
-        return ret[(char)_button];
-    }
-
     void Mouse::Initialize(HWND window)
     {
         m_mouse = make_unique<DirectX::Mouse>();
         m_mouse->SetWindow(window);
-
-        // 最初にカーソルを表示状態にしておく
-        CursorVisible(true);
     }
 
     void Mouse::OnEnd()
@@ -128,6 +104,21 @@ namespace Input
     bool Mouse::CursorVisible()
     {
         return m_isVisible;
+    }
+
+    bool Mouse::IsMouseDown(MouseButtons _button)
+    {
+        DirectX::Mouse::State state = m_mouse->GetState();
+
+        // すべてのボタンの状態を保存
+        bool ret[] = {
+            state.leftButton,
+            state.middleButton,
+            state.rightButton,
+            state.xButton1,
+            state.xButton2 };
+
+        return ret[(char)_button];
     }
 
 } // Input

@@ -1,14 +1,17 @@
 #pragma once
 
 #include "../Default/pch.h"
+#include "../Utility/Singleton.h"
 
 #include <map>
 
-#ifdef _DEBUG
+#if defined(_DEBUG) && defined(_MSVC_LANG)
 #pragma comment(lib, "Input_d.lib")
-#else
+#elif defined(_MSVC_LANG)
 #pragma comment(lib, "Input.lib")
 #endif // _DEBUG
+
+template<class T> class CreaDXTKLib::Utility::Singleton;
 
 namespace CreaDXTKLib
 {
@@ -34,7 +37,7 @@ namespace Input
     /// <summary>
     /// 入力関係
     /// </summary>
-    struct Inputs final
+    class Inputs final : public Utility::Singleton<Inputs>
     {
     public:
 
@@ -48,6 +51,36 @@ namespace Input
             Press   = 0b0100,    //押している間
             Release = 0b1000     //話している間
         };
+
+        /// <summary>
+        /// 入力設定を追加
+        /// </summary>
+        /// <param name="_name">名前</param>
+        /// <param name="_key">キー</param>
+        /// <param name="_value">値</param>
+        /// <param name="_mode">チェック方法</param>
+        void Add(const std::wstring& _name,
+            DirectX::Keyboard::Keys _key,
+            float _value,
+            CheckMode _mode);
+        /// <summary>
+        /// 入力設定を追加
+        /// </summary>
+        /// <param name="_name">名前</param>
+        /// <param name="_button">マウスボタン</param>
+        /// <param name="_value">値</param>
+        /// <param name="_mode">チェック方法</param>
+        void Add(const std::wstring& _name,
+            MouseButtons _button,
+            float _value,
+            CheckMode _mode);
+
+        /// <summary>
+        /// 入力の取得
+        /// </summary>
+        /// <param name="_name">名前</param>
+        /// <returns>値</returns>
+        float GetValue(const std::wstring& _name);
 
     private:
 
@@ -65,33 +98,8 @@ namespace Input
             CheckMode checkMode;
         };
 
-        static std::multimap<std::wstring, InputSet> m_inputSets;
-
-    public:
-
-        /// <summary>
-        /// 入力設定を追加
-        /// </summary>
-        /// <param name="_name">名前</param>
-        /// <param name="_key">キー</param>
-        /// <param name="_value">値</param>
-        /// <param name="_mode">チェック方法</param>
-        static void Add(const std::wstring _name, DirectX::Keyboard::Keys _key, float _value, CheckMode _mode);
-        /// <summary>
-        /// 入力設定を追加
-        /// </summary>
-        /// <param name="_name">名前</param>
-        /// <param name="_button">マウスボタン</param>
-        /// <param name="_value">値</param>
-        /// <param name="_mode">チェック方法</param>
-        static void Add(const std::wstring _name, MouseButtons _button, float _value, CheckMode _mode);
-
-        /// <summary>
-        /// 入力の取得
-        /// </summary>
-        /// <param name="_name">名前</param>
-        /// <returns>値</returns>
-        static float GetValue(const std::wstring _name);
+        std::multimap<std::wstring, InputSet> m_inputSets =
+            std::multimap<std::wstring, InputSet>();
     };
 
     /// <summary>

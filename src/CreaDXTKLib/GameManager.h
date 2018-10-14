@@ -11,13 +11,9 @@ namespace CreaDXTKLib
     /// <summary>
     /// 全体を管理するクラス
     /// </summary>
-    struct GameManager final : public Utility::Singleton<GameManager>
+    class GameManager final : public Utility::Singleton<GameManager>
     {
-        SINGLETON(GameManager);
-
-    private:
-
-        Scene * m_nowScene;
+        SINGLETON(GameManager)
 
     public:
 
@@ -54,7 +50,7 @@ namespace CreaDXTKLib
         /// <summary>
         /// 更新処理
         /// </summary>
-        void Update();
+        void Update(float _elapsedTime);
 
         /// <summary>
         /// 描画処理
@@ -65,6 +61,10 @@ namespace CreaDXTKLib
         /// 終了処理
         /// </summary>
         void OnEnd();
+
+    private:
+
+        Scene * m_nowScene;
     };
 }
 

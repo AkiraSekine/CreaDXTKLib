@@ -4,6 +4,8 @@
 
 #include "Input.h"
 
+template<class T> class CreaDXTKLib::Utility::Singleton;
+
 namespace CreaDXTKLib
 {
 namespace Input
@@ -11,25 +13,9 @@ namespace Input
     /// <summary>
     /// マウス入力
     /// </summary>
-    struct Mouse final
+    class Mouse final : public Utility::Singleton<Mouse>
     {
-    private:
-
-        static const int m_numOfButtons = 5;
-
-        static unsigned char m_buttonState[m_numOfButtons];
-
-        static DirectX::SimpleMath::Vector2 m_moveValue;
-
-        static int m_wheelValue;
-
-        static bool m_isVisible;
-
-        static std::unique_ptr<DirectX::Mouse> m_mouse;
-
-        Mouse();
-
-        static bool IsMouseDown(MouseButtons _button);
+        SINGLETON(Mouse)
 
     public:
 
@@ -37,17 +23,17 @@ namespace Input
         /// 初期化処理
         /// </summary>
         /// <param name="window">ウィンドウハンドル</param>
-        static void Initialize(HWND window);
+        void Initialize(HWND window);
 
         /// <summary>
         /// 終了処理
         /// </summary>
-        static void OnEnd();
+        void OnEnd();
 
         /// <summary>
         /// 更新処理
         /// </summary>
-        static void Update();
+        void Update();
 
         /// <summary>
         /// 入力の取得
@@ -55,43 +41,60 @@ namespace Input
         /// <param name="_button">調べたいボタン</param>
         /// <param name="_mode">チェック方法</param>
         /// <returns>キーがチェック方法の状態か</returns>
-        static bool GetInput(MouseButtons _button, CheckMode _mode = CheckMode::Press);
+        bool GetInput(MouseButtons _button, CheckMode _mode = CheckMode::Press);
 
         /// <summary>
         /// マウスの座標を取得
         /// </summary>
         /// <returns>マウスの座標</returns>
-        static DirectX::SimpleMath::Vector2 Position();
+        DirectX::SimpleMath::Vector2 Position();
 
         /// <summary>
         /// マウスの座標を設定
         /// </summary>
         /// <param name="_position">新しい座標</param>
-        static void Position(DirectX::SimpleMath::Vector2 _position);
+        void Position(DirectX::SimpleMath::Vector2 _position);
 
         /// <summary>
         /// カーソルの移動値を取得
         /// </summary>
         /// <returns>カーソルの移動値</returns>
-        static DirectX::SimpleMath::Vector2 GetMoveValue();
+        DirectX::SimpleMath::Vector2 GetMoveValue();
 
         /// <summary>
         /// ホイールの移動値を取得
         /// </summary>
         /// <returns>移動値</returns>
-        static int GetWheelValue();
+        int GetWheelValue();
 
         /// <summary>
         /// カーソルを表示するかを設定
         /// </summary>
         /// <param name="_isVisible">表示するか</param>
-        static void CursorVisible(bool _isVisible);
+        void CursorVisible(bool _isVisible);
 
         /// <summary>
         /// カーソルを表示するかを取得
         /// </summary>
         /// <returns>カーソルを表示するか</returns>
-        static bool CursorVisible();
+        bool CursorVisible();
+
+    private:
+
+        static const int m_numOfButtons = 5;
+
+        unsigned char m_buttonState[m_numOfButtons];
+
+        DirectX::SimpleMath::Vector2 m_moveValue =
+            DirectX::SimpleMath::Vector2::Zero;
+
+        int m_wheelValue = 0;
+
+        bool m_isVisible = true;
+
+        std::unique_ptr<DirectX::Mouse> m_mouse;
+
+        bool IsMouseDown(MouseButtons _button);
     };
 
 } // Input
