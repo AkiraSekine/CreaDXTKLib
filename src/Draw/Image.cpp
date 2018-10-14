@@ -8,19 +8,12 @@ using namespace DirectX::SimpleMath;
 using namespace Microsoft::WRL;
 
 using namespace CreaDXTKLib::Utility;
+using namespace CreaDXTKLib::Math;
 
 namespace CreaDXTKLib
 {
 namespace Draw
 {
-    map<wstring, Image::ImageData> Image::m_imageData =
-        map<wstring, Image::ImageData>();
-
-    unique_ptr<SpriteBatch> Image::m_spriteBatch;
-
-    ComPtr<ID3D11Device1> Image::m_device;
-
-    unique_ptr<CommonStates> Image::m_states;
 
     void Image::Initialize(ComPtr<ID3D11DeviceContext1> _context, ComPtr<ID3D11Device1>& _device)
     {
@@ -66,7 +59,7 @@ namespace Draw
         m_states.reset();
     }
 
-    void Image::Load(wstring _fileName, wstring _name)
+    void Image::Load(const wstring& _fileName, const wstring& _name)
     {
         // “¯‚¶–¼‘O‚ð“ü‚ê‚æ‚¤‚Æ‚µ‚½‚çthrow‚·‚é
         for (auto i = m_imageData.begin(); i != m_imageData.end(); i++)
@@ -98,7 +91,7 @@ namespace Draw
         m_imageData.at(_name).m_size = Vector2((float)texDesc.Width, (float)texDesc.Height);
     }
 
-    void Image::Erase(wstring _name)
+    void Image::Erase(const wstring& _name)
     {
         try
         {
@@ -114,21 +107,20 @@ namespace Draw
         }
     }
 
-    void Image::Draw(const wstring _name,
+    void Image::Draw(const wstring& _name,
         const Vector2 _position)
     {
         Draw(_name, _position, Colors::White);
     }
 
-    void Image::Draw(const wstring _name,
+    void Image::Draw(const wstring& _name,
         const Vector2 _position,
-        const float _rotation,
-        const Vector2 _pivot)
+        const float _rotation)
     {
-        Draw(_name, _position, _rotation, Colors::White, _pivot);
+        Draw(_name, _position, _rotation, Colors::White);
     }
 
-    void Image::Draw(const wstring _name,
+    void Image::Draw(const wstring& _name,
         const Vector2 _position,
         const float _rotation,
         const Vector2 _scale,
@@ -137,7 +129,7 @@ namespace Draw
         Draw(_name, _position, _rotation, _scale, Colors::White, _pivot);
     }
 
-    void Image::Draw(const wstring _name,
+    void Image::Draw(const wstring& _name,
         const Vector2 _position,
         const float _rotation,
         const Vector2 _scale,
@@ -153,14 +145,38 @@ namespace Draw
             _pivot);
     }
 
-    void Image::Draw(const wstring _name,
+    void Image::Draw(const std::wstring& _name,
+        const Transform2D& _transform,
+        const Vector2 _pivot)
+    {
+        Draw(_name,
+            _transform.Position(),
+            _transform.Rotation(),
+            _transform.Scale(),
+            Colors::White, _pivot);
+    }
+
+    void Image::Draw(const wstring& _name,
+        const Transform2D& _transform,
+        const RECT _rect,
+        const Vector2 _pivot)
+    {
+        Draw(_name,
+            _transform.Position(),
+            _transform.Rotation(),
+            _transform.Scale(),
+            _rect,
+            _pivot);
+    }
+
+    void Image::Draw(const wstring& _name,
         const Vector2 _position,
         const FXMVECTOR _color)
     {
         Draw(_name, _position, 0.f, _color, Vector2::Zero);
     }
 
-    void Image::Draw(const wstring _name,
+    void Image::Draw(const wstring& _name,
         const Vector2 _position,
         const float _rotation,
         const FXMVECTOR _color,
@@ -169,7 +185,7 @@ namespace Draw
         Draw(_name, _position, _rotation, Vector2::One, _color, _pivot);
     }
 
-    void Image::Draw(const wstring _name,
+    void Image::Draw(const wstring& _name,
         const Vector2 _position,
         const float _rotation,
         const Vector2 _scale,
@@ -182,7 +198,7 @@ namespace Draw
         Draw(_name, _position, _rotation, _scale, rect, _color, _pivot);
     }
 
-    void Image::Draw(const wstring _name,
+    void Image::Draw(const wstring& _name,
         const Vector2 _position,
         const float _rotation,
         const Vector2 _scale,
@@ -206,14 +222,42 @@ namespace Draw
         m_spriteBatch->End();
     }
 
-    void Image::Draw(const wstring _name,
+    void Image::Draw(const wstring& _name,
+        const Transform2D& _transform,
+        const FXMVECTOR _color,
+        const Vector2 _pivot)
+    {
+        Draw(_name,
+            _transform.Position(),
+            _transform.Rotation(),
+            _transform.Scale(),
+            _color,
+            _pivot);
+    }
+
+    void Image::Draw(const wstring& _name,
+        const Transform2D& _transform,
+        const RECT _rect,
+        const FXMVECTOR _color,
+        const Vector2 _pivot)
+    {
+        Draw(_name,
+            _transform.Position(),
+            _transform.Rotation(),
+            _transform.Scale(),
+            _rect,
+            _color,
+            _pivot);
+    }
+
+    void Image::Draw(const wstring& _name,
         const Vector2 _position,
         const XMVECTORF32 _color)
     {
         Draw(_name, _position, 0.f, _color, Vector2::Zero);
     }
 
-    void Image::Draw(const wstring _name,
+    void Image::Draw(const wstring& _name,
         const Vector2 _position,
         const float _rotation,
         const XMVECTORF32 _color,
@@ -222,7 +266,7 @@ namespace Draw
         Draw(_name, _position, _rotation, Vector2::One, _color, _pivot);
     }
 
-    void Image::Draw(const wstring _name,
+    void Image::Draw(const wstring& _name,
         const Vector2 _position,
         const float _rotation,
         const Vector2 _scale,
@@ -235,7 +279,20 @@ namespace Draw
         Draw(_name, _position, _rotation, _scale, rect, _color, _pivot);
     }
 
-    void Image::Draw(const wstring _name,
+    void Image::Draw(const wstring& _name,
+        const Transform2D& _transform,
+        const XMVECTORF32 _color,
+        const Vector2 _pivot)
+    {
+        Draw(_name,
+            _transform.Position(),
+            _transform.Rotation(),
+            _transform.Scale(),
+            _color,
+            _pivot);
+    }
+
+    void Image::Draw(const wstring& _name,
         const Vector2 _position,
         const float _rotation,
         const Vector2 _scale,
@@ -257,6 +314,20 @@ namespace Draw
             _scale);
 
         m_spriteBatch->End();
+    }
+    void Image::Draw(const wstring& _name,
+        const Transform2D& _transform,
+        const RECT _rect,
+        const XMVECTORF32 _color,
+        const Vector2 _pivot)
+    {
+        Draw(_name,
+            _transform.Position(),
+            _transform.Rotation(),
+            _transform.Scale(),
+            _rect,
+            _color,
+            _pivot);
     }
 } // Draw
 } // CreaDXTKLib
