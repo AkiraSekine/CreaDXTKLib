@@ -9,10 +9,7 @@ namespace CreaDXTKLib
 {
 namespace Input
 {
-    multimap<wstring, Inputs::InputSet> Inputs::m_inputSets =
-        multimap<wstring, Inputs::InputSet>();
-
-    void Inputs::Add(const wstring _name, DirectX::Keyboard::Keys _key, float _value, CheckMode _mode)
+    void Inputs::Add(const wstring& _name, DirectX::Keyboard::Keys _key, float _value, CheckMode _mode)
     {
         InputSet set;
 
@@ -25,7 +22,7 @@ namespace Input
         m_inputSets.insert(make_pair(_name, set));
     }
 
-    void Inputs::Add(const wstring _name, MouseButtons _button, float _value, CheckMode _mode)
+    void Inputs::Add(const wstring& _name, MouseButtons _button, float _value, CheckMode _mode)
     {
         InputSet set;
 
@@ -38,7 +35,7 @@ namespace Input
         m_inputSets.insert(make_pair(_name, set));
     }
 
-    float Inputs::GetValue(const wstring _name)
+    float Inputs::GetValue(const wstring& _name)
     {
         float ret = 0.f;
 
@@ -53,11 +50,11 @@ namespace Input
             // キー入力かマウス入力かで処理を分けて入力状態を取得する
             if (set.isKey)
             {
-                ret = ((float)Keyboard::GetInput(set.keyButton.key, set.checkMode) * set.value);
+                ret = ((float)Keyboard::Instance().GetInput(set.keyButton.key, set.checkMode) * set.value);
             }
             else
             {
-                ret = ((float)Mouse::GetInput(set.keyButton.mouseButton, set.checkMode) * set.value);
+                ret = ((float)Mouse::Instance().GetInput(set.keyButton.mouseButton, set.checkMode) * set.value);
             }
 
             // 何か入力されていたら値を返す

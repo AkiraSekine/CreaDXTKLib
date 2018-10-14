@@ -4,94 +4,97 @@
 
 #include "Input.h"
 
+template<class T> class CreaDXTKLib::Utility::Singleton;
+
 namespace CreaDXTKLib
 {
 namespace Input
 {
     /// <summary>
-    /// ƒ}ƒEƒX“ü—Í
+    /// ãƒã‚¦ã‚¹å…¥åŠ›
     /// </summary>
-    class Mouse final
+    class Mouse final : public Utility::Singleton<Mouse>
     {
+        SINGLETON(Mouse)
+
     public:
 
         /// <summary>
-        /// ‰Šú‰»ˆ—
+        /// åˆæœŸåŒ–å‡¦ç†
         /// </summary>
-        /// <param name="window">ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹</param>
-        static void Initialize(HWND window);
+        /// <param name="window">ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«</param>
+        void Initialize(HWND window);
 
         /// <summary>
-        /// I—¹ˆ—
+        /// çµ‚äº†å‡¦ç†
         /// </summary>
-        static void OnEnd();
+        void OnEnd();
 
         /// <summary>
-        /// XVˆ—
+        /// æ›´æ–°å‡¦ç†
         /// </summary>
-        static void Update();
+        void Update();
 
         /// <summary>
-        /// “ü—Í‚Ìæ“¾
+        /// å…¥åŠ›ã®å–å¾—
         /// </summary>
-        /// <param name="_button">’²‚×‚½‚¢ƒ{ƒ^ƒ“</param>
-        /// <param name="_mode">ƒ`ƒFƒbƒN•û–@</param>
-        /// <returns>ƒL[‚ªƒ`ƒFƒbƒN•û–@‚Ìó‘Ô‚©</returns>
-        static bool GetInput(MouseButtons _button, CheckMode _mode = CheckMode::Press);
+        /// <param name="_button">èª¿ã¹ãŸã„ãƒœã‚¿ãƒ³</param>
+        /// <param name="_mode">ãƒã‚§ãƒƒã‚¯æ–¹æ³•</param>
+        /// <returns>ã‚­ãƒ¼ãŒãƒã‚§ãƒƒã‚¯æ–¹æ³•ã®çŠ¶æ…‹ã‹</returns>
+        bool GetInput(MouseButtons _button, CheckMode _mode = CheckMode::Press);
 
         /// <summary>
-        /// ƒ}ƒEƒX‚ÌÀ•W‚ğæ“¾
+        /// ãƒã‚¦ã‚¹ã®åº§æ¨™ã‚’å–å¾—
         /// </summary>
-        /// <returns>ƒ}ƒEƒX‚ÌÀ•W</returns>
-        static DirectX::SimpleMath::Vector2 Position();
+        /// <returns>ãƒã‚¦ã‚¹ã®åº§æ¨™</returns>
+        DirectX::SimpleMath::Vector2 Position();
 
         /// <summary>
-        /// ƒ}ƒEƒX‚ÌÀ•W‚ğİ’è
+        /// ãƒã‚¦ã‚¹ã®åº§æ¨™ã‚’è¨­å®š
         /// </summary>
-        /// <param name="_position">V‚µ‚¢À•W</param>
-        static void Position(DirectX::SimpleMath::Vector2 _position);
+        /// <param name="_position">æ–°ã—ã„åº§æ¨™</param>
+        void Position(DirectX::SimpleMath::Vector2 _position);
 
         /// <summary>
-        /// ƒJ[ƒ\ƒ‹‚ÌˆÚ“®’l‚ğæ“¾
+        /// ã‚«ãƒ¼ã‚½ãƒ«ã®ç§»å‹•å€¤ã‚’å–å¾—
         /// </summary>
-        /// <returns>ƒJ[ƒ\ƒ‹‚ÌˆÚ“®’l</returns>
-        static DirectX::SimpleMath::Vector2 GetMoveValue();
+        /// <returns>ã‚«ãƒ¼ã‚½ãƒ«ã®ç§»å‹•å€¤</returns>
+        DirectX::SimpleMath::Vector2 GetMoveValue();
 
         /// <summary>
-        /// ƒzƒC[ƒ‹‚ÌˆÚ“®’l‚ğæ“¾
+        /// ãƒ›ã‚¤ãƒ¼ãƒ«ã®ç§»å‹•å€¤ã‚’å–å¾—
         /// </summary>
-        /// <returns>ˆÚ“®’l</returns>
-        static int GetWheelValue();
+        /// <returns>ç§»å‹•å€¤</returns>
+        int GetWheelValue();
 
         /// <summary>
-        /// ƒJ[ƒ\ƒ‹‚ğ•\¦‚·‚é‚©‚ğİ’è
+        /// ã‚«ãƒ¼ã‚½ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã‚’è¨­å®š
         /// </summary>
-        /// <param name="_isVisible">•\¦‚·‚é‚©</param>
-        static void CursorVisible(bool _isVisible);
+        /// <param name="_isVisible">è¡¨ç¤ºã™ã‚‹ã‹</param>
+        void CursorVisible(bool _isVisible);
 
         /// <summary>
-        /// ƒJ[ƒ\ƒ‹‚ğ•\¦‚·‚é‚©‚ğæ“¾
+        /// ã‚«ãƒ¼ã‚½ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã‚’å–å¾—
         /// </summary>
-        /// <returns>ƒJ[ƒ\ƒ‹‚ğ•\¦‚·‚é‚©</returns>
-        static bool CursorVisible();
+        /// <returns>ã‚«ãƒ¼ã‚½ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹ã‹</returns>
+        bool CursorVisible();
 
     private:
 
         static const int m_numOfButtons = 5;
 
-        static unsigned char m_buttonState[m_numOfButtons];
+        unsigned char m_buttonState[m_numOfButtons];
 
-        static DirectX::SimpleMath::Vector2 m_moveValue;
+        DirectX::SimpleMath::Vector2 m_moveValue =
+            DirectX::SimpleMath::Vector2::Zero;
 
-        static int m_wheelValue;
+        int m_wheelValue = 0;
 
-        static bool m_isVisible;
+        bool m_isVisible = true;
 
-        static std::unique_ptr<DirectX::Mouse> m_mouse;
+        std::unique_ptr<DirectX::Mouse> m_mouse;
 
-        Mouse();
-
-        static bool IsMouseDown(MouseButtons _button);
+        bool IsMouseDown(MouseButtons _button);
     };
 
 } // Input

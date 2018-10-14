@@ -6,8 +6,6 @@ namespace CreaDXTKLib
 {
 namespace Input
 {
-    unsigned char Keyboard::m_keyState[Keyboard::m_numOfKeys];
-    unique_ptr<DirectX::Keyboard> Keyboard::m_keyboard;
 
     void CreaDXTKLib::Input::Keyboard::Initialize()
     {

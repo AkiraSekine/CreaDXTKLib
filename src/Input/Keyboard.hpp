@@ -4,49 +4,51 @@
 
 #include "Input.h"
 
+template<class T> class CreaDXTKLib::Utility::Singleton;
+
 namespace CreaDXTKLib
 {
 namespace Input
 {
     /// <summary>
-    /// ƒL[“ü—Í
+    /// ã‚­ãƒ¼å…¥åŠ›
     /// </summary>
-    class Keyboard final
+    class Keyboard final : public Utility::Singleton<Keyboard>
     {
+        SINGLETON(Keyboard)
+
     public:
 
         /// <summary>
-        /// ‰Šú‰»ˆ—
+        /// åˆæœŸåŒ–å‡¦ç†
         /// </summary>
-        static void Initialize();
+        void Initialize();
 
         /// <summary>
-        /// I—¹ˆ—
+        /// çµ‚äº†å‡¦ç†
         /// </summary>
-        static void OnEnd();
+        void OnEnd();
 
         /// <summary>
-        /// XVˆ—
+        /// æ›´æ–°å‡¦ç†
         /// </summary>
-        static void Update();
+        void Update();
 
         /// <summary>
-        /// “ü—Í‚Ìæ“¾
+        /// å…¥åŠ›ã®å–å¾—
         /// </summary>
-        /// <param name="_key">’²‚×‚½‚¢ƒL[</param>
-        /// <param name="_mode">ƒ`ƒFƒbƒN•û–@</param>
-        /// <returns>ƒL[‚ªƒ`ƒFƒbƒN•û–@‚Ìó‘Ô‚©</returns>
-        static bool GetInput(Keys _key, CheckMode _mode = CheckMode::Press);
+        /// <param name="_key">èª¿ã¹ãŸã„ã‚­ãƒ¼</param>
+        /// <param name="_mode">ãƒã‚§ãƒƒã‚¯æ–¹æ³•</param>
+        /// <returns>ã‚­ãƒ¼ãŒãƒã‚§ãƒƒã‚¯æ–¹æ³•ã®çŠ¶æ…‹ã‹</returns>
+        bool GetInput(Keys _key, CheckMode _mode = CheckMode::Press);
 
     private:
 
         static const int m_numOfKeys = 256;
 
-        static unsigned char m_keyState[m_numOfKeys];
+        unsigned char m_keyState[m_numOfKeys];
 
-        static std::unique_ptr<DirectX::Keyboard> m_keyboard;
-
-        Keyboard();
+        std::unique_ptr<DirectX::Keyboard> m_keyboard;
     };
 } // Input
 } // CreaDXTKLib
