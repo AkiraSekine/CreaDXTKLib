@@ -50,7 +50,7 @@ namespace CreaDXTKLib
         /// <summary>
         /// XVˆ—
         /// </summary>
-        void Update();
+        void Update(float _elapsedTime);
 
         /// <summary>
         /// •`‰æˆ—

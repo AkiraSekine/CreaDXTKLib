@@ -19,12 +19,12 @@ namespace CreaDXTKLib
         SetUp();
     }
 
-    void GameManager::Update()
+    void GameManager::Update(float _elapsedTime)
     {
         Keyboard::Update();
         Mouse::Update();
 
-        m_nowScene->Update();
+        m_nowScene->Update(_elapsedTime);
     }
 
     void GameManager::OnRender()
