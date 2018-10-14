@@ -13,7 +13,7 @@ namespace CreaDXTKLib
     /// </summary>
     class GameManager final : public Utility::Singleton<GameManager>
     {
-        SINGLETON(GameManager);
+        SINGLETON(GameManager)
 
     public:
 

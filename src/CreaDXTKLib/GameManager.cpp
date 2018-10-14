@@ -14,15 +14,15 @@ namespace CreaDXTKLib
     void GameManager::Initialize(ComPtr<ID3D11DeviceContext1> _context, ComPtr<ID3D11Device1>& _device)
     {
         Image::Instance().Initialize(_context, _device);
-        Keyboard::Initialize();
+        Keyboard::Instance().Initialize();
 
         SetUp();
     }
 
     void GameManager::Update(float _elapsedTime)
     {
-        Keyboard::Update();
-        Mouse::Update();
+        Keyboard::Instance().Update();
+        Mouse::Instance().Update();
 
         m_nowScene->Update(_elapsedTime);
     }
@@ -35,7 +35,7 @@ namespace CreaDXTKLib
     void GameManager::OnEnd()
     {
         Image::Instance().OnEnd();
-        Keyboard::OnEnd();
-        Mouse::OnEnd();
+        Keyboard::Instance().OnEnd();
+        Mouse::Instance().OnEnd();
     }
 }

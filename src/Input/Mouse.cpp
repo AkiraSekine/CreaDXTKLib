@@ -7,12 +7,6 @@ namespace CreaDXTKLib
 {
 namespace Input
 {
-    unsigned char Mouse::m_buttonState[Mouse::m_numOfButtons];
-    Vector2 Mouse::m_moveValue = Vector2::Zero;
-    int Mouse::m_wheelValue = 0;
-    bool Mouse::m_isVisible = true;
-    unique_ptr<DirectX::Mouse> Mouse::m_mouse;
-
     void Mouse::Initialize(HWND window)
     {
         m_mouse = make_unique<DirectX::Mouse>();
