@@ -24,24 +24,24 @@ namespace Input
 
         for (int i = 0; i < m_numOfButtons; i++)
         {
-            // ‘OƒtƒŒ[ƒ€‚Ìó‘Ô‚ğæ“¾
+            // å‰ãƒ•ãƒ¬ãƒ¼ãƒ ã®çŠ¶æ…‹ã‚’å–å¾—
             unsigned char beforeState = m_buttonState[i];
 
-            // ¡ƒtƒŒ[ƒ€‚Ìó‘Ô‚ğƒŠƒZƒbƒg
+            // ä»Šãƒ•ãƒ¬ãƒ¼ãƒ ã®çŠ¶æ…‹ã‚’ãƒªã‚»ãƒƒãƒˆ
             m_buttonState[i] = 0;
 
-            // ƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚©‚ğ•Û‘¶
+            // ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹ã‹ã‚’ä¿å­˜
             m_buttonState[i] |= ((IsMouseDown((MouseButtons)i)) ?
                 (char)CheckMode::Press :
                 (char)CheckMode::Release);
 
-            // ¡ƒtƒŒ[ƒ€‚Å‰Ÿ‚µ‚½‚©‚ğ•Û‘¶
+            // ä»Šãƒ•ãƒ¬ãƒ¼ãƒ ã§æŠ¼ã—ãŸã‹ã‚’ä¿å­˜
             if (beforeState & (char)CheckMode::Release &&
                 m_buttonState[i] & (char)CheckMode::Press)
             {
                 m_buttonState[i] |= (int)CheckMode::Down;
             }
-            // ¡ƒtƒŒ[ƒ€‚Å—£‚µ‚½‚©‚ğ•Û‘¶
+            // ä»Šãƒ•ãƒ¬ãƒ¼ãƒ ã§é›¢ã—ãŸã‹ã‚’ä¿å­˜
             if (beforeState & (char)CheckMode::Press &&
                 m_buttonState[i] & (char)CheckMode::Release)
             {
@@ -49,14 +49,14 @@ namespace Input
             }
         }
 
-        // ƒJ[ƒ\ƒ‹‚ÌˆÚ“®’l‚ğŒvZ
+        // ã‚«ãƒ¼ã‚½ãƒ«ã®ç§»å‹•å€¤ã‚’è¨ˆç®—
         static Vector2 nowMoveValue = Vector2::Zero;
         Vector2 beforeMoveValue = nowMoveValue;
         
         nowMoveValue = Vector2((float)state.x, (float)state.y);
         m_moveValue = nowMoveValue - beforeMoveValue;
 
-        // ƒzƒC[ƒ‹‚Ì‘Š‘Î’l‚ğŒvZ
+        // ãƒ›ã‚¤ãƒ¼ãƒ«ã®ç›¸å¯¾å€¤ã‚’è¨ˆç®—
         static int nowWheel = 0;
         int beforeWheel = nowWheel;
 
@@ -66,13 +66,13 @@ namespace Input
 
     bool Mouse::GetInput(MouseButtons _button, CheckMode _mode)
     {
-        // w’èƒ{ƒ^ƒ“‚ªw’è‚µ‚½ó‘Ô‚É‚È‚Á‚Ä‚¢‚é‚©‚ğ•Ô‚·
+        // æŒ‡å®šãƒœã‚¿ãƒ³ãŒæŒ‡å®šã—ãŸçŠ¶æ…‹ã«ãªã£ã¦ã„ã‚‹ã‹ã‚’è¿”ã™
         return (bool)(m_buttonState[(char)_button] & (char)_mode);
     }
 
     Vector2 Mouse::Position()
     {
-        // ƒJ[ƒ\ƒ‹‚ÌÀ•W‚ğæ“¾‚µ‚Ä•Ô‚·
+        // ã‚«ãƒ¼ã‚½ãƒ«ã®åº§æ¨™ã‚’å–å¾—ã—ã¦è¿”ã™
         DirectX::Mouse::State state = m_mouse->GetState();
 
         return Vector2((float)state.x, (float)state.y);
@@ -97,7 +97,7 @@ namespace Input
     {
         m_isVisible = _isVisible;
 
-        // •\¦ó‘Ô(0)‚©”ñ•\¦ó‘Ô(-1)‚É‚È‚é‚Ü‚ÅŒJ‚è•Ô‚·
+        // è¡¨ç¤ºçŠ¶æ…‹(0)ã‹éè¡¨ç¤ºçŠ¶æ…‹(-1)ã«ãªã‚‹ã¾ã§ç¹°ã‚Šè¿”ã™
         while (ShowCursor(_isVisible) != ((_isVisible) ? 0 : -1));
     }
 
@@ -110,7 +110,7 @@ namespace Input
     {
         DirectX::Mouse::State state = m_mouse->GetState();
 
-        // ‚·‚×‚Ä‚Ìƒ{ƒ^ƒ“‚Ìó‘Ô‚ğ•Û‘¶
+        // ã™ã¹ã¦ã®ãƒœã‚¿ãƒ³ã®çŠ¶æ…‹ã‚’ä¿å­˜
         bool ret[] = {
             state.leftButton,
             state.middleButton,

@@ -19,24 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\Draw\Image.h" />
+    <ClInclude Include="..\src\Math\Math.h" />
+    <ClInclude Include="..\src\Math\Transform.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\Draw\Image.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Math\Math.vcxproj">
-      <Project>{e826b46c-6502-4bb4-b613-21711b1a7eb2}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\Utility\Utility.vcxproj">
-      <Project>{c0576279-4b9b-4049-a314-9fde2db1952f}</Project>
-    </ProjectReference>
+    <ClCompile Include="..\src\Math\Math.cpp" />
+    <ClCompile Include="..\src\Math\Transform.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{1D5BE297-C88B-418E-B530-B9684ADADF17}</ProjectGuid>
+    <ProjectGuid>{E826B46C-6502-4BB4-B613-21711B1A7EB2}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Draw</RootNamespace>
+    <RootNamespace>Math</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -88,7 +82,6 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)BuildFiles\$(Configuration)\</OutDir>
     <TargetName>$(ProjectName)_d</TargetName>
-    <ExtensionsToDeleteOnClean>$(ExtensionsToDeleteOnClean)</ExtensionsToDeleteOnClean>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -108,21 +101,25 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(DXTK)\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile />
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(DXTK)\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <OutputFile>$(SolutionDir)Lib\$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(DXTK)\lib;$(SolutionDir)Lib\;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
-    <Lib>
-      <OutputFile>$(SolutionDir)Lib\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalLibraryDirectories>$(DXTK)\lib;$(SolutionDir)Lib\</AdditionalLibraryDirectories>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -148,8 +145,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile />
       <AdditionalIncludeDirectories>$(DXTK)\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -157,13 +155,17 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <OutputFile>$(SolutionDir)Lib\$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(DXTK)\lib;$(SolutionDir)Lib\;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
-    <Lib>
-      <OutputFile>$(SolutionDir)Lib\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalLibraryDirectories>$(DXTK)\lib;$(SolutionDir)Lib\</AdditionalLibraryDirectories>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>

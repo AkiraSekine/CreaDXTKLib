@@ -203,6 +203,9 @@
     <ProjectReference Include="..\Input\Input.vcxproj">
       <Project>{1fb823e4-8f92-4d5b-af83-786bd3deb824}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\Math\Math.vcxproj">
+      <Project>{e826b46c-6502-4bb4-b613-21711b1a7eb2}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Utility\Utility.vcxproj">
       <Project>{c0576279-4b9b-4049-a314-9fde2db1952f}</Project>
     </ProjectReference>

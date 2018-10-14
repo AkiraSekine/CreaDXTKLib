@@ -11,7 +11,7 @@ namespace CreaDXTKLib
 namespace Input
 {
     /// <summary>
-    /// ƒ}ƒEƒX“ü—Í
+    /// ãƒžã‚¦ã‚¹å…¥åŠ›
     /// </summary>
     class Mouse final : public Utility::Singleton<Mouse>
     {
@@ -20,63 +20,63 @@ namespace Input
     public:
 
         /// <summary>
-        /// ‰Šú‰»ˆ—
+        /// åˆæœŸåŒ–å‡¦ç†
         /// </summary>
-        /// <param name="window">ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹</param>
+        /// <param name="window">ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«</param>
         void Initialize(HWND window);
 
         /// <summary>
-        /// I—¹ˆ—
+        /// çµ‚äº†å‡¦ç†
         /// </summary>
         void OnEnd();
 
         /// <summary>
-        /// XVˆ—
+        /// æ›´æ–°å‡¦ç†
         /// </summary>
         void Update();
 
         /// <summary>
-        /// “ü—Í‚ÌŽæ“¾
+        /// å…¥åŠ›ã®å–å¾—
         /// </summary>
-        /// <param name="_button">’²‚×‚½‚¢ƒ{ƒ^ƒ“</param>
-        /// <param name="_mode">ƒ`ƒFƒbƒN•û–@</param>
-        /// <returns>ƒL[‚ªƒ`ƒFƒbƒN•û–@‚Ìó‘Ô‚©</returns>
+        /// <param name="_button">èª¿ã¹ãŸã„ãƒœã‚¿ãƒ³</param>
+        /// <param name="_mode">ãƒã‚§ãƒƒã‚¯æ–¹æ³•</param>
+        /// <returns>ã‚­ãƒ¼ãŒãƒã‚§ãƒƒã‚¯æ–¹æ³•ã®çŠ¶æ…‹ã‹</returns>
         bool GetInput(MouseButtons _button, CheckMode _mode = CheckMode::Press);
 
         /// <summary>
-        /// ƒ}ƒEƒX‚ÌÀ•W‚ðŽæ“¾
+        /// ãƒžã‚¦ã‚¹ã®åº§æ¨™ã‚’å–å¾—
         /// </summary>
-        /// <returns>ƒ}ƒEƒX‚ÌÀ•W</returns>
+        /// <returns>ãƒžã‚¦ã‚¹ã®åº§æ¨™</returns>
         DirectX::SimpleMath::Vector2 Position();
 
         /// <summary>
-        /// ƒ}ƒEƒX‚ÌÀ•W‚ðÝ’è
+        /// ãƒžã‚¦ã‚¹ã®åº§æ¨™ã‚’è¨­å®š
         /// </summary>
-        /// <param name="_position">V‚µ‚¢À•W</param>
+        /// <param name="_position">æ–°ã—ã„åº§æ¨™</param>
         void Position(DirectX::SimpleMath::Vector2 _position);
 
         /// <summary>
-        /// ƒJ[ƒ\ƒ‹‚ÌˆÚ“®’l‚ðŽæ“¾
+        /// ã‚«ãƒ¼ã‚½ãƒ«ã®ç§»å‹•å€¤ã‚’å–å¾—
         /// </summary>
-        /// <returns>ƒJ[ƒ\ƒ‹‚ÌˆÚ“®’l</returns>
+        /// <returns>ã‚«ãƒ¼ã‚½ãƒ«ã®ç§»å‹•å€¤</returns>
         DirectX::SimpleMath::Vector2 GetMoveValue();
 
         /// <summary>
-        /// ƒzƒC[ƒ‹‚ÌˆÚ“®’l‚ðŽæ“¾
+        /// ãƒ›ã‚¤ãƒ¼ãƒ«ã®ç§»å‹•å€¤ã‚’å–å¾—
         /// </summary>
-        /// <returns>ˆÚ“®’l</returns>
+        /// <returns>ç§»å‹•å€¤</returns>
         int GetWheelValue();
 
         /// <summary>
-        /// ƒJ[ƒ\ƒ‹‚ð•\Ž¦‚·‚é‚©‚ðÝ’è
+        /// ã‚«ãƒ¼ã‚½ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã‚’è¨­å®š
         /// </summary>
-        /// <param name="_isVisible">•\Ž¦‚·‚é‚©</param>
+        /// <param name="_isVisible">è¡¨ç¤ºã™ã‚‹ã‹</param>
         void CursorVisible(bool _isVisible);
 
         /// <summary>
-        /// ƒJ[ƒ\ƒ‹‚ð•\Ž¦‚·‚é‚©‚ðŽæ“¾
+        /// ã‚«ãƒ¼ã‚½ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã‚’å–å¾—
         /// </summary>
-        /// <returns>ƒJ[ƒ\ƒ‹‚ð•\Ž¦‚·‚é‚©</returns>
+        /// <returns>ã‚«ãƒ¼ã‚½ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹ã‹</returns>
         bool CursorVisible();
 
     private:

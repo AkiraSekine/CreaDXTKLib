@@ -11,7 +11,7 @@ namespace CreaDXTKLib
 namespace Input
 {
     /// <summary>
-    /// ƒL[“ü—Í
+    /// ã‚­ãƒ¼å…¥åŠ›
     /// </summary>
     class Keyboard final : public Utility::Singleton<Keyboard>
     {
@@ -20,26 +20,26 @@ namespace Input
     public:
 
         /// <summary>
-        /// ‰Šú‰»ˆ—
+        /// åˆæœŸåŒ–å‡¦ç†
         /// </summary>
         void Initialize();
 
         /// <summary>
-        /// I—¹ˆ—
+        /// çµ‚äº†å‡¦ç†
         /// </summary>
         void OnEnd();
 
         /// <summary>
-        /// XVˆ—
+        /// æ›´æ–°å‡¦ç†
         /// </summary>
         void Update();
 
         /// <summary>
-        /// “ü—Í‚Ìæ“¾
+        /// å…¥åŠ›ã®å–å¾—
         /// </summary>
-        /// <param name="_key">’²‚×‚½‚¢ƒL[</param>
-        /// <param name="_mode">ƒ`ƒFƒbƒN•û–@</param>
-        /// <returns>ƒL[‚ªƒ`ƒFƒbƒN•û–@‚Ìó‘Ô‚©</returns>
+        /// <param name="_key">èª¿ã¹ãŸã„ã‚­ãƒ¼</param>
+        /// <param name="_mode">ãƒã‚§ãƒƒã‚¯æ–¹æ³•</param>
+        /// <returns>ã‚­ãƒ¼ãŒãƒã‚§ãƒƒã‚¯æ–¹æ³•ã®çŠ¶æ…‹ã‹</returns>
         bool GetInput(Keys _key, CheckMode _mode = CheckMode::Press);
 
     private:

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{6cb6caf5-21b8-43b7-8af7-a3cd35f8efd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Math">
+      <UniqueIdentifier>{c243f0ea-fea1-4bca-8627-02284330b399}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Math\Transform.h">
+      <Filter>src\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Math\Math.h">
+      <Filter>src\Math</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Math\Transform.cpp">
+      <Filter>src\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Math\Math.cpp">
+      <Filter>src\Math</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
