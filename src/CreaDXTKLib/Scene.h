@@ -20,7 +20,10 @@ namespace CreaDXTKLib
         /// <summary>
         /// XVˆ—
         /// </summary>
-        virtual void Update() { }
+        virtual void Update(float _elapsedTime)
+        {
+            _elapsedTime;
+        }
         /// <summary>
         /// •`‰æˆ—
         /// </summary>
