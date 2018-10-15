@@ -9,7 +9,7 @@ namespace CreaDXTKLib
     class Scene;
 
     /// <summary>
-    /// ‘S‘Ì‚ğŠÇ—‚·‚éƒNƒ‰ƒX
+    /// å…¨ä½“ã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹
     /// </summary>
     class GameManager final : public Utility::Singleton<GameManager>
     {
@@ -18,47 +18,47 @@ namespace CreaDXTKLib
     public:
 
         /// <summary>
-        /// Å‰‚ÌƒV[ƒ“‚ğİ’è‚·‚é
+        /// æœ€åˆã®ã‚·ãƒ¼ãƒ³ã‚’è¨­å®šã™ã‚‹
         /// </summary>
         template<class StartScene>
         friend void SetStartScene();
 
         /// <summary>
-        /// ƒV[ƒ“‘JˆÚ
+        /// ã‚·ãƒ¼ãƒ³é·ç§»
         /// </summary>
         template<class NextScene>
         friend void SceneTransition();
 
         /// <summary>
-        /// Å‰‚ÌƒV[ƒ“‚ğİ’è‚·‚é
+        /// æœ€åˆã®ã‚·ãƒ¼ãƒ³ã‚’è¨­å®šã™ã‚‹
         /// </summary>
         template<class StartScene>
         void StartScene();
 
         /// <summary>
-        /// ƒV[ƒ“‘JˆÚ
+        /// ã‚·ãƒ¼ãƒ³é·ç§»
         /// </summary>
         template<class NextScene>
         void SceneTransition();
 
         /// <summary>
-        /// ƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰Šúİ’è
+        /// ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®åˆæœŸè¨­å®š
         /// </summary>
         void Initialize(Microsoft::WRL::ComPtr<ID3D11DeviceContext1> _context,
             Microsoft::WRL::ComPtr<ID3D11Device1>& _device);
 
         /// <summary>
-        /// XVˆ—
+        /// æ›´æ–°å‡¦ç†
         /// </summary>
         void Update(float _elapsedTime);
 
         /// <summary>
-        /// •`‰æˆ—
+        /// æç”»å‡¦ç†
         /// </summary>
         void OnRender();
 
         /// <summary>
-        /// I—¹ˆ—
+        /// çµ‚äº†å‡¦ç†
         /// </summary>
         void OnEnd();
 
