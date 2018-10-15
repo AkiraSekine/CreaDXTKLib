@@ -18,12 +18,12 @@ namespace CreaDXTKLib
 namespace Input
 {
     /// <summary>
-    /// ã‚­ãƒ¼
+    /// ƒL[
     /// </summary>
     using Keys = DirectX::Keyboard::Keys;
 
     /// <summary>
-    /// ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³
+    /// ƒ}ƒEƒXƒ{ƒ^ƒ“
     /// </summary>
     enum struct MouseButtons : char
     {
@@ -35,51 +35,51 @@ namespace Input
     };
 
     /// <summary>
-    /// å…¥åŠ›é–¢ä¿‚
+    /// “ü—ÍŠÖŒW
     /// </summary>
     class Inputs final : public Utility::Singleton<Inputs>
     {
     public:
 
         /// <summary>
-        /// ãƒã‚§ãƒƒã‚¯æ–¹æ³•
+        /// ƒ`ƒFƒbƒN•û–@
         /// </summary>
         enum struct CheckMode : char
         {
-            Down    = 0b0001,    //æŠ¼ã—ãŸç¬é–“
-            Up      = 0b0010,    //é›¢ã—ãŸç¬é–“
-            Press   = 0b0100,    //æŠ¼ã—ã¦ã„ã‚‹é–“
-            Release = 0b1000     //è©±ã—ã¦ã„ã‚‹é–“
+            Down    = 0b0001,    //‰Ÿ‚µ‚½uŠÔ
+            Up      = 0b0010,    //—£‚µ‚½uŠÔ
+            Press   = 0b0100,    //‰Ÿ‚µ‚Ä‚¢‚éŠÔ
+            Release = 0b1000     //˜b‚µ‚Ä‚¢‚éŠÔ
         };
 
         /// <summary>
-        /// å…¥åŠ›è¨­å®šã‚’è¿½åŠ 
+        /// “ü—Íİ’è‚ğ’Ç‰Á
         /// </summary>
-        /// <param name="_name">åå‰</param>
-        /// <param name="_key">ã‚­ãƒ¼</param>
-        /// <param name="_value">å€¤</param>
-        /// <param name="_mode">ãƒã‚§ãƒƒã‚¯æ–¹æ³•</param>
+        /// <param name="_name">–¼‘O</param>
+        /// <param name="_key">ƒL[</param>
+        /// <param name="_value">’l</param>
+        /// <param name="_mode">ƒ`ƒFƒbƒN•û–@</param>
         void Add(const std::wstring& _name,
             DirectX::Keyboard::Keys _key,
             float _value,
             CheckMode _mode);
         /// <summary>
-        /// å…¥åŠ›è¨­å®šã‚’è¿½åŠ 
+        /// “ü—Íİ’è‚ğ’Ç‰Á
         /// </summary>
-        /// <param name="_name">åå‰</param>
-        /// <param name="_button">ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³</param>
-        /// <param name="_value">å€¤</param>
-        /// <param name="_mode">ãƒã‚§ãƒƒã‚¯æ–¹æ³•</param>
+        /// <param name="_name">–¼‘O</param>
+        /// <param name="_button">ƒ}ƒEƒXƒ{ƒ^ƒ“</param>
+        /// <param name="_value">’l</param>
+        /// <param name="_mode">ƒ`ƒFƒbƒN•û–@</param>
         void Add(const std::wstring& _name,
             MouseButtons _button,
             float _value,
             CheckMode _mode);
 
         /// <summary>
-        /// å…¥åŠ›ã®å–å¾—
+        /// “ü—Í‚Ìæ“¾
         /// </summary>
-        /// <param name="_name">åå‰</param>
-        /// <returns>å€¤</returns>
+        /// <param name="_name">–¼‘O</param>
+        /// <returns>’l</returns>
         float GetValue(const std::wstring& _name);
 
     private:
@@ -103,7 +103,7 @@ namespace Input
     };
 
     /// <summary>
-    /// ãƒã‚§ãƒƒã‚¯æ–¹æ³•
+    /// ƒ`ƒFƒbƒN•û–@
     /// </summary>
     using CheckMode = Inputs::CheckMode;
 

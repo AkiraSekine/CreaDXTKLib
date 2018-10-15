@@ -28,6 +28,11 @@
     <ClCompile Include="..\src\Input\Keyboard.cpp" />
     <ClCompile Include="..\src\Input\Mouse.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utility\Utility.vcxproj">
+      <Project>{c0576279-4b9b-4049-a314-9fde2db1952f}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{1FB823E4-8F92-4D5B-AF83-786BD3DEB824}</ProjectGuid>
@@ -106,6 +111,7 @@
       <PrecompiledHeaderFile />
       <AdditionalIncludeDirectories>$(DXTK)\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
