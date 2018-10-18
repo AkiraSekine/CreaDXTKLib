@@ -3,17 +3,16 @@
 #include <cmath>
 
 using namespace std;
-using namespace DirectX::SimpleMath;
 
 namespace CreaDXTKLib
 {
 namespace Math
 {
     Transform2D::Transform2D() :
-        m_position(Vector2::Zero),
+        m_position(Vector2::zero),
         m_rotation(0.f),
-        m_scale(Vector2::One),
-        m_localPosition(Vector2::Zero),
+        m_scale(Vector2::one),
+        m_localPosition(Vector2::zero),
         m_localRotation(0.f)
     {
     }
@@ -21,13 +20,13 @@ namespace Math
     Transform2D::Transform2D(Vector2 _position, Transform2D * _parent) :
         m_position(_position),
         m_rotation(0.f),
-        m_scale(Vector2::One),
+        m_scale(Vector2::one),
         m_parent(_parent),
         m_localPosition(_position),
         m_localRotation(0.f)
     {
         // 親があればローカル値を計算する
-        if (_parent != nullptr)
+        if (_parent)
         {
             m_childNum = _parent->m_children.size();
 
@@ -44,13 +43,13 @@ namespace Math
         Transform2D * _parent) :
         m_position(_position),
         m_rotation(CorrectionRotation(_rotation)),
-        m_scale(Vector2::One),
+        m_scale(Vector2::one),
         m_parent(_parent),
         m_localPosition(_position),
         m_localRotation(m_rotation)
     {
         // 親があればローカル値を計算する
-        if (_parent != nullptr)
+        if (_parent)
         {
             m_childNum = _parent->m_children.size();
 
@@ -74,7 +73,7 @@ namespace Math
         m_localRotation(m_rotation)
     {
         // 親があればローカル値を計算する
-        if (_parent != nullptr)
+        if (_parent)
         {
             m_childNum = _parent->m_children.size();
 
@@ -84,6 +83,16 @@ namespace Math
             m_localRotation =
                 CorrectionRotation(m_rotation - _parent->m_rotation);
         }
+    }
+
+    Transform2D::~Transform2D()
+    {
+        if (!m_parent)
+        {
+            return;
+        }
+        
+        RemoveParent();
     }
 
     Vector2 Transform2D::Position() const
@@ -96,7 +105,7 @@ namespace Math
         m_position = _newPos;
 
         // 親があればローカル値を計算する
-        if (m_parent != nullptr)
+        if (m_parent)
         {
             m_localPosition = m_position - m_parent->m_position;
         }
@@ -124,7 +133,7 @@ namespace Math
         m_rotation = CorrectionRotation(_newRot);
 
         // 親があればローカル値を計算する
-        if (m_parent != nullptr)
+        if (m_parent)
         {
             m_localRotation = m_rotation - m_parent->m_rotation;
         }
@@ -206,6 +215,11 @@ namespace Math
         m_localRotation = m_rotation;
     }
 
+    Transform2D::operator bool() const
+    {
+        return this != nullptr;
+    }
+
     float Transform2D::CorrectionRotation(float _rotation)
     {
         // 角度が -180°～180°になるように補正
@@ -229,13 +243,13 @@ namespace Math
             float childAng = m_rotation +
                 atan2f(child->m_localPosition.y, child->m_localPosition.x);
             // 子との距離を取得
-            float length = child->m_localPosition.Length();
+            float length = child->m_localPosition.Magnitude();
 
             // 値を指定
             child->Rotation(m_rotation + child->m_localRotation);
 
             child->m_position = m_position +
-                length * Vector2(cosf(childAng), sinf(childAng));
+                Vector2(cosf(childAng), sinf(childAng)) * length;
         }
     }
 
