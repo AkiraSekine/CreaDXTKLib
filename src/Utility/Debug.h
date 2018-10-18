@@ -6,11 +6,11 @@
 
 #include "Singleton.h"
 
-#ifdef _DEBUG
+#if defined(_DEBUG) && defined(_MSVC_LANG)
 #pragma comment(lib, "Utility_d.lib")
-#else
+#elif defined(_MSVC_LANG)
 #pragma comment(lib, "Utility.lib")
-#endif // _DEBUG
+#endif // _DEBUG && _MSVC_LANG
 
 namespace CreaDXTKLib
 {

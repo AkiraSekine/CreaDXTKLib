@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "../Default/pch.h"
 
@@ -66,6 +66,7 @@ namespace CreaDXTKLib
 
         Scene * m_nowScene;
     };
-}
+} // CreaDXTKLib
 
-#include "GameManagerDetail.h"
+// 定義ファイルをインクルード
+#include "GameManager.inl"

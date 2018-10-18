@@ -1,8 +1,8 @@
 #pragma once
 
-#ifdef _DEBUG
+#if defined(_DEBUG) && defined(_MSVC_LANG)
 #pragma comment(lib, "Utility_d.lib")
-#else
+#elif defined(_MSVC_LANG)
 #pragma comment(lib, "Utility.lib")
 #endif // _DEBUG
 
@@ -56,4 +56,4 @@ namespace Utility
 } // CreaDXTKLib
 
 // 定義ファイルをインクルード
-#include "SingletonDetail.h"
+#include "Singleton.inl"

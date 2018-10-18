@@ -1,8 +1,5 @@
 #pragma once
 
-#include "CreaDXTKLib.h"
-#include "../Utility/Singleton.h"
-
 namespace CreaDXTKLib
 {
     /// <summary>
@@ -10,8 +7,6 @@ namespace CreaDXTKLib
     /// </summary>
     class Scene
     {
-    private:
-
     public:
 
         Scene() { }
