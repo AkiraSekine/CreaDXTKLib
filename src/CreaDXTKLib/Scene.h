@@ -1,5 +1,9 @@
 #pragma once
 
+#include "CreaDXTKLib.h"
+
+#include <string>
+
 namespace CreaDXTKLib
 {
     /// <summary>
@@ -9,19 +13,20 @@ namespace CreaDXTKLib
     {
     public:
 
-        Scene() { }
-        virtual ~Scene() { }
-        
         /// <summary>
         /// 更新処理
         /// </summary>
-        virtual void Update(float _elapsedTime)
-        {
-            _elapsedTime;
-        }
+        /// <param name="_elapsedTime">前フレームからの経過時間</param>
+        virtual void Update(float _elapsedTime) ABSTRACT;
         /// <summary>
         /// 描画処理
         /// </summary>
-        virtual void OnRender() { }
+        virtual void OnRender() ABSTRACT;
+
+        /// <summary>
+        /// クラス名を取得
+        /// </summary>
+        /// <returns>クラス名</returns>
+        virtual std::wstring GetSceneName() final;
     };
 }
