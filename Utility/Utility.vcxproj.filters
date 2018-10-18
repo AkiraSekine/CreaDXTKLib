@@ -12,9 +12,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\Utility\SingletonDetail.h">
-      <Filter>src\Utility</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Utility\Singleton.h">
       <Filter>src\Utility</Filter>
     </ClInclude>
@@ -26,5 +23,10 @@
     <ClCompile Include="..\src\Utility\Debug.cpp">
       <Filter>src\Utility</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\Utility\Singleton.inl">
+      <Filter>src\Utility</Filter>
+    </None>
   </ItemGroup>
 </Project>

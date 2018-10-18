@@ -8,11 +8,11 @@
 #include <vector>
 #include <string>
 
-#ifdef _DEBUG
+#if defined(_DEBUG) && defined(_MSVC_LANG)
 #pragma comment(lib, "Draw_d.lib")
-#else
+#elif defined(_MSVC_LANG)
 #pragma comment(lib, "Draw.lib")
-#endif // _DEBUG
+#endif // _DEBUG && _MSVC_LANG
 
 template<class T> class CreaDXTKLib::Utility::Singleton;
 class CreaDXTKLib::Math::Transform2D;

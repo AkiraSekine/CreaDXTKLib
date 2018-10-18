@@ -190,7 +190,6 @@
   <ItemGroup>
     <ClInclude Include="..\src\CreaDXTKLib\CreaDXTKLib.h" />
     <ClInclude Include="..\src\CreaDXTKLib\GameManager.h" />
-    <ClInclude Include="..\src\CreaDXTKLib\GameManagerDetail.h" />
     <ClInclude Include="..\src\CreaDXTKLib\Scene.h" />
     <ClInclude Include="..\src\Default\Game.h" />
     <ClInclude Include="..\src\Default\pch.h" />
@@ -209,6 +208,9 @@
     <ProjectReference Include="..\Utility\Utility.vcxproj">
       <Project>{c0576279-4b9b-4049-a314-9fde2db1952f}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\CreaDXTKLib\GameManager.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

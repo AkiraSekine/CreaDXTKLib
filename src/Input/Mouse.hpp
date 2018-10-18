@@ -4,10 +4,13 @@
 
 #include "Input.h"
 
-template<class T> class CreaDXTKLib::Utility::Singleton;
-
 namespace CreaDXTKLib
 {
+    namespace Utility
+    {
+        template <class T> class Singleton;
+    }
+
 namespace Input
 {
     /// <summary>
