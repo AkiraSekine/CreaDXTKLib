@@ -4,7 +4,6 @@
 
 using namespace std;
 using namespace DirectX;
-using namespace DirectX::SimpleMath;
 using namespace Microsoft::WRL;
 
 using namespace CreaDXTKLib::Utility;
@@ -108,33 +107,33 @@ namespace Draw
     }
 
     void Image::Draw(const wstring& _name,
-        const Vector2 _position)
+        const Vector2& _position)
     {
         Draw(_name, _position, Colors::White);
     }
 
     void Image::Draw(const wstring& _name,
-        const Vector2 _position,
+        const Vector2& _position,
         const float _rotation)
     {
         Draw(_name, _position, _rotation, Colors::White);
     }
 
     void Image::Draw(const wstring& _name,
-        const Vector2 _position,
+        const Vector2& _position,
         const float _rotation,
-        const Vector2 _scale,
-        const Vector2 _pivot)
+        const Vector2& _scale,
+        const Vector2& _pivot)
     {
         Draw(_name, _position, _rotation, _scale, Colors::White, _pivot);
     }
 
     void Image::Draw(const wstring& _name,
-        const Vector2 _position,
+        const Vector2& _position,
         const float _rotation,
-        const Vector2 _scale,
-        const RECT _rect,
-        const Vector2 _pivot)
+        const Vector2& _scale,
+        const RECT& _rect,
+        const Vector2& _pivot)
     {
         Draw(_name,
             _position,
@@ -147,7 +146,7 @@ namespace Draw
 
     void Image::Draw(const std::wstring& _name,
         const Transform2D& _transform,
-        const Vector2 _pivot)
+        const Vector2& _pivot)
     {
         Draw(_name,
             _transform.Position(),
@@ -158,8 +157,8 @@ namespace Draw
 
     void Image::Draw(const wstring& _name,
         const Transform2D& _transform,
-        const RECT _rect,
-        const Vector2 _pivot)
+        const RECT& _rect,
+        const Vector2& _pivot)
     {
         Draw(_name,
             _transform.Position(),
@@ -170,27 +169,27 @@ namespace Draw
     }
 
     void Image::Draw(const wstring& _name,
-        const Vector2 _position,
-        const FXMVECTOR _color)
+        const Vector2& _position,
+        const FXMVECTOR& _color)
     {
-        Draw(_name, _position, 0.f, _color, Vector2::Zero);
+        Draw(_name, _position, 0.f, _color, Vector2::zero);
     }
 
     void Image::Draw(const wstring& _name,
-        const Vector2 _position,
+        const Vector2& _position,
         const float _rotation,
-        const FXMVECTOR _color,
-        const Vector2 _pivot)
+        const FXMVECTOR& _color,
+        const Vector2& _pivot)
     {
-        Draw(_name, _position, _rotation, Vector2::One, _color, _pivot);
+        Draw(_name, _position, _rotation, Vector2::one, _color, _pivot);
     }
 
     void Image::Draw(const wstring& _name,
-        const Vector2 _position,
+        const Vector2& _position,
         const float _rotation,
-        const Vector2 _scale,
-        const FXMVECTOR _color,
-        const Vector2 _pivot)
+        const Vector2& _scale,
+        const FXMVECTOR& _color,
+        const Vector2& _pivot)
     {
         Vector2 size = m_imageData.at(_name).m_size;
         RECT rect = { 0, 0, (long)size.x, (long)size.y };
@@ -199,12 +198,12 @@ namespace Draw
     }
 
     void Image::Draw(const wstring& _name,
-        const Vector2 _position,
+        const Vector2& _position,
         const float _rotation,
-        const Vector2 _scale,
-        const RECT _rect,
-        const FXMVECTOR _color,
-        const Vector2 _pivot)
+        const Vector2& _scale,
+        const RECT& _rect,
+        const FXMVECTOR& _color,
+        const Vector2& _pivot)
     {
         m_spriteBatch->Begin(SpriteSortMode_Deferred,
             m_states->NonPremultiplied());
@@ -224,8 +223,8 @@ namespace Draw
 
     void Image::Draw(const wstring& _name,
         const Transform2D& _transform,
-        const FXMVECTOR _color,
-        const Vector2 _pivot)
+        const FXMVECTOR& _color,
+        const Vector2& _pivot)
     {
         Draw(_name,
             _transform.Position(),
@@ -237,9 +236,9 @@ namespace Draw
 
     void Image::Draw(const wstring& _name,
         const Transform2D& _transform,
-        const RECT _rect,
-        const FXMVECTOR _color,
-        const Vector2 _pivot)
+        const RECT& _rect,
+        const FXMVECTOR& _color,
+        const Vector2& _pivot)
     {
         Draw(_name,
             _transform.Position(),
@@ -251,27 +250,27 @@ namespace Draw
     }
 
     void Image::Draw(const wstring& _name,
-        const Vector2 _position,
-        const XMVECTORF32 _color)
+        const Vector2& _position,
+        const XMVECTORF32& _color)
     {
-        Draw(_name, _position, 0.f, _color, Vector2::Zero);
+        Draw(_name, _position, 0.f, _color, Vector2::zero);
     }
 
     void Image::Draw(const wstring& _name,
-        const Vector2 _position,
+        const Vector2& _position,
         const float _rotation,
-        const XMVECTORF32 _color,
-        const Vector2 _pivot)
+        const XMVECTORF32& _color,
+        const Vector2& _pivot)
     {
-        Draw(_name, _position, _rotation, Vector2::One, _color, _pivot);
+        Draw(_name, _position, _rotation, Vector2::one, _color, _pivot);
     }
 
     void Image::Draw(const wstring& _name,
-        const Vector2 _position,
+        const Vector2& _position,
         const float _rotation,
-        const Vector2 _scale,
-        const XMVECTORF32 _color,
-        const Vector2 _pivot)
+        const Vector2& _scale,
+        const XMVECTORF32& _color,
+        const Vector2& _pivot)
     {
         Vector2 size = m_imageData.at(_name).m_size;
         RECT rect = { 0, 0, (long)size.x, (long)size.y };
@@ -281,8 +280,8 @@ namespace Draw
 
     void Image::Draw(const wstring& _name,
         const Transform2D& _transform,
-        const XMVECTORF32 _color,
-        const Vector2 _pivot)
+        const XMVECTORF32& _color,
+        const Vector2& _pivot)
     {
         Draw(_name,
             _transform.Position(),
@@ -293,12 +292,12 @@ namespace Draw
     }
 
     void Image::Draw(const wstring& _name,
-        const Vector2 _position,
+        const Vector2& _position,
         const float _rotation,
-        const Vector2 _scale,
-        const RECT _rect,
-        const XMVECTORF32 _color,
-        const Vector2 _pivot)
+        const Vector2& _scale,
+        const RECT& _rect,
+        const XMVECTORF32& _color,
+        const Vector2& _pivot)
     {
         m_spriteBatch->Begin(SpriteSortMode_Deferred,
             m_states->NonPremultiplied());
@@ -317,9 +316,9 @@ namespace Draw
     }
     void Image::Draw(const wstring& _name,
         const Transform2D& _transform,
-        const RECT _rect,
-        const XMVECTORF32 _color,
-        const Vector2 _pivot)
+        const RECT& _rect,
+        const XMVECTORF32& _color,
+        const Vector2& _pivot)
     {
         Draw(_name,
             _transform.Position(),
