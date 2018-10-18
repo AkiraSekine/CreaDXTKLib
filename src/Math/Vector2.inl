@@ -109,6 +109,7 @@ namespace Math
         const unsigned int size = 48u;
         wchar_t str[size];
 
+        // •¶Žš—ñ‚É•ÏŠ·
         swprintf_s(str, size, L"x:%f y:%f", x, y);
 
         return std::wstring(str);
@@ -116,9 +117,7 @@ namespace Math
 
     inline Vector2::operator DirectX::SimpleMath::Vector2() const
     {
-        DirectX::SimpleMath::Vector2 ret(x, y);
-
-        return ret;
+        return DirectX::SimpleMath::Vector2(x, y);
     }
 }
 }

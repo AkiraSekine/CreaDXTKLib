@@ -46,6 +46,7 @@ namespace Math
         Vector2 normalized;
         float mag = 1.f / Magnitude();
 
+        // ílÇÃê≥ãKâª
         normalized.x = x * mag;
         normalized.y = y * mag;
 
@@ -59,7 +60,7 @@ namespace Math
 
     float Vector2::Cross(Vector2 & _vec)
     {
-        return x*_vec.y - _vec.x*y;
+        return x * _vec.y - _vec.x * y;
     }
 
     Vector2 const Vector2::operator-() const
