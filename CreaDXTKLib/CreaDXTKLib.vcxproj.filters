@@ -47,6 +47,9 @@
     <ClCompile Include="..\src\CreaDXTKLib\CreaDXTKLib.cpp">
       <Filter>src\CreaDXTKLib</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\CreaDXTKLib\Scene.cpp">
+      <Filter>src\CreaDXTKLib</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Default\pch.h">
