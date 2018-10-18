@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "Vector2.h"
 
@@ -109,7 +109,7 @@ namespace Math
         const unsigned int size = 48u;
         wchar_t str[size];
 
-        // •¶š—ñ‚É•ÏŠ·
+        // æ–‡å­—åˆ—ã«å¤‰æ›
         swprintf_s(str, size, L"x:%f y:%f", x, y);
 
         return std::wstring(str);

@@ -1,4 +1,4 @@
-#include "Vector2.h"
+ï»¿#include "Vector2.h"
 
 #include <cmath>
 
@@ -46,7 +46,7 @@ namespace Math
         Vector2 normalized;
         float mag = 1.f / Magnitude();
 
-        // ’l‚Ì³‹K‰»
+        // å€¤ã®æ­£è¦åŒ–
         normalized.x = x * mag;
         normalized.y = y * mag;
 
