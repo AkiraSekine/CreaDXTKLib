@@ -101,7 +101,7 @@ namespace Math
         /// eTransform2D‚ğİ’è
         /// </summary>
         /// <param name="_parent">e‚ÌTransfom2D</param>
-        virtual void Parent(Transform2D * _parent) final;
+        virtual void Parent(Transform2D * _parent);
         /// <summary>
         /// eTransform2D‚ğæ“¾
         /// </summary>
@@ -112,13 +112,9 @@ namespace Math
         /// </summary>
         virtual void RemoveParent() final;
 
-        /// <summary>
-        /// boolŒ^‚Ö‚Ì•ÏŠ·
-        /// </summary>
-        /// <returns>nullptr‚¶‚á‚È‚¢‚©‚Ç‚¤‚©</returns>
-        virtual operator bool() const;
-
     protected:
+
+    private:
 
         Vector2 m_position;
         float m_rotation;
@@ -131,8 +127,6 @@ namespace Math
         unsigned int m_childNum = 0;
 
         virtual float CorrectionRotation(float _rotation) final;
-
-    private:
 
         void ChildrenCalc();
 

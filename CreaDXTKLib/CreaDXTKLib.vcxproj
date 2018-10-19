@@ -182,6 +182,7 @@
   <ItemGroup>
     <ClCompile Include="..\src\CreaDXTKLib\CreaDXTKLib.cpp" />
     <ClCompile Include="..\src\CreaDXTKLib\GameManager.cpp" />
+    <ClCompile Include="..\src\CreaDXTKLib\Object.cpp" />
     <ClCompile Include="..\src\CreaDXTKLib\Scene.cpp" />
     <ClCompile Include="..\src\Default\Game.cpp" />
     <ClCompile Include="..\src\Default\Main.cpp" />
@@ -191,6 +192,7 @@
   <ItemGroup>
     <ClInclude Include="..\src\CreaDXTKLib\CreaDXTKLib.h" />
     <ClInclude Include="..\src\CreaDXTKLib\GameManager.h" />
+    <ClInclude Include="..\src\CreaDXTKLib\Object.h" />
     <ClInclude Include="..\src\CreaDXTKLib\Scene.h" />
     <ClInclude Include="..\src\Default\Game.h" />
     <ClInclude Include="..\src\Default\pch.h" />
