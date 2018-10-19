@@ -9,6 +9,9 @@ namespace CreaDXTKLib
 {
 namespace Utility
 {
+    /// <summary>
+    /// ウィンドウ関係
+    /// </summary>
     class Window final : public Singleton<Window>
     {
         SINGLETON(Window)

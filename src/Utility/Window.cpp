@@ -18,8 +18,10 @@ namespace Utility
     {
         Vector2 size;
 
+        // クライアント部分の矩形を取得
         GetClientRect(m_windowHandle, &m_windowRect);
 
+        // サイズを計算
         size.x = (float)(m_windowRect.right - m_windowRect.left);
         size.y = (float)(m_windowRect.bottom - m_windowRect.top);
 
@@ -28,13 +30,16 @@ namespace Utility
 
     void Window::SetSize(int _width, int _height)
     {
+        // サイズを適用
         SetWindowPos(m_windowHandle, NULL, 0, 0, _width, _height, SWP_NOMOVE);
 
+        // 矩形を計算させる
         GetSize();
     }
 
     void Window::SetPosition(Vector2& _position)
     {
+        // 位置を設定
         SetWindowPos(m_windowHandle,
             NULL,
             (int)_position.x,
@@ -43,6 +48,7 @@ namespace Utility
             0,
             SWP_NOSIZE);
 
+        // 矩形を計算させる
         GetSize();
     }
 
@@ -56,5 +62,5 @@ namespace Utility
         SetWindowLong(m_windowHandle, GWL_EXSTYLE, _style);
         ShowWindow(m_windowHandle, SW_SHOW);
     }
-}
-}
+} // Utility
+} // CreaDXTKLib
