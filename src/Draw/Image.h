@@ -61,6 +61,13 @@ namespace Draw
         void Erase(const std::wstring& _name);
 
         /// <summary>
+        /// 画像サイズを取得
+        /// </summary>
+        /// <param name="_name">ハンドル名</param>
+        /// <returns>画像サイズ</returns>
+        Math::Vector2 GetImageSize(const std::wstring& _name);
+
+        /// <summary>
         /// 画像の描画
         /// </summary>
         /// <param name="_name">ハンドル名</param>
