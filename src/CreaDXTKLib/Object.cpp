@@ -44,6 +44,7 @@ namespace CreaDXTKLib
 
     void Object2D::Draw(FXMVECTOR & _color)
     {
+        // 親に非アクティブの状態が無ければ描画する
         if (CheckParentIsActive())
         {
             Image::Instance().Draw(m_imageHandle, *this, _color);
@@ -52,6 +53,7 @@ namespace CreaDXTKLib
 
     void Object2D::Draw(const RECT & _rect, FXMVECTOR & _color)
     {
+        // 親に非アクティブの状態が無ければ描画する
         if (CheckParentIsActive())
         {
             Image::Instance().Draw(m_imageHandle, *this, _rect, _color);
@@ -60,6 +62,7 @@ namespace CreaDXTKLib
 
     void Object2D::Draw(XMVECTORF32 & _color)
     {
+        // 親に非アクティブの状態が無ければ描画する
         if (CheckParentIsActive())
         {
             Image::Instance().Draw(m_imageHandle, *this, _color);
@@ -68,6 +71,7 @@ namespace CreaDXTKLib
 
     void Object2D::Draw(const RECT & _rect, XMVECTORF32 & _color)
     {
+        // 親に非アクティブの状態が無ければ描画する
         if (CheckParentIsActive())
         {
             Image::Instance().Draw(m_imageHandle, *this, _rect, _color);
@@ -98,6 +102,7 @@ namespace CreaDXTKLib
     {
         Transform2D* parent = Parent();
 
+        // 親があれば親のアクティブ状態を返す
         if (parent != nullptr)
         {
             return dynamic_cast<Object2D*>(parent)->CheckParentIsActive();

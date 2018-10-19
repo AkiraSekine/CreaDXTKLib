@@ -101,6 +101,10 @@ namespace CreaDXTKLib
         /// <param name="_color">加算色</param>
         virtual void Draw(const RECT& _rect, DirectX::XMVECTORF32& _color);
 
+        /// <summary>
+        /// アクティブ状態を設定
+        /// </summary>
+        /// <param name="_isActive">アクティブ状態か</param>
         virtual void SetActive(bool _isActive) final;
 
         /// <summary>
