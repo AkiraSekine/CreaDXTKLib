@@ -106,9 +106,20 @@ namespace Draw
         }
     }
 
+    Vector2 Image::GetImageSize(const std::wstring & _name)
+    {
+        return m_imageData.at(_name).m_size;
+    }
+
     void Image::Draw(const wstring& _name,
         const Vector2& _position)
     {
+        // ハンドル名が空なら終了
+        if (_name.compare(L"") == 0)
+        {
+            return;
+        }
+
         Draw(_name, _position, Colors::White);
     }
 
@@ -116,6 +127,12 @@ namespace Draw
         const Vector2& _position,
         const float _rotation)
     {
+        // ハンドル名が空なら終了
+        if (_name.compare(L"") == 0)
+        {
+            return;
+        }
+
         Draw(_name, _position, _rotation, Colors::White);
     }
 
@@ -125,6 +142,12 @@ namespace Draw
         const Vector2& _scale,
         const Vector2& _pivot)
     {
+        // ハンドル名が空なら終了
+        if (_name.compare(L"") == 0)
+        {
+            return;
+        }
+
         Draw(_name, _position, _rotation, _scale, Colors::White, _pivot);
     }
 
@@ -135,6 +158,12 @@ namespace Draw
         const RECT& _rect,
         const Vector2& _pivot)
     {
+        // ハンドル名が空なら終了
+        if (_name.compare(L"") == 0)
+        {
+            return;
+        }
+
         Draw(_name,
             _position,
             _rotation,
@@ -148,6 +177,12 @@ namespace Draw
         const Transform2D& _transform,
         const Vector2& _pivot)
     {
+        // ハンドル名が空なら終了
+        if (_name.compare(L"") == 0)
+        {
+            return;
+        }
+
         Draw(_name,
             _transform.Position(),
             _transform.Rotation(),
@@ -160,6 +195,12 @@ namespace Draw
         const RECT& _rect,
         const Vector2& _pivot)
     {
+        // ハンドル名が空なら終了
+        if (_name.compare(L"") == 0)
+        {
+            return;
+        }
+
         Draw(_name,
             _transform.Position(),
             _transform.Rotation(),
@@ -172,6 +213,12 @@ namespace Draw
         const Vector2& _position,
         const FXMVECTOR& _color)
     {
+        // ハンドル名が空なら終了
+        if (_name.compare(L"") == 0)
+        {
+            return;
+        }
+
         Draw(_name, _position, 0.f, _color, Vector2::zero);
     }
 
@@ -181,6 +228,12 @@ namespace Draw
         const FXMVECTOR& _color,
         const Vector2& _pivot)
     {
+        // ハンドル名が空なら終了
+        if (_name.compare(L"") == 0)
+        {
+            return;
+        }
+
         Draw(_name, _position, _rotation, Vector2::one, _color, _pivot);
     }
 
@@ -191,6 +244,12 @@ namespace Draw
         const FXMVECTOR& _color,
         const Vector2& _pivot)
     {
+        // ハンドル名が空なら終了
+        if (_name.compare(L"") == 0)
+        {
+            return;
+        }
+
         Vector2 size = m_imageData.at(_name).m_size;
         RECT rect = { 0, 0, (long)size.x, (long)size.y };
 
@@ -205,6 +264,12 @@ namespace Draw
         const FXMVECTOR& _color,
         const Vector2& _pivot)
     {
+        // ハンドル名が空なら終了
+        if (_name.compare(L"") == 0)
+        {
+            return;
+        }
+
         m_spriteBatch->Begin(SpriteSortMode_Deferred,
             m_states->NonPremultiplied());
 
@@ -226,6 +291,12 @@ namespace Draw
         const FXMVECTOR& _color,
         const Vector2& _pivot)
     {
+        // ハンドル名が空なら終了
+        if (_name.compare(L"") == 0)
+        {
+            return;
+        }
+
         Draw(_name,
             _transform.Position(),
             _transform.Rotation(),
@@ -240,6 +311,12 @@ namespace Draw
         const FXMVECTOR& _color,
         const Vector2& _pivot)
     {
+        // ハンドル名が空なら終了
+        if (_name.compare(L"") == 0)
+        {
+            return;
+        }
+
         Draw(_name,
             _transform.Position(),
             _transform.Rotation(),
@@ -253,6 +330,12 @@ namespace Draw
         const Vector2& _position,
         const XMVECTORF32& _color)
     {
+        // ハンドル名が空なら終了
+        if (_name.compare(L"") == 0)
+        {
+            return;
+        }
+
         Draw(_name, _position, 0.f, _color, Vector2::zero);
     }
 
@@ -262,6 +345,12 @@ namespace Draw
         const XMVECTORF32& _color,
         const Vector2& _pivot)
     {
+        // ハンドル名が空なら終了
+        if (_name.compare(L"") == 0)
+        {
+            return;
+        }
+
         Draw(_name, _position, _rotation, Vector2::one, _color, _pivot);
     }
 
@@ -272,6 +361,12 @@ namespace Draw
         const XMVECTORF32& _color,
         const Vector2& _pivot)
     {
+        // ハンドル名が空なら終了
+        if (_name.compare(L"") == 0)
+        {
+            return;
+        }
+
         Vector2 size = m_imageData.at(_name).m_size;
         RECT rect = { 0, 0, (long)size.x, (long)size.y };
 
@@ -283,6 +378,12 @@ namespace Draw
         const XMVECTORF32& _color,
         const Vector2& _pivot)
     {
+        // ハンドル名が空なら終了
+        if (_name.compare(L"") == 0)
+        {
+            return;
+        }
+
         Draw(_name,
             _transform.Position(),
             _transform.Rotation(),
@@ -299,6 +400,12 @@ namespace Draw
         const XMVECTORF32& _color,
         const Vector2& _pivot)
     {
+        // ハンドル名が空なら終了
+        if (_name.compare(L"") == 0)
+        {
+            return;
+        }
+
         m_spriteBatch->Begin(SpriteSortMode_Deferred,
             m_states->NonPremultiplied());
 
@@ -320,6 +427,12 @@ namespace Draw
         const XMVECTORF32& _color,
         const Vector2& _pivot)
     {
+        // ハンドル名が空なら終了
+        if (_name.compare(L"") == 0)
+        {
+            return;
+        }
+
         Draw(_name,
             _transform.Position(),
             _transform.Rotation(),
