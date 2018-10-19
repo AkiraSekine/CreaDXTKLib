@@ -18,9 +18,15 @@
     <ClInclude Include="..\src\Utility\Debug.h">
       <Filter>src\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Utility\Window.h">
+      <Filter>src\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Utility\Debug.cpp">
+      <Filter>src\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utility\Window.cpp">
       <Filter>src\Utility</Filter>
     </ClCompile>
   </ItemGroup>

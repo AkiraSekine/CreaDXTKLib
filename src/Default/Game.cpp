@@ -7,6 +7,7 @@
 
 #include "../CreaDXTKLib/GameManager.h"
 #include "../Input/Mouse.hpp"
+#include "../Utility/Window.h"
 
 extern void ExitGame();
 
@@ -15,6 +16,7 @@ using namespace DirectX;
 using Microsoft::WRL::ComPtr;
 
 using namespace CreaDXTKLib;
+using namespace CreaDXTKLib::Utility;
 
 Game::Game() :
     m_window(nullptr),
@@ -38,6 +40,7 @@ void Game::Initialize(HWND window, int width, int height)
     // TODO: Change the timer settings if you want something other than the default variable timestep mode.
     // e.g. for 60 FPS fixed timestep update logic, call:
 
+    CreaDXTKLib::Utility::Window::Instance().SetWindowHandle(window);
     CreaDXTKLib::Input::Mouse::Instance().Initialize(window);
 
     /*
@@ -88,7 +91,7 @@ void Game::Render()
 void Game::Clear()
 {
     // Clear the views.
-    m_d3dContext->ClearRenderTargetView(m_renderTargetView.Get(), Colors::CornflowerBlue);
+    m_d3dContext->ClearRenderTargetView(m_renderTargetView.Get(), Window::Instance().backGroundColor);
     m_d3dContext->ClearDepthStencilView(m_depthStencilView.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
     m_d3dContext->OMSetRenderTargets(1, m_renderTargetView.GetAddressOf(), m_depthStencilView.Get());
