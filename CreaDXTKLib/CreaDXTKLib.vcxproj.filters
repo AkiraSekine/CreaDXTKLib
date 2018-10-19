@@ -50,6 +50,9 @@
     <ClCompile Include="..\src\CreaDXTKLib\Scene.cpp">
       <Filter>src\CreaDXTKLib</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\CreaDXTKLib\Object.cpp">
+      <Filter>src\CreaDXTKLib</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Default\pch.h">
@@ -68,6 +71,9 @@
       <Filter>src\CreaDXTKLib</Filter>
     </ClInclude>
     <ClInclude Include="..\src\CreaDXTKLib\Scene.h">
+      <Filter>src\CreaDXTKLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CreaDXTKLib\Object.h">
       <Filter>src\CreaDXTKLib</Filter>
     </ClInclude>
   </ItemGroup>

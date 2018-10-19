@@ -26,7 +26,7 @@ namespace Math
         m_localRotation(0.f)
     {
         // 親があればローカル値を計算する
-        if (_parent)
+        if (_parent != nullptr)
         {
             m_childNum = _parent->m_children.size();
 
@@ -49,7 +49,7 @@ namespace Math
         m_localRotation(m_rotation)
     {
         // 親があればローカル値を計算する
-        if (_parent)
+        if (_parent != nullptr)
         {
             m_childNum = _parent->m_children.size();
 
@@ -73,7 +73,7 @@ namespace Math
         m_localRotation(m_rotation)
     {
         // 親があればローカル値を計算する
-        if (_parent)
+        if (_parent != nullptr)
         {
             m_childNum = _parent->m_children.size();
 
@@ -87,7 +87,7 @@ namespace Math
 
     Transform2D::~Transform2D()
     {
-        if (!m_parent)
+        if (m_parent == nullptr)
         {
             return;
         }
@@ -105,7 +105,7 @@ namespace Math
         m_position = _newPos;
 
         // 親があればローカル値を計算する
-        if (m_parent)
+        if (m_parent != nullptr)
         {
             m_localPosition = m_position - m_parent->m_position;
         }
@@ -133,7 +133,7 @@ namespace Math
         m_rotation = CorrectionRotation(_newRot);
 
         // 親があればローカル値を計算する
-        if (m_parent)
+        if (m_parent != nullptr)
         {
             m_localRotation = m_rotation - m_parent->m_rotation;
         }
@@ -213,11 +213,6 @@ namespace Math
         // ローカル値にワールド値を入れる
         m_localPosition = m_position;
         m_localRotation = m_rotation;
-    }
-
-    Transform2D::operator bool() const
-    {
-        return this != nullptr;
     }
 
     float Transform2D::CorrectionRotation(float _rotation)
