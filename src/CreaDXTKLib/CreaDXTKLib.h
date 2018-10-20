@@ -4,6 +4,22 @@
 #define ABSTRACT = 0
 #endif // !ABSTRACT
 
+#if defined(_DEBUG) && defined(_MSVC_LANG)
+
+#pragma comment(lib, "Draw_d.lib")
+#pragma comment(lib, "Input_d.lib")
+#pragma comment(lib, "Math_d.lib")
+#pragma comment(lib, "Utility_d.lib")
+
+#elif defined(_MSVC_LANG)
+
+#pragma comment(lib, "Draw.lib")
+#pragma comment(lib, "Input.lib")
+#pragma comment(lib, "Math.lib")
+#pragma comment(lib, "Utility.lib")
+
+#endif
+
 /// <summary>
 /// ÉQÅ[ÉÄÇÃê›íË
 /// </summary>

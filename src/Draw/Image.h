@@ -8,12 +8,6 @@
 #include <vector>
 #include <string>
 
-#if defined(_DEBUG) && defined(_MSVC_LANG)
-#pragma comment(lib, "Draw_d.lib")
-#elif defined(_MSVC_LANG)
-#pragma comment(lib, "Draw.lib")
-#endif // _DEBUG && _MSVC_LANG
-
 namespace CreaDXTKLib
 {
     namespace Utility

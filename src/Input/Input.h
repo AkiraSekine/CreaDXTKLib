@@ -5,12 +5,6 @@
 
 #include <map>
 
-#if defined(_DEBUG) && defined(_MSVC_LANG)
-#pragma comment(lib, "Input_d.lib")
-#elif defined(_MSVC_LANG)
-#pragma comment(lib, "Input.lib")
-#endif // _DEBUG && _MSVC_LANG
-
 template<class T> class CreaDXTKLib::Utility::Singleton;
 
 namespace CreaDXTKLib

@@ -4,12 +4,6 @@
 
 #include <vector>
 
-#if defined(_DEBUG) && defined(_MSVC_LANG)
-#pragma comment(lib, "Math_d.lib")
-#elif defined(_MSVC_LANG)
-#pragma comment(lib, "Math.lib")
-#endif // _DEBUG && _MSVC_LANG
-
 namespace CreaDXTKLib
 {
 namespace Math
