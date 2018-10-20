@@ -1,11 +1,5 @@
 #pragma once
 
-#if defined(_DEBUG) && defined(_MSVC_LANG)
-#pragma comment(lib, "Utility_d.lib")
-#elif defined(_MSVC_LANG)
-#pragma comment(lib, "Utility.lib")
-#endif // _DEBUG
-
 #ifndef SINGLETON
 
 /// <summary>
