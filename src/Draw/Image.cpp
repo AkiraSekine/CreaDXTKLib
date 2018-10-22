@@ -1,6 +1,7 @@
 #include "Image.h"
 
 #include "../Utility/Debug.h"
+#include "Text.h"
 
 using namespace std;
 using namespace DirectX;
@@ -32,6 +33,8 @@ namespace Draw
         m_device = _device;
 
         m_states = make_unique<CommonStates>(m_device.Get());
+
+        Text::Instance().Initialize(_device, _context);
     }
 
     void Image::OnEnd()

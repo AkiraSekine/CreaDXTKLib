@@ -20,9 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Draw\Image.h" />
+    <ClInclude Include="..\src\Draw\Text.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Draw\Image.cpp" />
+    <ClCompile Include="..\src\Draw\Text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Math\Math.vcxproj">
