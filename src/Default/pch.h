@@ -55,6 +55,7 @@
 #include "WICTextureLoader.h"
 #include "Keyboard.h"
 #include "Mouse.h"
+#include "SpriteFont.h"
 
 namespace DX
 {

@@ -15,9 +15,15 @@
     <ClInclude Include="..\src\Draw\Image.h">
       <Filter>src\Draw</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Draw\Text.h">
+      <Filter>src\Draw</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Draw\Image.cpp">
+      <Filter>src\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Draw\Text.cpp">
       <Filter>src\Draw</Filter>
     </ClCompile>
   </ItemGroup>
