@@ -63,6 +63,11 @@ namespace CreaDXTKLib
     namespace Math { }
 
     /// <summary>
+    /// サウンド関係
+    /// </summary>
+    namespace Audio { }
+
+    /// <summary>
     /// 終了させる
     /// </summary>
     extern void ExitGame();

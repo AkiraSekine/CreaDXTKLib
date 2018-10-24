@@ -205,6 +205,9 @@
     <ClInclude Include="..\src\Default\StepTimer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Audio\Audio.vcxproj">
+      <Project>{c43cb4d0-660d-4475-8ae3-fac33b29be4e}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Draw\Draw.vcxproj">
       <Project>{1d5be297-c88b-418e-b530-b9684adadf17}</Project>
     </ProjectReference>
