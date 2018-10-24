@@ -5,6 +5,9 @@
 #include "pch.h"
 #include "Game.h"
 #include "../CreaDXTKLib/CreaDXTKLib.h"
+#include "../Audio/SoundSystem.h"
+
+#include <Dbt.h>
 
 using namespace DirectX;
 
@@ -36,6 +39,8 @@ int Main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCm
         return 1;
 
     g_game = std::make_unique<Game>();
+
+    HDEVNOTIFY hNewAudio = nullptr;
 
     // Register class and create window
     {
@@ -85,6 +90,15 @@ int Main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCm
         GetClientRect(hwnd, &rc);
 
         g_game->Initialize(hwnd, rc.right - rc.left, rc.bottom - rc.top);
+
+        // Listen for new audio devices
+        DEV_BROADCAST_DEVICEINTERFACE filter = {};
+
+        filter.dbcc_size = sizeof(filter);
+        filter.dbcc_devicetype = DBT_DEVTYP_DEVICEINTERFACE;
+        filter.dbcc_classguid = KSCATEGORY_AUDIO;
+
+        hNewAudio = RegisterDeviceNotification(hwnd, &filter, DEVICE_NOTIFY_WINDOW_HANDLE);
     }
 
     // Main message loop
@@ -103,6 +117,11 @@ int Main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCm
     }
 
     g_game.reset();
+
+    if (hNewAudio)
+    {
+        UnregisterDeviceNotification(hNewAudio);
+    }
 
     CoUninitialize();
 
@@ -290,6 +309,26 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         Keyboard::ProcessMessage(message, wParam, lParam);
 
         break;
+
+    case WM_DEVICECHANGE:
+
+        if (wParam == DBT_DEVICEARRIVAL)
+        {
+            auto pDev = reinterpret_cast<PDEV_BROADCAST_HDR>(lParam);
+
+            if (pDev)
+            {
+                if (pDev->dbch_devicetype == DBT_DEVTYP_DEVICEINTERFACE)
+                {
+                    auto pInter = reinterpret_cast<const PDEV_BROADCAST_DEVICEINTERFACE>(pDev);
+
+                    if(pInter->dbcc_classguid==KSCATEGORY_AUDIO && game)
+                    {
+                        CreaDXTKLib::Audio::SoundSystem::Instance().OnNewAudioDevice();
+                    }
+                }
+            }
+        }
     }
 
     return DefWindowProc(hWnd, message, wParam, lParam);

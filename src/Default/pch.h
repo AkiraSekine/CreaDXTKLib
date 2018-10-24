@@ -56,6 +56,7 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "SpriteFont.h"
+#include "Audio.h"
 
 namespace DX
 {

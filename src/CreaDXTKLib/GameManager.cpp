@@ -4,10 +4,12 @@
 #include "../Draw/Image.h"
 #include "../Input/Keyboard.hpp"
 #include "../Input/Mouse.hpp"
+#include "../Audio/SoundSystem.h"
 
 using namespace Microsoft::WRL;
 using namespace CreaDXTKLib::Draw;
 using namespace CreaDXTKLib::Input;
+using namespace CreaDXTKLib::Audio;
 
 namespace CreaDXTKLib
 {
@@ -15,6 +17,7 @@ namespace CreaDXTKLib
     {
         Image::Instance().Initialize(_context, _device);
         Keyboard::Instance().Initialize();
+        SoundSystem::Instance().Initialize();
 
         SetUp();
     }
@@ -23,6 +26,7 @@ namespace CreaDXTKLib
     {
         Keyboard::Instance().Update();
         Mouse::Instance().Update();
+        SoundSystem::Instance().Update();
 
         m_nowScene->Update(_elapsedTime);
     }

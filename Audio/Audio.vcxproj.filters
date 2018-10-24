@@ -9,12 +9,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\Audio\Sound.h">
+    <ClInclude Include="..\src\Audio\SoundSystem.h">
       <Filter>src\Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\Audio\Sound.cpp">
+    <ClCompile Include="..\src\Audio\SoundSystem.cpp">
       <Filter>src\Audio</Filter>
     </ClCompile>
   </ItemGroup>

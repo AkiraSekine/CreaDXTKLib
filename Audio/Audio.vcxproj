@@ -19,15 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\Audio\Sound.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\src\Audio\Sound.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\DirectXTK-master\Audio\DirectXTKAudio_Desktop_2017_DXSDK.vcxproj">
       <Project>{4f150a30-cecb-49d1-8283-6a3f57438cf5}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.vcxproj">
+      <Project>{c0576279-4b9b-4049-a314-9fde2db1952f}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Audio\SoundSystem.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Audio\SoundSystem.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
