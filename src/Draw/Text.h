@@ -9,11 +9,6 @@
 
 namespace CreaDXTKLib
 {
-    namespace Utility
-    {
-        template <class T> class Singleton;
-    }
-
 namespace Draw
 {
     /// <summary>
