@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../Default/pch.h"
+
 #ifndef ABSTRACT
 #define ABSTRACT = 0
 #endif // !ABSTRACT
@@ -19,6 +21,19 @@
 #pragma comment(lib, "Utility.lib")
 
 #endif
+
+extern "C"
+{
+    int Main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow);
+}
+
+#ifndef CREA_DXTKLIB
+
+#define CREA_DXTKLIB \
+int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPWSTR lpCmdLine, _In_ int nCmdShow)\
+{ Main(hInstance, hPrevInstance, lpCmdLine, nCmdShow); }
+
+#endif // !CREA_DXTKLIB
 
 /// <summary>
 /// ÉQÅ[ÉÄÇÃê›íË

@@ -10,16 +10,6 @@
 
 namespace CreaDXTKLib
 {
-    namespace Utility
-    {
-        template <class T> class Singleton;
-    }
-
-    namespace Math
-    {
-        class Transform2D;
-    }
-
 namespace Draw
 {
     /// <summary>
