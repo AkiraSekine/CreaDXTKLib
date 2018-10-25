@@ -27,9 +27,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\Audio\Sound.h" />
     <ClInclude Include="..\src\Audio\SoundSystem.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Audio\Sound.cpp" />
     <ClCompile Include="..\src\Audio\SoundSystem.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -127,6 +129,7 @@
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)Lib;$(DXTK)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OutputFile>$(SolutionDir)Lib\$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -166,6 +169,7 @@
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)Lib;$(DXTK)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OutputFile>$(SolutionDir)Lib\$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

@@ -1,4 +1,5 @@
 #include "SoundSystem.h"
+#include "Sound.h"
 
 using namespace std;
 using namespace DirectX;
@@ -11,10 +12,12 @@ namespace Audio
     {
         AUDIO_ENGINE_FLAGS eflags = AudioEngine_Default;
 
+        // デバッグ状態を設定
 #ifdef _DEBUG
         eflags = eflags | AudioEngine_Debug;
 #endif // _DEBUG
 
+        // オーディオエンジンを作成
         m_audioEngine = make_unique<AudioEngine>(eflags);
         m_retryAudio = false;
     }
@@ -26,6 +29,7 @@ namespace Audio
             m_retryAudio = false;
             if (m_audioEngine->Reset())
             {
+                Sound::Instance().Update();
             }
         }
         else if (!m_audioEngine->Update())
@@ -43,6 +47,8 @@ namespace Audio
         {
             m_audioEngine->Suspend();
         }
+
+        Sound::Instance().OnEnd();
     }
 
     AudioEngine* SoundSystem::GetAudioEngine()

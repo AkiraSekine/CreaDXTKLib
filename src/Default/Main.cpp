@@ -322,13 +322,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 {
                     auto pInter = reinterpret_cast<const PDEV_BROADCAST_DEVICEINTERFACE>(pDev);
 
-                    if(pInter->dbcc_classguid==KSCATEGORY_AUDIO && game)
+                    if(pInter->dbcc_classguid == KSCATEGORY_AUDIO && game)
                     {
                         CreaDXTKLib::Audio::SoundSystem::Instance().OnNewAudioDevice();
                     }
                 }
             }
         }
+
+        return 0;
     }
 
     return DefWindowProc(hWnd, message, wParam, lParam);

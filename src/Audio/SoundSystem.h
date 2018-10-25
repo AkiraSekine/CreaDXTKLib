@@ -37,8 +37,15 @@ namespace Audio
         /// <returns>オーディオエンジン</returns>
         DirectX::AudioEngine* GetAudioEngine();
 
+        /// <summary>
+        /// オーディオデバイスを再検出させる
+        /// </summary>
         void OnNewAudioDevice();
 
+        /// <summary>
+        /// サイレントモードかの取得
+        /// </summary>
+        /// <returns>サイレントモードか</returns>
         bool IsSilent();
 
     private:
