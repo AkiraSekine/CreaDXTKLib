@@ -8,6 +8,7 @@
 #include "../CreaDXTKLib/GameManager.h"
 #include "../Input/Mouse.hpp"
 #include "../Utility/Window.h"
+#include "../Audio/SoundSystem.h"
 
 extern void ExitGame();
 
@@ -17,6 +18,7 @@ using Microsoft::WRL::ComPtr;
 
 using namespace CreaDXTKLib;
 using namespace CreaDXTKLib::Utility;
+using namespace CreaDXTKLib::Audio;
 
 Game::Game() :
     m_window(nullptr),
@@ -24,6 +26,11 @@ Game::Game() :
     m_outputHeight(600),
     m_featureLevel(D3D_FEATURE_LEVEL_9_1)
 {
+}
+
+Game::~Game()
+{
+    SoundSystem::Instance().OnEnd();
 }
 
 // Initialize the Direct3D resources required to run.
@@ -134,6 +141,8 @@ void Game::OnDeactivated()
 void Game::OnSuspending()
 {
     // TODO: Game is being power-suspended (or minimized).
+
+    SoundSystem::Instance().GetAudioEngine()->Suspend();
 }
 
 void Game::OnResuming()
@@ -141,6 +150,8 @@ void Game::OnResuming()
     m_timer.ResetElapsedTime();
 
     // TODO: Game is being power-resumed (or returning from minimize).
+
+    SoundSystem::Instance().GetAudioEngine()->Resume();
 }
 
 void Game::OnWindowSizeChanged(int width, int height)

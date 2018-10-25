@@ -12,6 +12,7 @@
 #pragma comment(lib, "Input_d.lib")
 #pragma comment(lib, "Math_d.lib")
 #pragma comment(lib, "Utility_d.lib")
+#pragma comment(lib, "Audio_d.lib")
 
 #elif defined(_MSVC_LANG)
 
@@ -19,6 +20,7 @@
 #pragma comment(lib, "Input.lib")
 #pragma comment(lib, "Math.lib")
 #pragma comment(lib, "Utility.lib")
+#pragma comment(lib, "Audio.lib")
 
 #endif
 
