@@ -8,21 +8,21 @@
 #define OBJECT2D(_CLASS)\
 public:\
 _CLASS() :\
-Object2D()\
+CreaDXTKLib::Object2D()\
 { Start(); }\
 _CLASS(const std::wstring& _imageName,\
-const Math::Vector2& _position = Math::Vector2::zero,\
+const CreaDXTKLib::Math::Vector2& _position = CreaDXTKLib::Math::Vector2::zero,\
 float _rotation = 0.f,\
-const Math::Vector2& _scale = Math::Vector2::one,\
-Math::Transform2D* _parent = nullptr,\
+const CreaDXTKLib::Math::Vector2& _scale = CreaDXTKLib::Math::Vector2::one,\
+CreaDXTKLib::Math::Transform2D* _parent = nullptr,\
 const std::wstring& _objectName = L"Object") :\
-Object2D(_imageName, _position, _rotation, _scale, _parent, _objectName)\
+CreaDXTKLib::Object2D(_imageName, _position, _rotation, _scale, _parent, _objectName)\
 { Start(); }\
 _CLASS(const std::wstring& _imageName,\
-const Math::Transform2D& _transform,\
-Math::Transform2D* _parent = nullptr,\
+const CreaDXTKLib::Math::Transform2D& _transform,\
+CreaDXTKLib::Math::Transform2D* _parent = nullptr,\
 const std::wstring& _objectName = L"Object") :\
-Object2D(_imageName, _transform, _parent, _objectName)\
+CreaDXTKLib::Object2D(_imageName, _transform, _parent, _objectName)\
 { Start(); }\
 virtual ~_CLASS() override\
 { End(); }
@@ -31,11 +31,6 @@ virtual ~_CLASS() override\
 
 namespace CreaDXTKLib
 {
-    namespace Math
-    {
-        class Transform2D;
-    }
-
     class Object2D : public Math::Transform2D
     {
     public:
