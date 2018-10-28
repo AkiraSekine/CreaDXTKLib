@@ -29,6 +29,32 @@ virtual ~_CLASS() override\
 
 #endif // !OBJECT2D
 
+#ifndef OBJECT2D_PARENT
+
+#define OBJECT2D_PARENT(_CLASS, _PARENT)\
+public:\
+_CLASS() :\
+_PARENT()\
+{ Start(); }\
+_CLASS(const std::wstring& _imageName,\
+const CreaDXTKLib::Math::Vector2& _position = CreaDXTKLib::Math::Vector2::zero,\
+float _rotation = 0.f,\
+const CreaDXTKLib::Math::Vector2& _scale = CreaDXTKLib::Math::Vector2::one,\
+CreaDXTKLib::Math::Transform2D* _parent = nullptr,\
+const std::wstring& _objectName = L"Object") :\
+_PARENT(_imageName, _position, _rotation, _scale, _parent, _objectName)\
+{ Start(); }\
+_CLASS(const std::wstring& _imageName,\
+const CreaDXTKLib::Math::Transform2D& _transform,\
+CreaDXTKLib::Math::Transform2D* _parent = nullptr,\
+const std::wstring& _objectName = L"Object") :\
+_PARENT(_imageName, _transform, _parent, _objectName)\
+{ Start(); }\
+virtual ~_CLASS() override\
+{ End(); }
+
+#endif // !OBJECT2D_PARENT
+
 namespace CreaDXTKLib
 {
     class Object2D : public Math::Transform2D
