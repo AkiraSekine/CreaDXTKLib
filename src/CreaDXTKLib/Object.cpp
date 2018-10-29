@@ -42,7 +42,7 @@ namespace CreaDXTKLib
     {
     }
 
-    void Object2D::Draw(FXMVECTOR & _color)
+    void Object2D::Draw(FXMVECTOR & _color) const
     {
         // 親に非アクティブの状態が無ければ描画する
         if (CheckParentIsActive())
@@ -51,7 +51,7 @@ namespace CreaDXTKLib
         }
     }
 
-    void Object2D::Draw(const RECT & _rect, FXMVECTOR & _color)
+    void Object2D::Draw(const RECT & _rect, FXMVECTOR & _color) const
     {
         // 親に非アクティブの状態が無ければ描画する
         if (CheckParentIsActive())
@@ -60,7 +60,7 @@ namespace CreaDXTKLib
         }
     }
 
-    void Object2D::Draw(XMVECTORF32 & _color)
+    void Object2D::Draw(XMVECTORF32 & _color) const
     {
         // 親に非アクティブの状態が無ければ描画する
         if (CheckParentIsActive())
@@ -69,7 +69,7 @@ namespace CreaDXTKLib
         }
     }
 
-    void Object2D::Draw(const RECT & _rect, XMVECTORF32 & _color)
+    void Object2D::Draw(const RECT & _rect, XMVECTORF32 & _color) const
     {
         // 親に非アクティブの状態が無ければ描画する
         if (CheckParentIsActive())
@@ -80,10 +80,21 @@ namespace CreaDXTKLib
 
     void Object2D::SetActive(bool _isActive)
     {
+        // 非アクティブ状態になったらOnDisableを呼ぶ
+        if (m_isActive && !_isActive)
+        {
+            OnDisable();
+        }
+        // アクティブ状態になったらOnEnableを呼ぶ
+        if (!m_isActive && _isActive)
+        {
+            OnEnable();
+        }
+
         m_isActive = _isActive;
     }
 
-    wstring Object2D::ObjectName()
+    wstring Object2D::ObjectName() const
     {
         return m_objectName;
     }
@@ -98,7 +109,7 @@ namespace CreaDXTKLib
         return m_isActive;
     }
 
-    bool Object2D::CheckParentIsActive()
+    bool Object2D::CheckParentIsActive() const
     {
         Transform2D* parent = Parent();
 

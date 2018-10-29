@@ -3,58 +3,6 @@
 #include "../Math/Transform.h"
 #include "CreaDXTKLib.h"
 
-#ifndef OBJECT2D
-
-#define OBJECT2D(_CLASS)\
-public:\
-_CLASS() :\
-CreaDXTKLib::Object2D()\
-{ Start(); }\
-_CLASS(const std::wstring& _imageName,\
-const CreaDXTKLib::Math::Vector2& _position = CreaDXTKLib::Math::Vector2::zero,\
-float _rotation = 0.f,\
-const CreaDXTKLib::Math::Vector2& _scale = CreaDXTKLib::Math::Vector2::one,\
-CreaDXTKLib::Math::Transform2D* _parent = nullptr,\
-const std::wstring& _objectName = L"Object") :\
-CreaDXTKLib::Object2D(_imageName, _position, _rotation, _scale, _parent, _objectName)\
-{ Start(); }\
-_CLASS(const std::wstring& _imageName,\
-const CreaDXTKLib::Math::Transform2D& _transform,\
-CreaDXTKLib::Math::Transform2D* _parent = nullptr,\
-const std::wstring& _objectName = L"Object") :\
-CreaDXTKLib::Object2D(_imageName, _transform, _parent, _objectName)\
-{ Start(); }\
-virtual ~_CLASS() override\
-{ End(); }
-
-#endif // !OBJECT2D
-
-#ifndef OBJECT2D_PARENT
-
-#define OBJECT2D_PARENT(_CLASS, _PARENT)\
-public:\
-_CLASS() :\
-_PARENT()\
-{ Start(); }\
-_CLASS(const std::wstring& _imageName,\
-const CreaDXTKLib::Math::Vector2& _position = CreaDXTKLib::Math::Vector2::zero,\
-float _rotation = 0.f,\
-const CreaDXTKLib::Math::Vector2& _scale = CreaDXTKLib::Math::Vector2::one,\
-CreaDXTKLib::Math::Transform2D* _parent = nullptr,\
-const std::wstring& _objectName = L"Object") :\
-_PARENT(_imageName, _position, _rotation, _scale, _parent, _objectName)\
-{ Start(); }\
-_CLASS(const std::wstring& _imageName,\
-const CreaDXTKLib::Math::Transform2D& _transform,\
-CreaDXTKLib::Math::Transform2D* _parent = nullptr,\
-const std::wstring& _objectName = L"Object") :\
-_PARENT(_imageName, _transform, _parent, _objectName)\
-{ Start(); }\
-virtual ~_CLASS() override\
-{ End(); }
-
-#endif // !OBJECT2D_PARENT
-
 namespace CreaDXTKLib
 {
     class Object2D : public Math::Transform2D
@@ -85,42 +33,34 @@ namespace CreaDXTKLib
         virtual ~Object2D();
 
         /// <summary>
-        /// 開始処理
-        /// </summary>
-        virtual void Start() ABSTRACT;
-        /// <summary>
         /// 更新処理
         /// </summary>
         /// <param name="_elapsedTime">前フレームからの経過時間</param>
         virtual void Update(float _elapsedTime) ABSTRACT;
-        /// <summary>
-        /// 終了処理
-        /// </summary>
-        virtual void End() ABSTRACT;
 
         /// <summary>
         /// オブジェクトを描画
         /// </summary>
         /// <param name="_color">加算色</param>
-        virtual void Draw(DirectX::FXMVECTOR& _color = DirectX::Colors::White);
+        virtual void Draw(DirectX::FXMVECTOR& _color = DirectX::Colors::White) const final;
         /// <summary>
         /// オブジェクトを描画
         /// </summary>
         /// <param name="_rect">描画矩形</param>
         /// <param name="_color">加算色</param>
         virtual void Draw(const RECT& _rect,
-            DirectX::FXMVECTOR& _color = DirectX::Colors::White);
+            DirectX::FXMVECTOR& _color = DirectX::Colors::White) const final;
         /// <summary>
         /// オブジェクトを描画
         /// </summary>
         /// <param name="_color">加算色</param>
-        virtual void Draw(DirectX::XMVECTORF32& _color);
+        virtual void Draw(DirectX::XMVECTORF32& _color) const final;
         /// <summary>
         /// オブジェクトを描画
         /// </summary>
         /// <param name="_rect">描画矩形</param>
         /// <param name="_color">加算色</param>
-        virtual void Draw(const RECT& _rect, DirectX::XMVECTORF32& _color);
+        virtual void Draw(const RECT& _rect, DirectX::XMVECTORF32& _color) const final;
 
         /// <summary>
         /// アクティブ状態を設定
@@ -132,7 +72,7 @@ namespace CreaDXTKLib
         /// オブジェクト名を取得
         /// </summary>
         /// <returns>オブジェクト名</returns>
-        virtual std::wstring ObjectName() final;
+        virtual std::wstring ObjectName() const final;
         /// <summary>
         /// オブジェクト名を設定
         /// </summary>
@@ -144,19 +84,88 @@ namespace CreaDXTKLib
     protected:
 
         /// <summary>
-        /// アクティブ状態か
-        /// </summary>
-        bool m_isActive = true;
-
-        /// <summary>
         /// オブジェクト名
         /// </summary>
         std::wstring m_objectName;
 
+        /// <summary>
+        /// 開始処理
+        /// </summary>
+        virtual void Start() { }
+
+        /// <summary>
+        /// 終了処理
+        /// </summary>
+        virtual void OnDestroy() { }
+
+        /// <summary>
+        /// アクティブ状態になった時に呼ばれる
+        /// </summary>
+        virtual void OnEnable() { }
+
+        /// <summary>
+        /// 非アクティブ状態になった時に呼ばれる
+        /// </summary>
+        virtual void OnDisable() { }
+
     private:
+
+        bool m_isActive = true;
 
         std::wstring m_imageHandle;
 
-        bool CheckParentIsActive();
+        bool CheckParentIsActive() const;
     };
 }
+
+#ifndef OBJECT2D
+
+#define OBJECT2D(_CLASS)\
+public:\
+_CLASS() :\
+CreaDXTKLib::Object2D()\
+{ Start(); }\
+_CLASS(const std::wstring& _imageName,\
+const CreaDXTKLib::Math::Vector2& _position = CreaDXTKLib::Math::Vector2::zero,\
+float _rotation = 0.f,\
+const CreaDXTKLib::Math::Vector2& _scale = CreaDXTKLib::Math::Vector2::one,\
+CreaDXTKLib::Math::Transform2D* _parent = nullptr,\
+const std::wstring& _objectName = L"Object") :\
+CreaDXTKLib::Object2D(_imageName, _position, _rotation, _scale, _parent, _objectName)\
+{ Start(); }\
+_CLASS(const std::wstring& _imageName,\
+const CreaDXTKLib::Math::Transform2D& _transform,\
+CreaDXTKLib::Math::Transform2D* _parent = nullptr,\
+const std::wstring& _objectName = L"Object") :\
+CreaDXTKLib::Object2D(_imageName, _transform, _parent, _objectName)\
+{ Start(); }\
+virtual ~_CLASS() override\
+{ OnDestroy(); }
+
+#endif // !OBJECT2D
+
+#ifndef OBJECT2D_PARENT
+
+#define OBJECT2D_PARENT(_CLASS, _PARENT)\
+public:\
+_CLASS() :\
+_PARENT()\
+{ Start(); }\
+_CLASS(const std::wstring& _imageName,\
+const CreaDXTKLib::Math::Vector2& _position = CreaDXTKLib::Math::Vector2::zero,\
+float _rotation = 0.f,\
+const CreaDXTKLib::Math::Vector2& _scale = CreaDXTKLib::Math::Vector2::one,\
+CreaDXTKLib::Math::Transform2D* _parent = nullptr,\
+const std::wstring& _objectName = L"Object") :\
+_PARENT(_imageName, _position, _rotation, _scale, _parent, _objectName)\
+{ Start(); }\
+_CLASS(const std::wstring& _imageName,\
+const CreaDXTKLib::Math::Transform2D& _transform,\
+CreaDXTKLib::Math::Transform2D* _parent = nullptr,\
+const std::wstring& _objectName = L"Object") :\
+_PARENT(_imageName, _transform, _parent, _objectName)\
+{ Start(); }\
+virtual ~_CLASS() override\
+{ OnDestroy(); }
+
+#endif // !OBJECT2D_PARENT
