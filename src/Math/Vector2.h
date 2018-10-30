@@ -42,31 +42,31 @@ namespace Math
         /// ベクトルの大きさを計算
         /// </summary>
         /// <returns>ベクトルの大きさ</returns>
-        virtual float Magnitude();
+        virtual float Magnitude() const;
         /// <summary>
         /// ベクトルの大きさの2乗を計算
         /// </summary>
         /// <returns>ベクトルの大きさの2乗</returns>
-        virtual float SqrMagnitude();
+        virtual float SqrMagnitude() const;
 
         /// <summary>
         /// 正規化した値を計算
         /// </summary>
         /// <returns>正規値</returns>
-        virtual Vector2 Normalize();
+        virtual Vector2 Normalize() const;
 
         /// <summary>
         /// 内積を計算
         /// </summary>
         /// <param name="_vec">ベクトル</param>
         /// <returns>内積</returns>
-        virtual float Dot(Vector2& _vec);
+        virtual float Dot(const Vector2& _vec) const;
         /// <summary>
         /// 外積を計算
         /// </summary>
         /// <param name="_vec">ベクトル</param>
         /// <returns>外積</returns>
-        virtual float Cross(Vector2& _vec);
+        virtual float Cross(const Vector2& _vec) const;
 
         virtual const Vector2 operator-() const;
         virtual const Vector2 operator+(const Vector2& _vec) const;

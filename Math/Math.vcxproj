@@ -19,11 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\Math\Collider2D.h" />
     <ClInclude Include="..\src\Math\Math.h" />
     <ClInclude Include="..\src\Math\Transform.h" />
     <ClInclude Include="..\src\Math\Vector2.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Math\BoxCollider.cpp" />
+    <ClCompile Include="..\src\Math\CircleCollider.cpp" />
+    <ClCompile Include="..\src\Math\Collider2D.cpp" />
+    <ClCompile Include="..\src\Math\LineCollider.cpp" />
     <ClCompile Include="..\src\Math\Math.cpp" />
     <ClCompile Include="..\src\Math\Transform.cpp" />
     <ClCompile Include="..\src\Math\Vector2.cpp" />
