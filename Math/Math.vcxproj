@@ -19,6 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\Inc\Math\Collider2D.h" />
+    <ClInclude Include="..\src\Inc\Math\Math.h" />
+    <ClInclude Include="..\src\Inc\Math\Transform.h" />
+    <ClInclude Include="..\src\Inc\Math\Vector2.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="..\src\Math\BoxCollider.cpp" />
     <ClCompile Include="..\src\Math\CircleCollider.cpp" />
     <ClCompile Include="..\src\Math\Collider2D.cpp" />
@@ -26,12 +32,6 @@
     <ClCompile Include="..\src\Math\Math.cpp" />
     <ClCompile Include="..\src\Math\Transform.cpp" />
     <ClCompile Include="..\src\Math\Vector2.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\src\Inc\Math\Collider2D.h" />
-    <ClInclude Include="..\src\Inc\Math\Math.h" />
-    <ClInclude Include="..\src\Inc\Math\Transform.h" />
-    <ClInclude Include="..\src\Inc\Math\Vector2.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\src\Inc\Math\Vector2.inl" />
@@ -115,7 +115,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(DXTK)\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src\Inc;$(DXTK)\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile />
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
@@ -160,7 +160,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(DXTK)\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src\Inc;$(DXTK)\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile />
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>

@@ -19,21 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\Utility\Debug.cpp" />
-    <ClCompile Include="..\src\Utility\Window.cpp" />
+    <ClInclude Include="..\src\Inc\Utility\Debug.h" />
+    <ClInclude Include="..\src\Inc\Utility\Singleton.h" />
+    <ClInclude Include="..\src\Inc\Utility\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Math\Math.vcxproj">
-      <Project>{e826b46c-6502-4bb4-b613-21711b1a7eb2}</Project>
-    </ProjectReference>
+    <ClCompile Include="..\src\Utility\Debug.cpp" />
+    <ClCompile Include="..\src\Utility\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\src\Inc\Utility\Singleton.inl" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\Inc\Utility\Debug.h" />
-    <ClInclude Include="..\src\Inc\Utility\Singleton.h" />
-    <ClInclude Include="..\src\Inc\Utility\Window.h" />
+    <ProjectReference Include="..\Math\Math.vcxproj">
+      <Project>{e826b46c-6502-4bb4-b613-21711b1a7eb2}</Project>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -115,7 +115,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile />
-      <AdditionalIncludeDirectories>$(DXTK)\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src\Inc;$(DXTK)\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
@@ -156,7 +156,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile />
-      <AdditionalIncludeDirectories>$(DXTK)\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src\Inc;$(DXTK)\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>

@@ -1,4 +1,4 @@
-#include "../Inc/Input/Keyboard.hpp"
+#include "Input/Keyboard.hpp"
 
 using namespace std;
 

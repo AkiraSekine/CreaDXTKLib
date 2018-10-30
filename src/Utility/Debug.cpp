@@ -1,4 +1,4 @@
-#include "../Inc/Utility/Debug.h"
+#include "Utility/Debug.h"
 
 #include <cstdarg>
 #include <cstdio>

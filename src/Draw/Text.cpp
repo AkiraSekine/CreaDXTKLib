@@ -1,4 +1,4 @@
-#include "../Inc/Draw/Text.h"
+#include "Draw/Text.h"
 
 using namespace std;
 using namespace Microsoft::WRL;

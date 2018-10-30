@@ -1,4 +1,4 @@
-#include "../Inc/Utility/Window.h"
+#include "Utility/Window.h"
 
 #include <string>
 

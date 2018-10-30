@@ -2,13 +2,13 @@
 // Game.cpp
 //
 
-#include "../Inc/DirectXTK/pch.h"
-#include "../Inc/DirectXTK/Game.h"
+#include "DirectXTK/pch.h"
+#include "DirectXTK/Game.h"
 
-#include "../Inc/CreaDXTKLib/GameManager.h"
-#include "../Inc/Input/Mouse.hpp"
-#include "../Inc/Utility/Window.h"
-#include "../Inc/Audio/SoundSystem.h"
+#include "CreaDXTKLib/GameManager.h"
+#include "Input/Mouse.hpp"
+#include "Utility/Window.h"
+#include "Audio/SoundSystem.h"
 
 extern void ExitGame();
 

@@ -9,6 +9,20 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\Inc\Math\Collider2D.h">
+      <Filter>src\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\Math\Math.h">
+      <Filter>src\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\Math\Transform.h">
+      <Filter>src\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\Math\Vector2.h">
+      <Filter>src\Math</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="..\src\Math\Transform.cpp">
       <Filter>src\Math</Filter>
     </ClCompile>
@@ -30,20 +44,6 @@
     <ClCompile Include="..\src\Math\BoxCollider.cpp">
       <Filter>src\Math</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\src\Inc\Math\Vector2.h">
-      <Filter>src\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Inc\Math\Collider2D.h">
-      <Filter>src\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Inc\Math\Math.h">
-      <Filter>src\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Inc\Math\Transform.h">
-      <Filter>src\Math</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\src\Inc\Math\Vector2.inl">

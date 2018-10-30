@@ -1,4 +1,4 @@
-﻿#include "../Inc/Input/Mouse.hpp"
+﻿#include "Input/Mouse.hpp"
 
 using namespace std;
 using namespace DirectX::SimpleMath;

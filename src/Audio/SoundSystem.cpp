@@ -1,5 +1,5 @@
-#include "../Inc/Audio/SoundSystem.h"
-#include "../Inc/Audio/Sound.h"
+#include "Audio/SoundSystem.h"
+#include "Audio/Sound.h"
 
 using namespace std;
 using namespace DirectX;
