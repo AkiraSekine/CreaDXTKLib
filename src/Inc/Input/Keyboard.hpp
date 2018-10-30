@@ -1,7 +1,5 @@
 #pragma once
 
-#include "../Default/pch.h"
-
 #include "Input.h"
 
 namespace CreaDXTKLib

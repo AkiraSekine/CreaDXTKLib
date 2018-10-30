@@ -12,19 +12,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\Draw\Image.h">
-      <Filter>src\Draw</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Draw\Text.h">
-      <Filter>src\Draw</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\src\Draw\Image.cpp">
       <Filter>src\Draw</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Draw\Text.cpp">
       <Filter>src\Draw</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Inc\Draw\Text.h">
+      <Filter>src\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\Draw\Image.h">
+      <Filter>src\Draw</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

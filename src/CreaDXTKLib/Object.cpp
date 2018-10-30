@@ -1,6 +1,6 @@
-#include "Object.h"
+#include "../Inc/CreaDXTKLib/Object.h"
 
-#include "../Draw/Image.h"
+#include "../Inc/Draw/Image.h"
 
 using namespace std;
 using namespace DirectX;

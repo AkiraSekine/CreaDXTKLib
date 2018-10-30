@@ -2,10 +2,10 @@
 // Main.cpp
 //
 
-#include "pch.h"
-#include "Game.h"
-#include "../CreaDXTKLib/CreaDXTKLib.h"
-#include "../Audio/SoundSystem.h"
+#include "../Inc/DirectXTK/pch.h"
+#include "../Inc/DirectXTK/Game.h"
+#include "../Inc/CreaDXTKLib/CreaDXTKLib.h"
+#include "../Inc/Audio/SoundSystem.h"
 
 #include <Dbt.h>
 

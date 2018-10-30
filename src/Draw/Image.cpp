@@ -1,7 +1,7 @@
-#include "Image.h"
+#include "../Inc/Draw/Image.h"
 
-#include "../Utility/Debug.h"
-#include "Text.h"
+#include "../Inc/Utility/Debug.h"
+#include "../Inc/Draw/Text.h"
 
 using namespace std;
 using namespace DirectX;
