@@ -31,17 +31,17 @@ namespace Math
     {
     }
 
-    float Vector2::Magnitude()
+    float Vector2::Magnitude() const
     {
         return sqrtf((x * x) + (y * y));
     }
 
-    float Vector2::SqrMagnitude()
+    float Vector2::SqrMagnitude() const
     {
         return (x * x) + (y * y);
     }
 
-    Vector2 Vector2::Normalize()
+    Vector2 Vector2::Normalize() const
     {
         Vector2 normalized;
         float mag = 1.f / Magnitude();
@@ -53,12 +53,12 @@ namespace Math
         return normalized;
     }
 
-    float Vector2::Dot(Vector2 & _vec)
+    float Vector2::Dot(const Vector2 & _vec) const
     {
         return x * _vec.x + y * _vec.y;
     }
 
-    float Vector2::Cross(Vector2 & _vec)
+    float Vector2::Cross(const Vector2 & _vec) const
     {
         return x * _vec.y - _vec.x * y;
     }

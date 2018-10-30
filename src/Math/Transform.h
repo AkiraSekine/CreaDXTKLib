@@ -8,6 +8,9 @@ namespace CreaDXTKLib
 {
 namespace Math
 {
+    /// <summary>
+    /// 位置,回転,スケール情報
+    /// </summary>
     class Transform2D
     {
     public:

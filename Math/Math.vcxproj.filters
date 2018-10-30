@@ -18,6 +18,9 @@
     <ClInclude Include="..\src\Math\Vector2.h">
       <Filter>src\Math</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Math\Collider2D.h">
+      <Filter>src\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Math\Transform.cpp">
@@ -27,6 +30,18 @@
       <Filter>src\Math</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Math\Vector2.cpp">
+      <Filter>src\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Math\Collider2D.cpp">
+      <Filter>src\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Math\CircleCollider.cpp">
+      <Filter>src\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Math\LineCollider.cpp">
+      <Filter>src\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Math\BoxCollider.cpp">
       <Filter>src\Math</Filter>
     </ClCompile>
   </ItemGroup>
