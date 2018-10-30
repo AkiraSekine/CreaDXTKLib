@@ -20,13 +20,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\Inc\Input\Input.h">
+      <Filter>src\Input</Filter>
+    </ClInclude>
     <ClInclude Include="..\src\Inc\Input\Keyboard.hpp">
       <Filter>src\Input</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Inc\Input\Mouse.hpp">
-      <Filter>src\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Inc\Input\Input.h">
       <Filter>src\Input</Filter>
     </ClInclude>
   </ItemGroup>

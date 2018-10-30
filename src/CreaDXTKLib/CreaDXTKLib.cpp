@@ -1,6 +1,6 @@
-#include "../Inc/CreaDXTKLib/CreaDXTKLib.h"
+#include "CreaDXTKLib/CreaDXTKLib.h"
 
-#include "../Inc/DirectXTK/pch.h"
+#include "DirectXTK/pch.h"
 
 namespace CreaDXTKLib
 {

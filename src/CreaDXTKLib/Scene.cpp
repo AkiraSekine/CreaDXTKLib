@@ -1,4 +1,4 @@
-#include "../Inc/CreaDXTKLib/Scene.h"
+#include "CreaDXTKLib/Scene.h"
 
 #include <cstdlib>
 

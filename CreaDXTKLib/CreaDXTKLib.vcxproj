@@ -104,7 +104,7 @@
       </PrecompiledHeaderFile>
       <FloatingPointModel>Fast</FloatingPointModel>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
-      <AdditionalIncludeDirectories>$(DXTK)\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src\Inc;$(DXTK)\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
@@ -148,7 +148,7 @@
       </PrecompiledHeaderFile>
       <FloatingPointModel>Fast</FloatingPointModel>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
-      <AdditionalIncludeDirectories>$(DXTK)\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src\Inc;$(DXTK)\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -201,7 +201,6 @@
     <ClCompile Include="..\src\CreaDXTKLib\Scene.cpp" />
     <ClCompile Include="..\src\DirectXTK\Game.cpp" />
     <ClCompile Include="..\src\DirectXTK\Main.cpp" />
-    <ClCompile Include="..\src\DirectXTK\pch.cpp" />
     <ClCompile Include="..\src\TEST.cpp" />
   </ItemGroup>
   <ItemGroup>
