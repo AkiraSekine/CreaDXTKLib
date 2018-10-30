@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "../Default/pch.h"
+#include "../DirectXTK/pch.h"
 
 #include "../Utility/Singleton.h"
 

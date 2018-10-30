@@ -1,10 +1,10 @@
-#include "GameManager.h"
+#include "../Inc/CreaDXTKLib/GameManager.h"
 
-#include "Scene.h"
-#include "../Draw/Image.h"
-#include "../Input/Keyboard.hpp"
-#include "../Input/Mouse.hpp"
-#include "../Audio/SoundSystem.h"
+#include "../Inc/CreaDXTKLib/Scene.h"
+#include "../Inc/Draw/Image.h"
+#include "../Inc/Input/Keyboard.hpp"
+#include "../Inc/Input/Mouse.hpp"
+#include "../Inc/Audio/SoundSystem.h"
 
 using namespace Microsoft::WRL;
 using namespace CreaDXTKLib::Draw;

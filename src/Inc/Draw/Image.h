@@ -1,6 +1,5 @@
 ﻿#pragma once
 
-#include "../Default/pch.h"
 #include "../Utility/Singleton.h"
 #include "../Math/Transform.h"
 

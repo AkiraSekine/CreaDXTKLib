@@ -12,17 +12,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\Utility\Singleton.h">
-      <Filter>src\Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Utility\Debug.h">
-      <Filter>src\Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Utility\Window.h">
-      <Filter>src\Utility</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\src\Utility\Debug.cpp">
       <Filter>src\Utility</Filter>
     </ClCompile>
@@ -31,8 +20,19 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\src\Utility\Singleton.inl">
+    <None Include="..\src\Inc\Utility\Singleton.inl">
       <Filter>src\Utility</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Inc\Utility\Window.h">
+      <Filter>src\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\Utility\Debug.h">
+      <Filter>src\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\Utility\Singleton.h">
+      <Filter>src\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

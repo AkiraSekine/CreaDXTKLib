@@ -19,12 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\Math\Collider2D.h" />
-    <ClInclude Include="..\src\Math\Math.h" />
-    <ClInclude Include="..\src\Math\Transform.h" />
-    <ClInclude Include="..\src\Math\Vector2.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\src\Math\BoxCollider.cpp" />
     <ClCompile Include="..\src\Math\CircleCollider.cpp" />
     <ClCompile Include="..\src\Math\Collider2D.cpp" />
@@ -34,7 +28,13 @@
     <ClCompile Include="..\src\Math\Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\src\Math\Vector2.inl" />
+    <ClInclude Include="..\src\Inc\Math\Collider2D.h" />
+    <ClInclude Include="..\src\Inc\Math\Math.h" />
+    <ClInclude Include="..\src\Inc\Math\Transform.h" />
+    <ClInclude Include="..\src\Inc\Math\Vector2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\Inc\Math\Vector2.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

@@ -1,6 +1,6 @@
-#include "Sound.h"
-#include "SoundSystem.h"
-#include "../Utility/Debug.h"
+#include "../Inc/Audio/Sound.h"
+#include "../Inc/Audio/SoundSystem.h"
+#include "../Inc/Utility/Debug.h"
 
 using namespace std;
 using namespace DirectX;

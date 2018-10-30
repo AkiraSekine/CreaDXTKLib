@@ -27,12 +27,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\Audio\Sound.h" />
-    <ClInclude Include="..\src\Audio\SoundSystem.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\src\Audio\Sound.cpp" />
     <ClCompile Include="..\src\Audio\SoundSystem.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Inc\Audio\Sound.h" />
+    <ClInclude Include="..\src\Inc\Audio\SoundSystem.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

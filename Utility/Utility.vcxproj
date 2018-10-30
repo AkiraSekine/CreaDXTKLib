@@ -19,21 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\Utility\Debug.h" />
-    <ClInclude Include="..\src\Utility\Singleton.h" />
-    <ClInclude Include="..\src\Utility\Window.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\src\Utility\Debug.cpp" />
     <ClCompile Include="..\src\Utility\Window.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\src\Utility\Singleton.inl" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Math\Math.vcxproj">
       <Project>{e826b46c-6502-4bb4-b613-21711b1a7eb2}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\Inc\Utility\Singleton.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Inc\Utility\Debug.h" />
+    <ClInclude Include="..\src\Inc\Utility\Singleton.h" />
+    <ClInclude Include="..\src\Inc\Utility\Window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

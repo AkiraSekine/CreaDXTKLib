@@ -8,11 +8,11 @@
     <Filter Include="src">
       <UniqueIdentifier>{01d3c58f-9770-4311-8673-87605a6d3ab3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Default">
-      <UniqueIdentifier>{d9572426-74dc-4094-95f0-9847dd8245e8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\CreaDXTKLib">
       <UniqueIdentifier>{4f216dcd-ea6c-4e9e-8741-78c6effa859d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\DirectXTK">
+      <UniqueIdentifier>{d9572426-74dc-4094-95f0-9847dd8245e8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -29,12 +29,6 @@
     </Manifest>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\Default\Main.cpp">
-      <Filter>src\Default</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Default\Game.cpp">
-      <Filter>src\Default</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\CreaDXTKLib\GameManager.cpp">
       <Filter>src\CreaDXTKLib</Filter>
     </ClCompile>
@@ -50,32 +44,41 @@
     <ClCompile Include="..\src\TEST.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\DirectXTK\Main.cpp">
+      <Filter>src\DirectXTK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\DirectXTK\pch.cpp">
+      <Filter>src\DirectXTK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\DirectXTK\Game.cpp">
+      <Filter>src\DirectXTK</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\Default\pch.h">
-      <Filter>src\Default</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Default\StepTimer.h">
-      <Filter>src\Default</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Default\Game.h">
-      <Filter>src\Default</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\CreaDXTKLib\CreaDXTKLib.h">
+    <ClInclude Include="..\src\Inc\CreaDXTKLib\Object.h">
       <Filter>src\CreaDXTKLib</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\CreaDXTKLib\GameManager.h">
+    <ClInclude Include="..\src\Inc\CreaDXTKLib\Scene.h">
       <Filter>src\CreaDXTKLib</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\CreaDXTKLib\Scene.h">
+    <ClInclude Include="..\src\Inc\CreaDXTKLib\CreaDXTKLib.h">
       <Filter>src\CreaDXTKLib</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\CreaDXTKLib\Object.h">
+    <ClInclude Include="..\src\Inc\CreaDXTKLib\GameManager.h">
       <Filter>src\CreaDXTKLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\DirectXTK\StepTimer.h">
+      <Filter>src\DirectXTK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\DirectXTK\Game.h">
+      <Filter>src\DirectXTK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\DirectXTK\pch.h">
+      <Filter>src\DirectXTK</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\src\CreaDXTKLib\GameManager.inl">
+    <None Include="..\src\Inc\CreaDXTKLib\GameManager.inl">
       <Filter>src\CreaDXTKLib</Filter>
     </None>
   </ItemGroup>

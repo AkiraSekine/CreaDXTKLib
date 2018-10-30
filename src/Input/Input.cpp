@@ -1,7 +1,7 @@
-#include "Input.h"
+#include "../Inc/Input/Input.h"
 
-#include "Mouse.hpp"
-#include "Keyboard.hpp"
+#include "../Inc/Input/Mouse.hpp"
+#include "../Inc/Input/Keyboard.hpp"
 
 using namespace std;
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Utility/Singleton.h"
-#include "../Default/pch.h"
+#include "../DirectXTK/pch.h"
 
 #include <map>
 
