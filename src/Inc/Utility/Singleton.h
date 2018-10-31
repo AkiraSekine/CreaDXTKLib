@@ -5,7 +5,7 @@
 /// <summary>
 /// シングルトンの設定
 /// </summary>
-/// <param name="_Class_">クラス名</param>
+/// <param name="_Class_">Singletonを基底としたクラス</param>
 #define SINGLETON(_Class_) \
 public: \
 friend class CreaDXTKLib::Utility::Singleton<_Class_>; \
