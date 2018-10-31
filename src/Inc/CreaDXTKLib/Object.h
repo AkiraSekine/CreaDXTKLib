@@ -120,6 +120,10 @@ namespace CreaDXTKLib
 
 #ifndef OBJECT2D
 
+/// <summary>
+/// オブジェクトの設定
+/// </summary>
+/// <param name="_CLASS">Object2Dを基底としたクラス</param>
 #define OBJECT2D(_CLASS)\
 public:\
 _CLASS() :\
@@ -146,6 +150,11 @@ virtual ~_CLASS() override\
 
 #ifndef OBJECT2D_PARENT
 
+/// <summary>
+/// オブジェクトの設定
+/// </summary>
+/// <param name="_CLASS">クラス名</param>
+/// <param name="_PARENT">基底クラス</param>
 #define OBJECT2D_PARENT(_CLASS, _PARENT)\
 public:\
 _CLASS() :\

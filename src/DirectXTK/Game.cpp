@@ -131,16 +131,31 @@ void Game::Present()
 void Game::OnActivated()
 {
     // TODO: Game is becoming active window.
+
+    if (OnActive != nullptr)
+    {
+        OnActive();
+    }
 }
 
 void Game::OnDeactivated()
 {
     // TODO: Game is becoming background window.
+
+    if (OnInactive != nullptr)
+    {
+        OnInactive();
+    }
 }
 
 void Game::OnSuspending()
 {
     // TODO: Game is being power-suspended (or minimized).
+
+    if (OnMinimize != nullptr)
+    {
+        OnMinimize();
+    }
 
     SoundSystem::Instance().GetAudioEngine()->Suspend();
 }
@@ -150,6 +165,11 @@ void Game::OnResuming()
     m_timer.ResetElapsedTime();
 
     // TODO: Game is being power-resumed (or returning from minimize).
+
+    if (OnReturnMinimize != nullptr)
+    {
+        OnReturnMinimize();
+    }
 
     SoundSystem::Instance().GetAudioEngine()->Resume();
 }
@@ -340,6 +360,11 @@ void Game::CreateResources()
 void Game::OnDeviceLost()
 {
     // TODO: Add Direct3D resource cleanup here.
+
+    if (EndFunction != nullptr)
+    {
+        EndFunction();
+    }
 
     m_depthStencilView.Reset();
     m_renderTargetView.Reset();
