@@ -1,4 +1,4 @@
-#include "Math/Collider2D.h"
+#include "Collider2D.h"
 
 namespace CreaDXTKLib
 {
@@ -34,16 +34,22 @@ namespace Math
         {
             CircleCollider* circle = dynamic_cast<CircleCollider*>(_collider);
             result = CheckCircle(circle);
+
+            break;
         }
         case Box:
         {
             BoxCollider* box = dynamic_cast<BoxCollider*>(_collider);
             result = CheckBox(box);
+
+            break;
         }
         case Line:
         {
             LineCollider* line = dynamic_cast<LineCollider*>(_collider);
             result = CheckLine(line);
+
+            break;
         }
         }
 

@@ -1,7 +1,8 @@
 #pragma once
 
 #include "Vector2.h"
-#include "../CreaDXTKLib/CreaDXTKLib.h"
+
+#include <vector>
 
 namespace CreaDXTKLib
 {
@@ -63,17 +64,17 @@ namespace Math
         /// CircleColliderとの判定処理
         /// </summary>
         /// <param name="_target">ターゲット</param>
-        virtual Collider2D* CheckCircle(CircleCollider* _target) const ABSTRACT;
+        virtual Collider2D* CheckCircle(CircleCollider* _target) const = 0;
         /// <summary>
         /// BoxColliderとの判定処理
         /// </summary>
         /// <param name="_target">ターゲット</param>
-        virtual Collider2D* CheckBox(BoxCollider* _target) const ABSTRACT;
+        virtual Collider2D* CheckBox(BoxCollider* _target) const = 0;
         /// <summary>
         /// LineColliderとの判定処理
         /// </summary>
         /// <param name="_target">ターゲット</param>
-        virtual Collider2D* CheckLine(LineCollider* _target) const ABSTRACT;
+        virtual Collider2D* CheckLine(LineCollider* _target) const = 0;
 
     };
 
@@ -93,10 +94,6 @@ namespace Math
         /// 端点の座標
         /// </summary>
         const Vector2* point[numOfPoints];
-        /// <summary>
-        /// 線分のベクトル
-        /// </summary>
-        const Vector2& lineVec;
 
         /// <param name="_start">始点座標</param>
         /// <param name="_end">終点座標</param>
@@ -120,11 +117,11 @@ namespace Math
         /// <summary>
         /// 中心座標
         /// </summary>
-        const Vector2& position;
+        const Vector2* position;
         /// <summary>
         /// 半径
         /// </summary>
-        const float& radius;
+        const float* radius;
 
         /// <param name="_position">中心座標</param>
         /// <param name="_radius">半径</param>
@@ -157,15 +154,17 @@ namespace Math
         /// <summary>
         /// 中心座標
         /// </summary>
-        const Vector2& centerPosition;
+        const Vector2* centerPosition;
         /// <summary>
         /// 矩形サイズ
         /// </summary>
-        const Vector2& size;
+        const Vector2* size;
 
         /// <param name="_centerPosition">中心座標</param>
         /// <param name="_size">矩形サイズ</param>
-        BoxCollider(const Vector2& _centerPosition, const Vector2& _size);
+        /// <param name="_rotation">回転角</param>
+        BoxCollider(const Vector2& _centerPosition, const Vector2& _size, const float& _rotation = 0.0f);
+
         virtual ~BoxCollider();
 
         /// <summary>
@@ -174,11 +173,18 @@ namespace Math
         /// <param name="_collider">対象</param>
         virtual void AddTarget(Collider2D* _collider) override;
 
+        void CalcCorners() const;
+
     private:
+
+        Vector2* m_corners[numOfLines];
+        const float* m_rot;
 
         virtual Collider2D* CheckCircle(CircleCollider* _target) const;
         virtual Collider2D* CheckBox(BoxCollider* _target) const;
         virtual Collider2D* CheckLine(LineCollider* _target) const;
+
+        bool IsInside(const Vector2& _pos) const;
 
     };
 } // Math
