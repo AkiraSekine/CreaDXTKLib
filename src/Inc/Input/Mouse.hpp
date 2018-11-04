@@ -2,6 +2,8 @@
 
 #include "Input.h"
 
+#include "Math/Vector2.h"
+
 namespace CreaDXTKLib
 {
 namespace Input
@@ -37,25 +39,25 @@ namespace Input
         /// <param name="_button">調べたいボタン</param>
         /// <param name="_mode">チェック方法</param>
         /// <returns>キーがチェック方法の状態か</returns>
-        bool GetInput(const MouseButtons& _button, const CheckMode& _mode =CheckMode::Press);
+        bool GetInput(const MouseButtons& _button, const CheckMode& _mode = CheckMode::Press);
 
         /// <summary>
         /// マウスの座標を取得
         /// </summary>
         /// <returns>マウスの座標</returns>
-        DirectX::SimpleMath::Vector2 Position();
+        Math::Vector2 Position();
 
         /// <summary>
         /// マウスの座標を設定
         /// </summary>
         /// <param name="_position">新しい座標</param>
-        void Position(const DirectX::SimpleMath::Vector2& _position);
+        void Position(const Math::Vector2& _position);
 
         /// <summary>
         /// カーソルの移動値を取得
         /// </summary>
         /// <returns>カーソルの移動値</returns>
-        DirectX::SimpleMath::Vector2 GetMoveValue();
+        Math::Vector2 GetMoveValue();
 
         /// <summary>
         /// ホイールの移動値を取得
@@ -81,8 +83,7 @@ namespace Input
 
         unsigned char m_buttonState[m_numOfButtons];
 
-        DirectX::SimpleMath::Vector2 m_moveValue =
-            DirectX::SimpleMath::Vector2::Zero;
+        Math::Vector2 m_moveValue = Math::Vector2::zero;
 
         int m_wheelValue = 0;
 
