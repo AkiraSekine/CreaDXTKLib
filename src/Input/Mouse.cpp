@@ -1,7 +1,7 @@
 ﻿#include "Input/Mouse.hpp"
 
 using namespace std;
-using namespace DirectX::SimpleMath;
+using namespace CreaDXTKLib::Math;
 
 namespace CreaDXTKLib
 {
@@ -50,7 +50,7 @@ namespace Input
         }
 
         // カーソルの移動値を計算
-        static Vector2 nowMoveValue = Vector2::Zero;
+        static Vector2 nowMoveValue = Vector2::zero;
         Vector2 beforeMoveValue = nowMoveValue;
 
         nowMoveValue = Vector2((float)state.x, (float)state.y);
