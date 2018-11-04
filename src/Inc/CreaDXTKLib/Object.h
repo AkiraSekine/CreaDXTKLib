@@ -18,7 +18,7 @@ namespace CreaDXTKLib
         /// <param name="_objectName">オブジェクト名</param>
         Object2D(const std::wstring& _imageName,
             const Math::Vector2& _position = Math::Vector2::zero,
-            float _rotation = 0.f,
+            const float& _rotation = 0.f,
             const Math::Vector2& _scale = Math::Vector2::one,
             Math::Transform2D* _parent = nullptr,
             const std::wstring& _objectName = L"Object");
@@ -42,31 +42,20 @@ namespace CreaDXTKLib
         /// オブジェクトを描画
         /// </summary>
         /// <param name="_color">加算色</param>
-        virtual void Draw(DirectX::FXMVECTOR& _color = DirectX::Colors::White) const final;
+        virtual void Draw(const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const final;
         /// <summary>
         /// オブジェクトを描画
         /// </summary>
         /// <param name="_rect">描画矩形</param>
         /// <param name="_color">加算色</param>
         virtual void Draw(const RECT& _rect,
-            DirectX::FXMVECTOR& _color = DirectX::Colors::White) const final;
-        /// <summary>
-        /// オブジェクトを描画
-        /// </summary>
-        /// <param name="_color">加算色</param>
-        virtual void Draw(DirectX::XMVECTORF32& _color) const final;
-        /// <summary>
-        /// オブジェクトを描画
-        /// </summary>
-        /// <param name="_rect">描画矩形</param>
-        /// <param name="_color">加算色</param>
-        virtual void Draw(const RECT& _rect, DirectX::XMVECTORF32& _color) const final;
+            const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const final;
 
         /// <summary>
         /// アクティブ状態を設定
         /// </summary>
         /// <param name="_isActive">アクティブ状態か</param>
-        virtual void SetActive(bool _isActive) final;
+        virtual void SetActive(const bool& _isActive) final;
 
         /// <summary>
         /// オブジェクト名を取得
@@ -131,7 +120,7 @@ CreaDXTKLib::Object2D()\
 { Start(); }\
 _CLASS(const std::wstring& _imageName,\
 const CreaDXTKLib::Math::Vector2& _position = CreaDXTKLib::Math::Vector2::zero,\
-float _rotation = 0.f,\
+const float& _rotation = 0.f,\
 const CreaDXTKLib::Math::Vector2& _scale = CreaDXTKLib::Math::Vector2::one,\
 CreaDXTKLib::Math::Transform2D* _parent = nullptr,\
 const std::wstring& _objectName = L"Object") :\

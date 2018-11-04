@@ -17,7 +17,7 @@ namespace Math
     {
     }
 
-    Transform2D::Transform2D(Vector2 _position, Transform2D * _parent) :
+    Transform2D::Transform2D(const Vector2& _position, Transform2D * _parent) :
         m_position(_position),
         m_rotation(0.f),
         m_scale(Vector2::one),
@@ -38,8 +38,8 @@ namespace Math
         }
     }
 
-    Transform2D::Transform2D(Vector2 _position,
-        float _rotation,
+    Transform2D::Transform2D(const Vector2& _position,
+        const float& _rotation,
         Transform2D * _parent) :
         m_position(_position),
         m_rotation(CorrectionRotation(_rotation)),
@@ -61,9 +61,9 @@ namespace Math
         }
     }
 
-    Transform2D::Transform2D(Vector2 _position,
-        float _rotation,
-        Vector2 _scale,
+    Transform2D::Transform2D(const Vector2& _position,
+        const float& _rotation,
+        const Vector2& _scale,
         Transform2D * _parent) :
         m_position(_position),
         m_rotation(CorrectionRotation(_rotation)),
@@ -100,7 +100,7 @@ namespace Math
         return m_position;
     }
 
-    void Transform2D::Position(Vector2 _newPos)
+    void Transform2D::Position(const Vector2& _newPos)
     {
         m_position = _newPos;
 
@@ -128,7 +128,7 @@ namespace Math
         return m_rotation;
     }
 
-    void Transform2D::Rotation(float _newRot)
+    void Transform2D::Rotation(const float& _newRot)
     {
         m_rotation = CorrectionRotation(_newRot);
 
@@ -158,7 +158,7 @@ namespace Math
         return m_scale;
     }
 
-    void Transform2D::Scale(Vector2 _newScale)
+    void Transform2D::Scale(const Vector2& _newScale)
     {
         m_scale = _newScale;
     }

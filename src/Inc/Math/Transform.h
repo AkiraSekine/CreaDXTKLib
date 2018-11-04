@@ -19,23 +19,23 @@ namespace Math
 
         /// <param name="_position">座標</param>
         /// <param name="_parent">親Transform2D</param>
-        Transform2D(Vector2 _position,
+        Transform2D(const Vector2& _position,
             Transform2D * _parent = nullptr);
 
         /// <param name="_position">座標</param>
         /// <param name="_rotation">回転角</param>
         /// <param name="_parent">親Transform2D</param>
-        Transform2D(Vector2 _position,
-            float _rotation,
+        Transform2D(const Vector2& _position,
+            const float& _rotation,
             Transform2D * _parent = nullptr);
 
         /// <param name="_position">座標</param>
         /// <param name="_rotation">回転角</param>
         /// <param name="_scale">拡大率</param>
         /// <param name="_parent">親Transform2D</param>
-        Transform2D(Vector2 _position,
-            float _rotation,
-            Vector2 _scale,
+        Transform2D(const Vector2& _position,
+            const float& _rotation,
+            const Vector2& _scale,
             Transform2D * _parent = nullptr);
 
         virtual ~Transform2D();
@@ -49,7 +49,7 @@ namespace Math
         /// 座標を設定
         /// </summary>
         /// <param name="_newPos">新しい座標</param>
-        virtual void Position(Vector2 _newPos) final;
+        virtual void Position(const Vector2& _newPos) final;
         /// <summary>
         /// 相対座標を取得
         /// </summary>
@@ -65,7 +65,7 @@ namespace Math
         /// 回転角を設定
         /// </summary>
         /// <param name="_newRot">新しい角度</param>
-        virtual void Rotation(float _newRot) final;
+        virtual void Rotation(const float& _newRot) final;
         /// <summary>
         /// 相対角度を取得
         /// </summary>
@@ -81,7 +81,7 @@ namespace Math
         /// 拡大率を設定
         /// </summary>
         /// <param name="_newScale">新しい拡大率</param>
-        virtual void Scale(Vector2 _newScale) final;
+        virtual void Scale(const Vector2& _newScale) final;
 
         /// <summary>
         /// 前方向のベクトルを取得

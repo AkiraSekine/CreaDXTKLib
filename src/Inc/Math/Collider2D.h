@@ -173,8 +173,6 @@ namespace Math
         /// <param name="_collider">ëŒè€</param>
         virtual void AddTarget(Collider2D* _collider) override;
 
-        void CalcCorners() const;
-
     private:
 
         Vector2* m_corners[numOfLines];
@@ -185,6 +183,8 @@ namespace Math
         virtual Collider2D* CheckLine(LineCollider* _target) const;
 
         bool IsInside(const Vector2& _pos) const;
+
+        void CalcCorners() const;
 
     };
 } // Math

@@ -15,13 +15,13 @@ namespace Math
     {
     }
 
-    Vector2::Vector2(float _x) :
+    Vector2::Vector2(const float& _x) :
         x(_x),
         y(0.f)
     {
     }
 
-    Vector2::Vector2(float _x, float _y) :
+    Vector2::Vector2(const float& _x, const float& _y) :
         x(_x),
         y(_y)
     {

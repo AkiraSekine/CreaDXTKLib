@@ -16,7 +16,7 @@ namespace Math
         return *this;
     }
 
-    inline Vector2& Vector2::operator+=(const float _value)
+    inline Vector2& Vector2::operator+=(const float& _value)
     {
         x += _value;
         y += _value;
@@ -40,7 +40,7 @@ namespace Math
         return *this;
     }
 
-    inline Vector2& Vector2::operator-=(const float _value)
+    inline Vector2& Vector2::operator-=(const float& _value)
     {
         x -= _value;
         y -= _value;
@@ -64,7 +64,7 @@ namespace Math
         return *this;
     }
 
-    inline Vector2& Vector2::operator*=(const float _value)
+    inline Vector2& Vector2::operator*=(const float& _value)
     {
         x *= _value;
         y *= _value;
@@ -88,7 +88,7 @@ namespace Math
         return *this;
     }
 
-    inline Vector2& Vector2::operator/=(const float _value)
+    inline Vector2& Vector2::operator/=(const float& _value)
     {
         x /= _value;
         y /= _value;
