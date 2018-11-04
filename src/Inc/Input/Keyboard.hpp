@@ -36,7 +36,7 @@ namespace Input
         /// <param name="_key">調べたいキー</param>
         /// <param name="_mode">チェック方法</param>
         /// <returns>キーがチェック方法の状態か</returns>
-        bool GetInput(Keys _key, CheckMode _mode = CheckMode::Press);
+        bool GetInput(const Keys& _key, const CheckMode& _mode = CheckMode::Press);
 
     private:
 
