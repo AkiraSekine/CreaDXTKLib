@@ -9,13 +9,20 @@ namespace CreaDXTKLib
 {
 namespace Draw
 {
-    void Text::Load(const wstring& _key, const wstring& _fileName)
+    void Text::Load(const wstring& _name, const wstring& _fileName)
     {
         // ƒtƒHƒ“ƒgƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚Ş
-        m_fonts.insert(make_pair(_key, new SpriteFont(m_device.Get(), _fileName.c_str())));
+        m_fonts.insert(make_pair(_name, new SpriteFont(m_device.Get(), _fileName.c_str())));
     }
 
-    void Text::Draw(const wstring & _key, const Vector2 & _position, const wstring _text, ...)
+    void Text::Erase(const std::wstring& _name)
+    {
+        delete m_fonts.at(_name);
+
+        m_fonts.erase(_name);
+    }
+
+    void Text::Draw(const wstring& _name, const Vector2& _position, const wstring _text, ...)
     {
         va_list arg;
         wchar_t newStr[512];
@@ -28,12 +35,12 @@ namespace Draw
         // •¶š—ñ‚ğ•`‰æ
         m_spriteBatch->Begin();
 
-        m_fonts.at(_key)->DrawString(m_spriteBatch.get(), newStr, _position);
+        m_fonts.at(_name)->DrawString(m_spriteBatch.get(), newStr, _position);
 
         m_spriteBatch->End();
     }
 
-    void Text::Draw(const wstring & _key, const Vector2 & _position, const XMVECTORF32 & _color, const wstring _text, ...)
+    void Text::Draw(const wstring& _name, const Vector2& _position, const XMVECTORF32& _color, const wstring _text, ...)
     {
         va_list arg;
         wchar_t newStr[512];
@@ -46,12 +53,12 @@ namespace Draw
         // •¶š—ñ‚ğ•`‰æ
         m_spriteBatch->Begin();
 
-        m_fonts.at(_key)->DrawString(m_spriteBatch.get(), newStr, _position, _color);
+        m_fonts.at(_name)->DrawString(m_spriteBatch.get(), newStr, _position, _color);
 
         m_spriteBatch->End();
     }
 
-    void Text::Draw(const wstring & _key, const Vector2 & _position, const FXMVECTOR & _color, const wstring _text, ...)
+    void Text::Draw(const wstring& _name, const Vector2& _position, const FXMVECTOR& _color, const wstring _text, ...)
     {
         va_list arg;
         wchar_t newStr[512];
@@ -64,7 +71,7 @@ namespace Draw
         // •¶š—ñ‚ğ•`‰æ
         m_spriteBatch->Begin();
 
-        m_fonts.at(_key)->DrawString(m_spriteBatch.get(), newStr, _position, _color);
+        m_fonts.at(_name)->DrawString(m_spriteBatch.get(), newStr, _position, _color);
 
         m_spriteBatch->End();
     }

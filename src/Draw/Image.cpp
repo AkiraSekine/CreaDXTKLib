@@ -14,54 +14,7 @@ namespace CreaDXTKLib
 {
 namespace Draw
 {
-
-    void Image::Initialize(ComPtr<ID3D11DeviceContext1> _context, ComPtr<ID3D11Device1>& _device)
-    {
-        // 複数回呼ばれていたらthrowする
-        static bool initialized = false;
-
-        if (initialized)
-        {
-            Debug::Log(L"Do not use.\n");
-            throw exception("Do not use.\n");
-        }
-
-        initialized = true;
-
-        m_spriteBatch = make_unique<SpriteBatch>(_context.Get());
-
-        m_device = _device;
-
-        m_states = make_unique<CommonStates>(m_device.Get());
-
-        Text::Instance().Initialize(_device, _context);
-    }
-
-    void Image::OnEnd()
-    {
-        // 複数回呼ばれていたらthrowする
-        static bool initialized = false;
-
-        if (initialized)
-        {
-            Debug::Log(L"Do not use.\n");
-            throw exception("Do not use.\n");
-        }
-
-        initialized = true;
-
-        // m_textureを空にする
-        for (auto i = m_imageData.begin(); i != m_imageData.end(); i++)
-        {
-            i->second.m_texture.Reset();
-        }
-
-        m_imageData.clear();
-
-        m_states.reset();
-    }
-
-    void Image::Load(const wstring& _fileName, const wstring& _name)
+    void Image::Load(const wstring& _name, const wstring& _fileName)
     {
         // 同じ名前を入れようとしたらthrowする
         for (auto i = m_imageData.begin(); i != m_imageData.end(); i++)
@@ -115,104 +68,6 @@ namespace Draw
     }
 
     void Image::Draw(const wstring& _name,
-        const Vector2& _position)
-    {
-        // ハンドル名が空なら終了
-        if (_name.compare(L"") == 0)
-        {
-            return;
-        }
-
-        Draw(_name, _position, Colors::White);
-    }
-
-    void Image::Draw(const wstring& _name,
-        const Vector2& _position,
-        const float _rotation)
-    {
-        // ハンドル名が空なら終了
-        if (_name.compare(L"") == 0)
-        {
-            return;
-        }
-
-        Draw(_name, _position, _rotation, Colors::White);
-    }
-
-    void Image::Draw(const wstring& _name,
-        const Vector2& _position,
-        const float _rotation,
-        const Vector2& _scale,
-        const Vector2& _pivot)
-    {
-        // ハンドル名が空なら終了
-        if (_name.compare(L"") == 0)
-        {
-            return;
-        }
-
-        Draw(_name, _position, _rotation, _scale, Colors::White, _pivot);
-    }
-
-    void Image::Draw(const wstring& _name,
-        const Vector2& _position,
-        const float _rotation,
-        const Vector2& _scale,
-        const RECT& _rect,
-        const Vector2& _pivot)
-    {
-        // ハンドル名が空なら終了
-        if (_name.compare(L"") == 0)
-        {
-            return;
-        }
-
-        Draw(_name,
-            _position,
-            _rotation,
-            _scale,
-            _rect,
-            Colors::White,
-            _pivot);
-    }
-
-    void Image::Draw(const std::wstring& _name,
-        const Transform2D& _transform,
-        const Vector2& _pivot)
-    {
-        // ハンドル名が空なら終了
-        if (_name.compare(L"") == 0)
-        {
-            return;
-        }
-
-        Draw(_name,
-            _transform.Position(),
-            _transform.Rotation(),
-            _transform.Scale(),
-            Colors::White, _pivot);
-    }
-
-    void Image::Draw(const wstring& _name,
-        const Transform2D& _transform,
-        const RECT& _rect,
-        const Vector2& _pivot)
-    {
-        // ハンドル名が空なら終了
-        if (_name.compare(L"") == 0)
-        {
-            return;
-        }
-
-        Draw(_name,
-            _transform.Position(),
-            _transform.Rotation(),
-            _transform.Scale(),
-            _rect,
-            _pivot);
-    }
-
-    void Image::Draw(const wstring& _name,
         const Vector2& _position,
         const FXMVECTOR& _color)
     {
@@ -227,7 +82,7 @@ namespace Draw
 
     void Image::Draw(const wstring& _name,
         const Vector2& _position,
-        const float _rotation,
+        const float& _rotation,
         const FXMVECTOR& _color,
         const Vector2& _pivot)
     {
@@ -242,7 +97,7 @@ namespace Draw
 
     void Image::Draw(const wstring& _name,
         const Vector2& _position,
-        const float _rotation,
+        const float& _rotation,
         const Vector2& _scale,
         const FXMVECTOR& _color,
         const Vector2& _pivot)
@@ -261,7 +116,7 @@ namespace Draw
 
     void Image::Draw(const wstring& _name,
         const Vector2& _position,
-        const float _rotation,
+        const float& _rotation,
         const Vector2& _scale,
         const RECT& _rect,
         const FXMVECTOR& _color,
@@ -329,120 +184,51 @@ namespace Draw
             _pivot);
     }
 
-    void Image::Draw(const wstring& _name,
-        const Vector2& _position,
-        const XMVECTORF32& _color)
+    void Image::Initialize(ComPtr<ID3D11DeviceContext1> _context, ComPtr<ID3D11Device1>& _device)
     {
-        // ハンドル名が空なら終了
-        if (_name.compare(L"") == 0)
+        // 複数回呼ばれていたらthrowする
+        static bool initialized = false;
+
+        if (initialized)
         {
-            return;
+            Debug::Log(L"Do not use.\n");
+            throw exception("Do not use.\n");
         }
 
-        Draw(_name, _position, 0.f, _color, Vector2::zero);
+        initialized = true;
+
+        m_spriteBatch = make_unique<SpriteBatch>(_context.Get());
+
+        m_device = _device;
+
+        m_states = make_unique<CommonStates>(m_device.Get());
+
+        Text::Instance().Initialize(_device, _context);
     }
 
-    void Image::Draw(const wstring& _name,
-        const Vector2& _position,
-        const float _rotation,
-        const XMVECTORF32& _color,
-        const Vector2& _pivot)
+    void Image::OnEnd()
     {
-        // ハンドル名が空なら終了
-        if (_name.compare(L"") == 0)
+        // 複数回呼ばれていたらthrowする
+        static bool initialized = false;
+
+        if (initialized)
         {
-            return;
+            Debug::Log(L"Do not use.\n");
+            throw exception("Do not use.\n");
         }
 
-        Draw(_name, _position, _rotation, Vector2::one, _color, _pivot);
-    }
+        initialized = true;
 
-    void Image::Draw(const wstring& _name,
-        const Vector2& _position,
-        const float _rotation,
-        const Vector2& _scale,
-        const XMVECTORF32& _color,
-        const Vector2& _pivot)
-    {
-        // ハンドル名が空なら終了
-        if (_name.compare(L"") == 0)
+        // m_textureを空にする
+        for (auto i = m_imageData.begin(); i != m_imageData.end(); i++)
         {
-            return;
+            i->second.m_texture.Reset();
         }
 
-        Vector2 size = m_imageData.at(_name).m_size;
-        RECT rect = { 0, 0, (long)size.x, (long)size.y };
+        m_imageData.clear();
 
-        Draw(_name, _position, _rotation, _scale, rect, _color, _pivot);
+        m_states.reset();
     }
 
-    void Image::Draw(const wstring& _name,
-        const Transform2D& _transform,
-        const XMVECTORF32& _color,
-        const Vector2& _pivot)
-    {
-        // ハンドル名が空なら終了
-        if (_name.compare(L"") == 0)
-        {
-            return;
-        }
-
-        Draw(_name,
-            _transform.Position(),
-            _transform.Rotation(),
-            _transform.Scale(),
-            _color,
-            _pivot);
-    }
-
-    void Image::Draw(const wstring& _name,
-        const Vector2& _position,
-        const float _rotation,
-        const Vector2& _scale,
-        const RECT& _rect,
-        const XMVECTORF32& _color,
-        const Vector2& _pivot)
-    {
-        // ハンドル名が空なら終了
-        if (_name.compare(L"") == 0)
-        {
-            return;
-        }
-
-        m_spriteBatch->Begin(SpriteSortMode_Deferred,
-            m_states->NonPremultiplied());
-
-        // 画像を描画する
-        m_spriteBatch->Draw(
-            m_imageData.at(_name).m_texture.Get(),
-            _position,
-            &_rect,
-            _color,
-            _rotation,
-            _pivot,
-            _scale);
-
-        m_spriteBatch->End();
-    }
-    void Image::Draw(const wstring& _name,
-        const Transform2D& _transform,
-        const RECT& _rect,
-        const XMVECTORF32& _color,
-        const Vector2& _pivot)
-    {
-        // ハンドル名が空なら終了
-        if (_name.compare(L"") == 0)
-        {
-            return;
-        }
-
-        Draw(_name,
-            _transform.Position(),
-            _transform.Rotation(),
-            _transform.Scale(),
-            _rect,
-            _color,
-            _pivot);
-    }
 } // Draw
 } // CreaDXTKLib

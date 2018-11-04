@@ -33,6 +33,8 @@ namespace Input
     /// </summary>
     class Inputs final : public Utility::Singleton<Inputs>
     {
+        SINGLETON(Inputs)
+
     public:
 
         /// <summary>
