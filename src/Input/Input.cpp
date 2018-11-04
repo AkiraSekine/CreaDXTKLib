@@ -9,7 +9,7 @@ namespace CreaDXTKLib
 {
 namespace Input
 {
-    void Inputs::Add(const wstring& _name, DirectX::Keyboard::Keys _key, float _value, CheckMode _mode)
+    void Inputs::Add(const wstring& _name, const DirectX::Keyboard::Keys& _key, const float& _value, const CheckMode& _mode)
     {
         InputSet set;
 
@@ -22,7 +22,7 @@ namespace Input
         m_inputSets.insert(make_pair(_name, set));
     }
 
-    void Inputs::Add(const wstring& _name, MouseButtons _button, float _value, CheckMode _mode)
+    void Inputs::Add(const wstring& _name, const MouseButtons& _button, const float& _value, const CheckMode& _mode)
     {
         InputSet set;
 
@@ -33,6 +33,11 @@ namespace Input
         set.checkMode = _mode;
 
         m_inputSets.insert(make_pair(_name, set));
+    }
+
+    void Inputs::Erase(const std::wstring & _name)
+    {
+        m_inputSets.erase(_name);
     }
 
     float Inputs::GetValue(const wstring& _name)

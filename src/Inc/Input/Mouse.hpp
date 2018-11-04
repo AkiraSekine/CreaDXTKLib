@@ -37,7 +37,7 @@ namespace Input
         /// <param name="_button">調べたいボタン</param>
         /// <param name="_mode">チェック方法</param>
         /// <returns>キーがチェック方法の状態か</returns>
-        bool GetInput(MouseButtons _button, CheckMode _mode = CheckMode::Press);
+        bool GetInput(const MouseButtons& _button, const CheckMode& _mode =CheckMode::Press);
 
         /// <summary>
         /// マウスの座標を取得
@@ -49,7 +49,7 @@ namespace Input
         /// マウスの座標を設定
         /// </summary>
         /// <param name="_position">新しい座標</param>
-        void Position(DirectX::SimpleMath::Vector2 _position);
+        void Position(const DirectX::SimpleMath::Vector2& _position);
 
         /// <summary>
         /// カーソルの移動値を取得
@@ -67,7 +67,7 @@ namespace Input
         /// カーソルを表示するかを設定
         /// </summary>
         /// <param name="_isVisible">表示するか</param>
-        void CursorVisible(bool _isVisible);
+        void CursorVisible(const bool& _isVisible);
 
         /// <summary>
         /// カーソルを表示するかを取得
@@ -90,7 +90,7 @@ namespace Input
 
         std::unique_ptr<DirectX::Mouse> m_mouse;
 
-        bool IsMouseDown(MouseButtons _button);
+        bool IsMouseDown(const MouseButtons& _button);
     };
 
 } // Input

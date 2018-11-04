@@ -52,7 +52,7 @@ namespace Input
         // カーソルの移動値を計算
         static Vector2 nowMoveValue = Vector2::Zero;
         Vector2 beforeMoveValue = nowMoveValue;
-        
+
         nowMoveValue = Vector2((float)state.x, (float)state.y);
         m_moveValue = nowMoveValue - beforeMoveValue;
 
@@ -64,7 +64,7 @@ namespace Input
         m_wheelValue = nowWheel - beforeWheel;
     }
 
-    bool Mouse::GetInput(MouseButtons _button, CheckMode _mode)
+    bool Mouse::GetInput(const MouseButtons& _button, const CheckMode& _mode)
     {
         // 指定ボタンが指定した状態になっているかを返す
         return (bool)(m_buttonState[(char)_button] & (char)_mode);
@@ -78,9 +78,9 @@ namespace Input
         return Vector2((float)state.x, (float)state.y);
     }
 
-    void Mouse::Position(Vector2 _position)
+    void Mouse::Position(const Vector2& _position)
     {
-
+        SetCursorPos((int)_position.x, (int)_position.y);
     }
 
     Vector2 Mouse::GetMoveValue()
@@ -93,7 +93,7 @@ namespace Input
         return m_wheelValue;
     }
 
-    void Mouse::CursorVisible(bool _isVisible)
+    void Mouse::CursorVisible(const bool& _isVisible)
     {
         m_isVisible = _isVisible;
 
@@ -106,7 +106,7 @@ namespace Input
         return m_isVisible;
     }
 
-    bool Mouse::IsMouseDown(MouseButtons _button)
+    bool Mouse::IsMouseDown(const MouseButtons& _button)
     {
         DirectX::Mouse::State state = m_mouse->GetState();
 
