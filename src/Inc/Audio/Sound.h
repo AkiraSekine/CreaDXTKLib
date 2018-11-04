@@ -24,7 +24,7 @@ namespace Audio
         /// <param name="_name">ハンドル名</param>
         /// <param name="_fileName">ファイル名</param>
         /// <param name="_isLoop">ループ再生するか</param>
-        void Load(const std::wstring& _name, const std::wstring& _fileName, bool _isLoop = false);
+        void Load(const std::wstring& _name, const std::wstring& _fileName, const bool& _isLoop = false);
 
         /// <summary>
         /// 再生
@@ -47,7 +47,7 @@ namespace Audio
         /// </summary>
         /// <param name="_name">ハンドル名</param>
         /// <param name="_isLoop">ループ再生をさせるか</param>
-        void IsLoop(const std::wstring& _name, bool _isLoop);
+        void IsLoop(const std::wstring& _name, const bool& _isLoop);
         /// <summary>
         /// ループ再生するかを取得
         /// </summary>
@@ -61,7 +61,7 @@ namespace Audio
         /// </summary>
         /// <param name="_name">ハンドル名</param>
         /// <param name="_volume">ボリューム</param>
-        void Volume(const std::wstring& _name, float _volume);
+        void Volume(const std::wstring& _name, const float& _volume);
         /// <summary>
         /// ボリュームを取得
         /// </summary>
@@ -75,7 +75,7 @@ namespace Audio
         /// </summary>
         /// <param name="_name">ハンドル名</param>
         /// <param name="_pan">パン</param>
-        void Pan(const std::wstring& _name, float _pan);
+        void Pan(const std::wstring& _name, const float& _pan);
         /// <summary>
         /// パンを取得
         /// </summary>
@@ -89,7 +89,7 @@ namespace Audio
         /// </summary>
         /// <param name="_name">ハンドル名</param>
         /// <param name="_pitch">ピッチ</param>
-        void Pitch(const std::wstring& _name, float _pitch);
+        void Pitch(const std::wstring& _name, const float& _pitch);
         /// <summary>
         /// ピッチを取得
         /// </summary>

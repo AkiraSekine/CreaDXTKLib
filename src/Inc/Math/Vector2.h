@@ -34,8 +34,8 @@ namespace Math
         static Vector2 one;
 
         Vector2();
-        Vector2(float _x);
-        Vector2(float _x, float _y);
+        Vector2(const float& _x);
+        Vector2(const float& _x, const float& _y);
         virtual ~Vector2();
 
         /// <summary>
@@ -83,16 +83,16 @@ namespace Math
         virtual const Vector2 operator/(const DirectX::SimpleMath::Vector2& _vec) const;
 
         virtual inline Vector2& operator+=(const Vector2& _vec);
-        virtual inline Vector2& operator+=(const float _value);
+        virtual inline Vector2& operator+=(const float& _value);
         virtual inline Vector2& operator+=(const DirectX::SimpleMath::Vector2& _vec);
         virtual inline Vector2& operator-=(const Vector2& _vec);
-        virtual inline Vector2& operator-=(const float _value);
+        virtual inline Vector2& operator-=(const float& _value);
         virtual inline Vector2& operator-=(const DirectX::SimpleMath::Vector2& _vec);
         virtual inline Vector2& operator*=(const Vector2& _vec);
-        virtual inline Vector2& operator*=(const float _value);
+        virtual inline Vector2& operator*=(const float& _value);
         virtual inline Vector2& operator*=(const DirectX::SimpleMath::Vector2& _vec);
         virtual inline Vector2& operator/=(const Vector2& _vec);
-        virtual inline Vector2& operator/=(const float _value);
+        virtual inline Vector2& operator/=(const float& _value);
         virtual inline Vector2& operator/=(const DirectX::SimpleMath::Vector2& _vec);
 
         virtual inline operator std::wstring () const;

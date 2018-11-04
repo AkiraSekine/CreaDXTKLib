@@ -18,7 +18,7 @@ namespace CreaDXTKLib
 
     Object2D::Object2D(const wstring& _imageName,
         const Vector2& _position,
-        float _rotation,
+        const float& _rotation,
         const Vector2& _scale,
         Transform2D* _parent,
         const wstring& _objectName) :
@@ -42,7 +42,7 @@ namespace CreaDXTKLib
     {
     }
 
-    void Object2D::Draw(FXMVECTOR & _color) const
+    void Object2D::Draw(const FXMVECTOR & _color) const
     {
         // 親に非アクティブの状態が無ければ描画する
         if (CheckParentIsActive())
@@ -51,7 +51,7 @@ namespace CreaDXTKLib
         }
     }
 
-    void Object2D::Draw(const RECT & _rect, FXMVECTOR & _color) const
+    void Object2D::Draw(const RECT & _rect, const FXMVECTOR & _color) const
     {
         // 親に非アクティブの状態が無ければ描画する
         if (CheckParentIsActive())
@@ -60,25 +60,7 @@ namespace CreaDXTKLib
         }
     }
 
-    void Object2D::Draw(XMVECTORF32 & _color) const
-    {
-        // 親に非アクティブの状態が無ければ描画する
-        if (CheckParentIsActive())
-        {
-            Image::Instance().Draw(m_imageHandle, *this, _color);
-        }
-    }
-
-    void Object2D::Draw(const RECT & _rect, XMVECTORF32 & _color) const
-    {
-        // 親に非アクティブの状態が無ければ描画する
-        if (CheckParentIsActive())
-        {
-            Image::Instance().Draw(m_imageHandle, *this, _rect, _color);
-        }
-    }
-
-    void Object2D::SetActive(bool _isActive)
+    void Object2D::SetActive(const bool& _isActive)
     {
         // 非アクティブ状態になったらOnDisableを呼ぶ
         if (m_isActive && !_isActive)

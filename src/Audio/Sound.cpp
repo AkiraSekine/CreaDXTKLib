@@ -9,7 +9,7 @@ namespace CreaDXTKLib
 {
 namespace Audio
 {
-    void Sound::Load(const wstring& _name, const wstring& _fileName, bool _isLoop)
+    void Sound::Load(const wstring& _name, const wstring& _fileName, const bool& _isLoop)
     {
         // 新しいサウンドデータを作成
         m_soundDatas.insert(make_pair(_name, SoundData()));
@@ -43,7 +43,7 @@ namespace Audio
         m_soundDatas.at(_name).soundFile->Stop();
     }
 
-    void Sound::IsLoop(const wstring& _name, bool _isLoop)
+    void Sound::IsLoop(const wstring& _name, const bool& _isLoop)
     {
         m_soundDatas.at(_name).isLoop = _isLoop;
     }
@@ -53,7 +53,7 @@ namespace Audio
         return m_soundDatas.at(_name).isLoop;
     }
 
-    void Sound::Volume(const wstring& _name, float _volume)
+    void Sound::Volume(const wstring& _name, const float& _volume)
     {
         SoundData& data = m_soundDatas.at(_name);
 
@@ -66,7 +66,7 @@ namespace Audio
         return m_soundDatas.at(_name).volume;
     }
 
-    void Sound::Pan(const wstring& _name, float _pan)
+    void Sound::Pan(const wstring& _name, const float& _pan)
     {
         SoundData& data = m_soundDatas.at(_name);
 
@@ -79,7 +79,7 @@ namespace Audio
         return m_soundDatas.at(_name).pan;
     }
 
-    void Sound::Pitch(const wstring& _name, float _pitch)
+    void Sound::Pitch(const wstring& _name, const float& _pitch)
     {
         SoundData& data = m_soundDatas.at(_name);
 

@@ -49,7 +49,7 @@ namespace Draw
         /// </summary>
         /// <param name="_key">ハンドル名</param>
         /// <param name="_position">描画座標</param>
-        /// <param name="_color">色</param>
+        /// <param name="_color">加算色</param>
         /// <param name="_text">描画文字列(フォーマット)</param>
         void Draw(const std::wstring& _name,
             const Math::Vector2& _position,
@@ -61,7 +61,7 @@ namespace Draw
         /// </summary>
         /// <param name="_key">ハンドル名</param>
         /// <param name="_position">描画座標</param>
-        /// <param name="_color">色</param>
+        /// <param name="_color">加算色</param>
         /// <param name="_text">描画文字列(フォーマット)</param>
         void Draw(const std::wstring& _name,
             const Math::Vector2& _position,
