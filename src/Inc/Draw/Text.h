@@ -25,7 +25,14 @@ namespace Draw
         /// </summary>
         /// <param name="_key">ハンドル名</param>
         /// <param name="_fileName">ファイル名</param>
-        void Load(const std::wstring& _key, const std::wstring& _fileName);
+        void Load(const std::wstring& _name,
+            const std::wstring& _fileName);
+
+        /// <summary>
+        /// 読み込んだフォントファイルの破棄
+        /// </summary>
+        /// <param name="_name">ハンドル名</param>
+        void Erase(const std::wstring& _name);
 
         /// <summary>
         /// テキストの描画
@@ -33,7 +40,10 @@ namespace Draw
         /// <param name="_key">ハンドル名</param>
         /// <param name="_position">描画座標</param>
         /// <param name="_text">描画文字列(フォーマット)</param>
-        void Draw(const std::wstring& _key, const Math::Vector2& _position, const std::wstring _text, ...);
+        void Draw(const std::wstring& _name,
+            const Math::Vector2& _position,
+            const std::wstring _text,
+            ...);
         /// <summary>
         /// テキストの描画
         /// </summary>
@@ -41,7 +51,11 @@ namespace Draw
         /// <param name="_position">描画座標</param>
         /// <param name="_color">色</param>
         /// <param name="_text">描画文字列(フォーマット)</param>
-        void Draw(const std::wstring& _key, const Math::Vector2& _position, const DirectX::XMVECTORF32& _color , const std::wstring _text, ...);
+        void Draw(const std::wstring& _name,
+            const Math::Vector2& _position,
+            const DirectX::XMVECTORF32& _color,
+            const std::wstring _text,
+            ...);
         /// <summary>
         /// テキストの描画
         /// </summary>
@@ -49,7 +63,11 @@ namespace Draw
         /// <param name="_position">描画座標</param>
         /// <param name="_color">色</param>
         /// <param name="_text">描画文字列(フォーマット)</param>
-        void Draw(const std::wstring& _key, const Math::Vector2& _position, const DirectX::FXMVECTOR& _color , const std::wstring _text, ...);
+        void Draw(const std::wstring& _name,
+            const Math::Vector2& _position,
+            const DirectX::FXMVECTOR& _color,
+            const std::wstring _text,
+            ...);
 
         /// <summary>
         /// 初期化処理
@@ -67,7 +85,8 @@ namespace Draw
 
         std::unique_ptr<DirectX::SpriteBatch> m_spriteBatch;
 
-        std::map<std::wstring, DirectX::SpriteFont*> m_fonts = std::map<std::wstring, DirectX::SpriteFont*>();
+        std::map<std::wstring, DirectX::SpriteFont*> m_fonts =
+            std::map<std::wstring, DirectX::SpriteFont*>();
 
     };
 } // Draw
