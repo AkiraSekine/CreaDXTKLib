@@ -32,7 +32,7 @@ namespace Math
         /// <summary>
         /// Œ`ó
         /// </summary>
-        Shape m_shape;
+        Shape shape;
 
         virtual ~Collider2D() { }
 

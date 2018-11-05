@@ -9,7 +9,7 @@ namespace Math
         size(&_size),
         m_rot(&_rotation)
     {
-        m_shape = Box;
+        shape = Box;
 
         for (unsigned char i = 0u; i < numOfLines; i++)
         {

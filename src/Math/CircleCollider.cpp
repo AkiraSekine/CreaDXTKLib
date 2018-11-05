@@ -8,7 +8,7 @@ namespace Math
         position(&_position),
         radius(&_radius)
     {
-        m_shape = Circle;
+        shape = Circle;
     }
 
     Collider2D * CircleCollider::CheckCircle(CircleCollider* _target) const
