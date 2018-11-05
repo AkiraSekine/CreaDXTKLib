@@ -9,7 +9,7 @@ namespace Math
         point[0] = &_start;
         point[1] = &_end;
 
-        m_shape = Line;
+        shape = Line;
     }
 
     Collider2D * LineCollider::CheckCircle(CircleCollider * _target) const

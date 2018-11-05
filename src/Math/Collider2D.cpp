@@ -28,7 +28,7 @@ namespace Math
         Collider2D* result = nullptr;
 
         // ターゲットの形状に応じてメソッドを呼ぶ
-        switch (_collider->m_shape)
+        switch (_collider->shape)
         {
         case Circle:
         {
