@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{39d453e0-43b9-445b-b51c-f6567aeb2963}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\CreaDXTKLib">
+      <UniqueIdentifier>{fcbb89a7-28dc-4b02-b244-a63188823935}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Utility">
+      <UniqueIdentifier>{a69ebfa8-51c6-4d6a-b7c9-4845d8a982b0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Inc\Utility\Debug.h">
+      <Filter>src\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\Utility\Singleton.h">
+      <Filter>src\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\Utility\Window.h">
+      <Filter>src\Utility</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Utility\Debug.cpp">
+      <Filter>src\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utility\Window.cpp">
+      <Filter>src\Utility</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\Inc\Utility\Singleton.inl">
+      <Filter>src\Utility</Filter>
+    </None>
+  </ItemGroup>
+</Project>

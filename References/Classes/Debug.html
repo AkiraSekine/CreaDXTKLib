@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="../css/label.css">
+        <link rel="stylesheet" type="text/css" href="http://alexgorbatchev.com/pub/sh/current/styles/shCoreEmacs.css"/>
+        <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script>
+        <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript">SyntaxHighlighter.all();</script>
+        <title>Debug</title>
+    </head>
+    <body marginwidth="50" marginheight="50">
+        <h1><center>CreaDXTKLib</center></h1>
+        <a href="Index.html">Home</a> / <a href="Reference.html">リファレンス</a> / Debug
+        <h2>Debug</h2>
+        <br><br>
+        <div>
+            <h3>概要</h3>
+            <div style="margin-left : 30px">デバッグテキストの出力</div>
+            <h3>ヘッダファイル</h3>
+            <div style="margin-left : 30px">
+                Utility/Debug.h<br><br>
+            </div>
+            <h3>namespace</h3>
+            <div style="margin-left : 30px">
+                CreaDXTKLib::Utility<br><br>
+            </div>
+            <h3>メソッド</h3>
+            <div style="margin-left: 30px">
+                <h4>public</h4>
+                <div style="margin-left: 30px">
+                    <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
+                        <tr>
+                            <th rowspan="2">メソッド名</th>
+                            <th rowspan="2">概要</th>
+                            <th colspan="2">返り値</th>
+                            <th colspan="3">引数</th>
+                            <th rowspan="2">備考</th>
+                        </tr>
+                        <tr>
+                            <th>型</th>
+                            <th>概要</th>
+                            <th>型</th>
+                            <th>引数名</th>
+                            <th>概要</th>
+                        </tr>
+                        <tr align="center">
+                            <td>Log</td>
+                            <td align="left">デバッグテキストの出力</td>
+                            <td>void</td>
+                            <td>-</td>
+                            <td>std::wstring</td>
+                            <td>_str</td>
+                            <td align="left">出力文字列(フォーマット)</td>
+                            <td align="left">デバッグ時のみ使用可能</td>
+                        </tr>
+                    </table>
+                    <br>
+                </div>
+            </div>
+            <h3>使用例</h3>
+            <div style="margin-left: 30px">
+                <pre class="brush:cpp">
+                    #include "CreaDXTKLib/Scene.h"
+                    #include "Utility/Debug.h"
+
+                    using namespace CreaDXTKLib;
+                    using namespace CreaDXTKLib::Utility;
+
+                    // シーンクラスを基底としたメインシーンクラスの定義
+                    class DebugScene : public Scene
+                    {
+                    public:
+
+                        // 更新処理
+                        virtual void Update(float _elapsedTime) override
+                        {
+                            // 前フレームからの経過時間を出力
+                            Debug::Log(L"%f\n", _elapsedTime);
+                        }
+
+                        // 描画処理
+                        virtual void OnRender() override
+                        {
+                        }
+                    }
+                </pre>
+            </div>
+        </div>
+    </body>
+</html>

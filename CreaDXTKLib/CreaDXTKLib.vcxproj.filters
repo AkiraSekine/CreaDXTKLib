@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Assets">
+      <UniqueIdentifier>658c96cf-fafa-42e8-a339-dfc57fe9cd21</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dds;dlg;fbx;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{01d3c58f-9770-4311-8673-87605a6d3ab3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\CreaDXTKLib">
+      <UniqueIdentifier>{4f216dcd-ea6c-4e9e-8741-78c6effa859d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\DirectXTK">
+      <UniqueIdentifier>{d9572426-74dc-4094-95f0-9847dd8245e8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="directx.ico">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="settings.manifest">
+      <Filter>Assets</Filter>
+    </Manifest>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\CreaDXTKLib\GameManager.cpp">
+      <Filter>src\CreaDXTKLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CreaDXTKLib\CreaDXTKLib.cpp">
+      <Filter>src\CreaDXTKLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CreaDXTKLib\Scene.cpp">
+      <Filter>src\CreaDXTKLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CreaDXTKLib\Object.cpp">
+      <Filter>src\CreaDXTKLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TEST.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\DirectXTK\Game.cpp">
+      <Filter>src\DirectXTK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\DirectXTK\Main.cpp">
+      <Filter>src\DirectXTK</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Inc\CreaDXTKLib\CreaDXTKLib.h">
+      <Filter>src\CreaDXTKLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\CreaDXTKLib\GameManager.h">
+      <Filter>src\CreaDXTKLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\CreaDXTKLib\Object.h">
+      <Filter>src\CreaDXTKLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\CreaDXTKLib\Scene.h">
+      <Filter>src\CreaDXTKLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\DirectXTK\Game.h">
+      <Filter>src\DirectXTK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\DirectXTK\pch.h">
+      <Filter>src\DirectXTK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\DirectXTK\StepTimer.h">
+      <Filter>src\DirectXTK</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\Inc\CreaDXTKLib\GameManager.inl">
+      <Filter>src\CreaDXTKLib</Filter>
+    </None>
+  </ItemGroup>
+</Project>

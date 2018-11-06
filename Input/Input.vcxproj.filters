@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{8dde1280-617d-43e7-8a41-fdbac470cee8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Input">
+      <UniqueIdentifier>{b96c5a46-2976-4d41-80aa-7005cca8975a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Input\Keyboard.cpp">
+      <Filter>src\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Input\Mouse.cpp">
+      <Filter>src\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Input\Input.cpp">
+      <Filter>src\Input</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Inc\Input\Input.h">
+      <Filter>src\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\Input\Keyboard.hpp">
+      <Filter>src\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Inc\Input\Mouse.hpp">
+      <Filter>src\Input</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
