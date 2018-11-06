@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="css/label.css">
+        <link rel="stylesheet" type="text/css" href="css/frame.css">
+        <link rel="stylesheet" type="text/css" href="http://alexgorbatchev.com/pub/sh/current/styles/shCoreEmacs.css"/>
+        <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script>
+        <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript">SyntaxHighlighter.all();</script>
+        <title>使用方法</title>
+    </head>
+    <body marginwidth="50" marginheight="50">
+        <h1><center>CreaDXTKLib</center></h1>
+        <div>
+            <a href="Index.html">Home</a> / 使用方法
+            <h2>0.  注意</h2>
+            <ol>
+                <li>本説明では、Visual Studio 2017 を前提として記述しています。</li>
+                <li>本ライブラリでの文字列は、全てワイド文字を使用しています。</li>
+                <li>
+                    リファレンスページでは表記されていないメンバ等が入力候補として出てくる場合がありますが、<br>
+                    値の変更などをすると上手く動作しない事があるため使用しないようにしてください。
+                </li>
+            </ol>
+            <br>
+            <h2>1. ライブラリの準備</h2>
+            <ol>
+                <li>CreaDXTKLibの中身を適当な場所に移動する。(例 C:\Libs\CreaDXTKLib\ 等)</li>
+                <li><a href="https://github.com/Microsoft/DirectXTK" target="_blank">こちら</a>にアクセスし、DirectX Tool Kitをダウンロードする。</li>
+                <li>ダウンロードしたzipファイルを展開し、DirectXTK_Desktop_2017.slnを開く。</li>
+                <li>
+                    Debug状態でビルドをする。<br>
+                    「Bin\Desktop_2017\Win32」が生成されるので、中にある「DirectXTK.lib」を「DirectXTK_d.lib」に変更する。<br>
+                </li>
+                <li>Release状態でビルドする。</li>
+                <li>③, ④で生成した「DirectXTK_d.lib」と「DirectXTK.lib」を別の場所に移動する。(例 C:\Libs\DirectXTK\Lib\ 等)</li>
+                <li>Incフォルダを5のLibの場所に移動する。(例 C:\Libs\DirectXTK\Inc\ 等)</li>
+                <li>
+                    CreaDXTKLibとDirectXTKのパスを環境変数に設定する。<br>
+                    コントロールパネルを開き、システムとセキュリティ\システム に進み、左側のシステムの詳細設定を開く。<br>
+                    環境変数を開く。<br>
+                    ユーザーの環境変数に新規で作成する。<br>
+                    適当な名前を付け、CreaDXTKLibとDirectXTKのパスを設定する。<br>
+                    (例 変数名: CreaDXTKLib, DirectXTK  変数値: C:\Libs\CreaDXTKLib\, C\Libs\DirectXTK\ 等)<br>
+                </li>
+            </ol>
+            <br>
+            <h2>2. プロジェクトの作成</h2>
+            <ol>
+                <li>Visual Studio 2017を開き、空のプロジェクトを作成する。</li>
+                <li>
+                    ソリューションエクスプローラーから作成したソリューションを右クリックし、「追加 > 既存のプロジェクト (E)...」をクリックする。<br>
+                    ライブラリの準備の③で展開したディレクトリのAudioフォルダにある「DirectXTKAudio_Desktop_2017_DXSDK.vcxproj」をソリューションに追加する。<br>
+                </li>
+                <li>①の時に作成されたプロジェクトの参照を右クリックし「参照の追加 (R)...」をクリックして、②で追加したプロジェクトを参照に追加する。</li>
+                <li>ソースファイルを作成する。</li>
+                <li>
+                    メニューバーから、「プロジェクト > (プロジェクト名)のプロパティ(E)...」を開く。<br>
+                    構成 (C): の項目を「すべての構成」にする。<br>
+                </li>
+                <li>構成プロパティの全般を選択し、「Windows SDK バージョン」を「10.0.16299.0」に変更し、右下の適用をクリックする。</li>
+                <li>
+                    C/C++の全般を選択し、「追加のインクルードディレクトリ」を編集して、ライブラリの準備で設定した環境変数を使用してIncのパスを通す。その後右下の適用をクリックする。<br>
+                    (例 $(CreaDXTKLib)Inc, $(DirectXTK)Inc)<br>
+                    リンカーの全般を選択し、「追加のライブラリディレクトリ」を編集して、ライブラリの準備で設定した環境変数を使用してLibのパスを通す。その後右下の適用をクリックする。<br>
+                    (例 $(CreaDXTKLib)Lib, $(DirectXTK)lib)<br>
+                </li>
+                <li>C/C++の言語を選択し、「準拠モード」を「いいえ」に変更する。</li>
+                <li>
+                    リンカ―の入力を選択し、「追加の依存ファイル」を編集して、以下のファイルを追加する。その後右下の適用をクリックする。<br><br>
+                    d3d11.lib<br>
+                    dxguid.lib<br>
+                    uuid.lib<br>
+                    kernel32.lib<br>
+                    user32.lib<br>
+                    gdi32.lib<br>
+                    winspool.lib<br>
+                    comdlg32.lib<br>
+                    advapi32.lib<br>
+                    shell32.lib<br>
+                    ole32.lib<br>
+                    oleaut32.lib<br>
+                    odbc32.lib<br>
+                    odbccp32.lib<br>
+                </li>
+                <li>
+                    プラットフォーム (P):の項目がWin32になっている事を確認して、VC++ディレクトリを選択する。<br>
+                    インクルードディレクトリの最後に「$(DXSDK_DIR)Include;」を追加する。<br>
+                    ライブラリディレクトリの最後に「;$(DXSDK_DIR)Lib\x86」を追加して、右下の適用をクリックする。<br>
+                </li>
+                <li>
+                    プラットフォーム (P):の項目をx64に変更する。<br>
+                    インクルードディレクトリの最後に「$(DXSDK_DIR)Include;」を追加する。<br>
+                    ライブラリディレクトリの最後に「;$(DXSDK_DIR)Lib\x64」を追加して、右下のOKをクリックする。<br>
+                </li>
+            </ol>
+            <br>
+            <h2>3. ウィンドウを表示させる</h2>
+            <ol>
+                <li>
+                    プロジェクトの作成方法 で作成したソースファイルに以下のヘッダファイルをインクルードする。<br><br>
+                    CreaDXTKLib/CreaDXTKLib.h<br>
+                    CreaDXTKLib/GameManager.h<br>
+                    CreaDXTKLib/Scene.h<br>
+                </li>
+                <li>「CREA_DXTKLIB」マクロを記述する。</li>
+                <li>CreaDXTKLib ネームスペースを using する。</li>
+                <li>Scene クラスを継承したクラスを作成し、Update メソッドと OnRender メソッドを定義して、シーンクラスを作成する。</li>
+                <li>void SetUp() 関数を定義し、③で作成したシーンクラスをスタートシーンに設定する。</li>
+            </ol>
+            <div style="margin-left: 30px">
+                <h3>サンプルコード</h3>
+                <pre class="brush:cpp">
+                    // インクルード
+                    #include "CreaDXTKLib/CreaDXTKLib.h"
+                    #include "CreaDXTKLib/GameManager.h"
+                    #include "CreaDXTKLib/Scene.h"
+                    
+                    // CreaDXTKLibを使用するためのマクロ
+                    CREA_DXTKLIB
+                    
+                    // CreaDXTKLib名前空間のusing
+                    using namespace CreaDXTKLib;
+                    
+                    // 開始時に実行されるシーンの定義
+                    class MainScene : public Scene
+                    {
+                    public:
+
+                        virtual void Update(float _elapsedTime) override { }
+                        virtual void OnRender() override { }
+                    };
+                    
+                    // ゲームの初期設定
+                    void SetUp()
+                    {
+                        // MainSceneを開始時に実行されるように設定
+                        SetStartScene&lt;MainScene&gt;();
+                    }
+                </pre>
+            </div>  
+        </div>
+    </body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="../css/label.css">
+        <link rel="stylesheet" type="text/css" href="http://alexgorbatchev.com/pub/sh/current/styles/shCoreEmacs.css"/>
+        <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script>
+        <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript">SyntaxHighlighter.all();</script>
+        <title>Window</title>
+    </head>
+    <body marginwidth="50" marginheight="50">
+        <h1><center>CreaDXTKLib</center></h1>
+        <a href="Index.html">Home</a> / <a href="Reference.html">リファレンス</a> / Window
+        <h2>Window</h2>
+        <br><br>
+        <div>
+            <h3>概要</h3>
+            <div style="margin-left : 30px">ウィンドウ関係</div>
+            <h3>ヘッダファイル</h3>
+            <div style="margin-left : 30px">
+                Utility/Window.h<br><br>
+            </div>
+            <h3>namespace</h3>
+            <div style="margin-left : 30px">
+                CreaDXTKLib::Utility<br><br>
+            </div>
+            <h3>メンバ変数</h3>
+            <div style="margin-left : 30px">
+                <h4>public</h4>
+                <div style="margin-left : 30px">
+                <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
+                    <tr>
+                        <th>型</th>
+                        <th>変数名</th>
+                        <th>概要</th>
+                    </tr>
+                    <tr align="center">
+                        <td>DirectX::XMVECTORF32</td>
+                        <td>backGroundColor</td>
+                        <td align="left">背景色</td>
+                    </tr>
+                </table>
+                <br>
+                </div> 
+            </div>
+            <h3>メソッド</h3>
+            <div style="margin-left: 30px">
+                <h4>public</h4>
+                <div style="margin-left: 30px">
+                    <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
+                        <tr>
+                            <th rowspan="2">メソッド名</th>
+                            <th rowspan="2">概要</th>
+                            <th colspan="2">返り値</th>
+                            <th colspan="3">引数</th>
+                            <th rowspan="2">備考</th>
+                        </tr>
+                        <tr>
+                            <th>型</th>
+                            <th>概要</th>
+                            <th>型</th>
+                            <th>引数名</th>
+                            <th>概要</th>
+                        </tr>
+                        <tr align="center">
+                            <td>GetSize</td>
+                            <td align="left">ウィンドウサイズを取得</td>
+                            <td><a href="Vector2.html">Math::Vector2</a></td>
+                            <td align="left">ウィンドウサイズ</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr align="center">
+                            <td rowspan="2">SetSize</td>
+                            <td align="left" rowspan="2">ウィンドウサイズを設定</td>
+                            <td rowspan="2">-</td>
+                            <td rowspan="2">-</td>
+                            <td>int</td>
+                            <td>_width</td>
+                            <td align="left">幅</td>
+                            <td rowspan="2">-</td>
+                        </tr>
+                        <tr align="center">
+                            <td>int</td>
+                            <td>_height</td>
+                            <td align="left">高さ</td>
+                        </tr>
+                        <tr align="center">
+                            <td>SetPosition</td>
+                            <td align="left">ウィンドウ位置を設定</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td><a href="Vector2.html">Math::Vector2</a></td>
+                            <td>_position</td>
+                            <td align="left">位置</td>
+                            <td>-</td>
+                        </tr>
+                        <tr align="center">
+                            <td>SetText</td>
+                            <td align="left">ウィンドウ名を設定</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>std::wstring</td>
+                            <td>_text</td>
+                            <td align="left">ウィンドウ名</td>
+                            <td>-</td>
+                        </tr>
+                        <tr align="center">
+                            <td>SetStyle</td>
+                            <td align="left">ウィンドウスタイルを設定</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>long</td>
+                            <td>_style</td>
+                            <td>スタイル情報</td>
+                            <td align="left">
+                                <a href="https://msdn.microsoft.com/ja-jp/library/cc410714.aspx"  target="_blank">こちら</a>のdwExStyleNo項目を参照
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="../css/label.css">
+        <link rel="stylesheet" type="text/css" href="http://alexgorbatchev.com/pub/sh/current/styles/shCoreEmacs.css"/>
+        <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script>
+        <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript">SyntaxHighlighter.all();</script>
+        <title>Vector2</title>
+    </head>
+    <body marginwidth="50" marginheight="50">
+        <h1><center>CreaDXTKLib</center></h1>
+        <a href="Index.html">Home</a> / <a href="Reference.html">リファレンス</a> / Vector2
+        <h2>Vector2</h2>
+        <br><br>
+        <div>
+            <h3>概要</h3>
+            <div style="margin-left : 30px">
+                2Dベクトルクラス<br>
+                DirectX::SimpleMath::Vector2と互換性あり<br><br>
+            </div>
+            <h3>ヘッダファイル</h3>
+            <div style="margin-left : 30px">
+                Math/Vector2.h<br><br>
+            </div>
+            <h3>namespace</h3>
+            <div style="margin-left : 30px">
+                CreaDXTKLib::Math<br><br>
+            </div>
+            <h3>メンバ変数</h3>
+            <div style="margin-left : 30px">
+                <h4>public</h4>
+                <div style="margin-left : 30px">
+                <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
+                    <tr>
+                        <th>型</th>
+                        <th>変数名</th>
+                        <th>概要</th>
+                    </tr>
+                    <tr align="center">
+                        <td>float</td>
+                        <td>x</td>
+                        <td align="left">x方向の大きさ</td>
+                    </tr>
+                    <tr align="center">
+                        <td>float</td>
+                        <td>y</td>
+                        <td align="left">y方向の大きさ</td>
+                    </tr>
+                    <tr align="center">
+                        <td>static const Vector2</td>
+                        <td>zero</td>
+                        <td align="left">Vector2(0.0f, 0.0f)</td>
+                    </tr>
+                    <tr align="center">
+                        <td>static const Vector2</td>
+                        <td>one</td>
+                        <td align="left">Vector2(1.0f, 1.0f)</td>
+                    </tr>
+                </table>
+                <br>
+                </div> 
+            </div>
+            <h3>コンストラクタ</h3>
+            <div style="margin-left: 30px">
+                <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
+                    <tr>
+                        <th colspan="2">引数</th>
+                        <th rowspan="2">概要</th>
+                        <th rowspan="2">備考</th>
+                    </tr>
+                    <tr>
+                        <th>型</th>
+                        <th>引数名</th>
+                    </tr>
+                    <tr align="center">
+                        <td colspan="3">なし</td>
+                        <td>-</td>
+                    </tr>
+                </table>
+                <br>
+                <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
+                    <tr>
+                        <th colspan="2">引数</th>
+                        <th rowspan="2">概要</th>
+                        <th rowspan="2">備考</th>
+                    </tr>
+                    <tr>
+                        <th>型</th>
+                        <th>引数名</th>
+                    </tr>
+                    <tr align="center">
+                        <td>float</td>
+                        <td>_x</td>
+                        <td align="left">x方向の大きさ</td>
+                        <td>-</td>
+                    </tr>
+                </table>
+                <br>
+                <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
+                    <tr>
+                        <th colspan="2">引数</th>
+                        <th rowspan="2">概要</th>
+                        <th rowspan="2">備考</th>
+                    </tr>
+                    <tr>
+                        <th>型</th>
+                        <th>引数名</th>
+                    </tr>
+                    <tr align="center">
+                        <td>float</td>
+                        <td>_x</td>
+                        <td align="left">x方向の大きさ</td>
+                        <td>-</td>
+                    </tr>
+                    <tr align="center">
+                        <td>float</td>
+                        <td>_y</td>
+                        <td align="left">y方向の大きさ</td>
+                        <td>-</td>
+                    </tr>
+                </table>
+                <br>
+            </div>
+            <h3>メソッド</h3>
+            <div style="margin-left: 30px">
+                <h4>public</h4>
+                <div style="margin-left: 30px">
+                    <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
+                        <tr>
+                            <th rowspan="2">メソッド名</th>
+                            <th rowspan="2">概要</th>
+                            <th colspan="2">返り値</th>
+                            <th colspan="3">引数</th>
+                            <th rowspan="2">備考</th>
+                        </tr>
+                        <tr>
+                            <th>型</th>
+                            <th>概要</th>
+                            <th>型</th>
+                            <th>引数名</th>
+                            <th>概要</th>
+                        </tr>
+                        <tr align="center">
+                            <td>Magnitude</td>
+                            <td align="left">ベクトルの大きさを計算</td>
+                            <td>float</td>
+                            <td align="left">ベクトルの大きさ</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td align="left">内部でsqrtを使用</td>
+                        </tr>
+                        <tr align="center">
+                            <td>SqrMagnitude</td>
+                            <td align="left">ベクトルの大きさの2乗を計算</td>
+                            <td>float</td>
+                            <td align="left">ベクトルの大きさの2乗</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr align="center">
+                            <td>Normalize</td>
+                            <td align="left">正規化した値を計算</td>
+                            <td>Vector2</td>
+                            <td align="left">正規化した値</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td align="left">内部でsqrtを使用</td>
+                        </tr>
+                        <tr align="center">
+                            <td>Dot</td>
+                            <td align="left">内積を計算</td>
+                            <td>flaot</td>
+                            <td align="left">内積した値</td>
+                            <td>Vector2</td>
+                            <td>_vec</td>
+                            <td align="left">計算するベクトル</td>
+                            <td>-</td>
+                        </tr>
+                        <tr align="center">
+                            <td>Cross</td>
+                            <td align="left">外積を計算</td>
+                            <td>flaot</td>
+                            <td align="left">外積した値</td>
+                            <td>Vector2</td>
+                            <td>_vec</td>
+                            <td align="left">計算するベクトル</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                    <br>
+                </div>
+            </div>
+            <h3>オペレーター</h3>
+            <div style="margin-left : 30px">
+                <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
+                    <tr>
+                        <th>宣言</th>
+                        <th>概要</th>
+                    </tr>
+                    <tr align="center">
+                        <td>Vector2 operator-()</td>
+                        <td align="left">各要素に負の値を乗算</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Vector2 operator+(Vector2 _vec)</td>
+                        <td align="left">Vector2同士の加算</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Vector2 operator+(float _value)</td>
+                        <td align="left">floatの値を各要素に加算</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Vector2 operator-(Vector2 _vec)</td>
+                        <td align="left">Vector2同士の減算</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Vector2 operator-(float _value)</td>
+                        <td align="left">floatの値を各要素から減算</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Vector2 operator*(Vector2 _vec)</td>
+                        <td align="left">Vector2同士の乗算</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Vector2 operator*(float _value)</td>
+                        <td align="left">floatの値と各要素の乗算</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Vector2 operator/(Vector2 _vec)</td>
+                        <td align="left">Vector2同士の除算</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Vector2 operator/(float _value)</td>
+                        <td align="left">floatの値を各要素から徐算</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Vector2 operator+(Vector2 _vec)</td>
+                        <td align="left">Vector2同士の加算と代入</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Vector2 operator+(float _value)</td>
+                        <td align="left">floatの値を各要素に加算と代入</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Vector2 operator-(Vector2 _vec)</td>
+                        <td align="left">Vector2同士の減算と代入</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Vector2 operator-(float _value)</td>
+                        <td align="left">floatの値を各要素から減算と代入</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Vector2 operator*(Vector2 _vec)</td>
+                        <td align="left">Vector2同士の乗算と代入</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Vector2 operator*(float _value)</td>
+                        <td align="left">floatの値と各要素の乗算と代入</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Vector2 operator/(Vector2 _vec)</td>
+                        <td align="left">Vector2同士の除算と代入</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Vector2 operator/(float _value)</td>
+                        <td align="left">floatの値を各要素から徐算と代入</td>
+                    </tr>
+                    <tr align="center">
+                        <td>operator std::wstring()</td>
+                        <td align="left">各要素の値を文字列に変換</td>
+                    </tr>
+                    <tr align="center">
+                        <td>operator DirectX::SimpleMath::Vector2()</td>
+                        <td align="left">DirectX::SimpleMath::Vector2への変換</td>
+                    </tr>
+                </table>
+                <br>
+            </div>
+            <h3>使用例</h3>
+            <div style="margin-left: 30px">
+                <pre class="brush:cpp">
+                    #include "CreaDXTKLib/Scene.h"
+                    #include "Draw/Image.h"
+                    #include "Math/Vector2.h"
+
+                    using namespace CreaDXTKLib;
+                    using namespace CreaDXTKLib::Draw;
+                    using namespace CreaDXTKLib::Math;
+
+                    // シーンクラスを基底としたメインシーンクラスの定義
+                    class VectorScene : public Scene
+                    {
+                    public:
+
+                        // コンストラクタに開始処理を記述
+                        VectorScene()
+                        {
+                            // VectorSceneで使用する画像を読み込む。
+                            Image::Instance().Load(L"image.png", L"Test");
+                        }
+
+                        // デストラクタに終了処理を記述
+                        ~VectorScene()
+                        {
+                            // VectorSceneが終了するので画像を破棄する。
+                            Image::Instance().Erase(L"Test");
+                        }
+
+                        // 更新処理
+                        virtual void Update(float _elapsedTime) override
+                        {
+                            // 画像を移動させる。
+                            m_imagePos += Vector2(100.0f, 0.0f) * _elapsedTime;
+                        }
+
+                        // 描画処理
+                        virtual void OnRender() override
+                        {
+                            //画像を描画する。
+                            Image::Instance().Draw(L"Test", m_imagePos);
+                        }
+                        
+                    private:
+
+                        // Vector2を画像の座標として使用
+                        Vector2 m_imagePos = Vector2::zero;
+                    }
+                </pre>
+            </div>
+        </div>
+    </body>
+</html>
