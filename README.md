@@ -1,7 +1,7 @@
 # CreaDXTKLib
 
 ## ダウンロード
-[CreaDXTKLib_1_0.zip](/zip/CreaDXTKLib_1_0.zip)
+[CreaDXTKLib_1_0.zip](https://github.com/AkiraSekine/CreaDXTKLib/raw/master/zip/CreaDXTKLib_1_0.zip)
 
 ## 使用方法
 ダウンロードしたzipファイルを展開  

@@ -41,6 +41,9 @@
     <ClCompile Include="..\src\CreaDXTKLib\Object.cpp">
       <Filter>src\CreaDXTKLib</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\TEST.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\DirectXTK\Game.cpp">
       <Filter>src\DirectXTK</Filter>
     </ClCompile>
