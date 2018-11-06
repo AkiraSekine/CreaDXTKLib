@@ -1,14 +1,31 @@
 #include "../Inc/Math/Collider2D.h"
 
+using namespace std;
+
 namespace CreaDXTKLib
 {
 namespace Math
 {
+    Collider2D::Collider2D()
+    {
+        m_targets = vector<Collider2D*>();
+    }
+
+    Collider2D::~Collider2D()
+    {
+        m_targets.clear();
+    }
+
     Collider2D * Collider2D::CheckCollision() const
     {
         // ターゲットとの当たり判定
         for (Collider2D* target : m_targets)
         {
+            if (target == nullptr)
+            {
+                continue;
+            }
+
             Collider2D* result = nullptr;
 
             result = CheckCollision(target);
@@ -25,6 +42,11 @@ namespace Math
 
     Collider2D * Collider2D::CheckCollision(Collider2D * _collider) const
     {
+        if (_collider == nullptr)
+        {
+            return nullptr;
+        }
+
         Collider2D* result = nullptr;
 
         // ターゲットの形状に応じてメソッドを呼ぶ
@@ -59,6 +81,24 @@ namespace Math
     void Collider2D::AddTarget(Collider2D * _collider)
     {
         m_targets.push_back(_collider);
+    }
+
+    void Collider2D::EraseTarget(Collider2D * _collider)
+    {
+        unsigned int count = 0;
+
+        for (Collider2D* target : m_targets)
+        {
+            // _colliderと要素が同じアドレスなら要素から削除
+            if (target == _collider)
+            {
+                m_targets.erase(m_targets.begin() + count);
+
+                return;
+            }
+
+            count++;
+        }
     }
 } // Math
 } // CreaDXTKLib
