@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="../css/label.css">
+        <link rel="stylesheet" type="text/css" href="http://alexgorbatchev.com/pub/sh/current/styles/shCoreEmacs.css"/>
+        <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script>
+        <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript">SyntaxHighlighter.all();</script>
+        <title>LineCollider</title>
+    </head>
+    <body marginwidth="50" marginheight="50">
+        <h1><center>CreaDXTKLib</center></h1>
+        <a href="Index.html">Home</a> / <a href="Reference.html">リファレンス</a> / LineCollider
+        <h2>LineCollider</h2>
+        <br><br>
+        <div>
+            <h3>概要</h3>
+            <div style="margin-left : 30px">
+                線分のコライダー<br>
+            </div>
+            <h3>ヘッダファイル</h3>
+            <div style="margin-left : 30px">
+                Math/Collider2D.h<br><br>
+            </div>
+            <h3>namespace</h3>
+            <div style="margin-left : 30px">
+                CreaDXTKLib::Math<br><br>
+            </div>
+            <h3>コンストラクタ</h3>
+            <div style="margin-left: 30px">
+                <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
+                    <tr>
+                        <th colspan="2">引数</th>
+                        <th rowspan="2">概要</th>
+                        <th rowspan="2">備考</th>
+                    </tr>
+                    <tr>
+                        <th>型</th>
+                        <th>引数名</th>
+                    </tr>
+                    <tr align="center">
+                        <td><a href="Vector2.html">Vector2</a></td>
+                        <td>_start</td>
+                        <td align="center">線分の始点座標</td>
+                        <td>-</td>
+                    </tr>
+                    <tr align="center">
+                        <td><a href="Vector2.html">Vector2</a></td>
+                        <td>_end</td>
+                        <td align="center">線分の終点座標</td>
+                        <td>-</td>
+                    </tr>
+                </table>
+            </div>
+            <h3>メソッド</h3>
+            <div style="margin-left: 30px">
+                <h4>public</h4>
+                <div style="margin-left: 30px">
+                    <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
+                        <tr>
+                            <th rowspan="2">メソッド名</th>
+                            <th rowspan="2">概要</th>
+                            <th colspan="2">返り値</th>
+                            <th colspan="3">引数</th>
+                            <th rowspan="2">備考</th>
+                        </tr>
+                        <tr>
+                            <th>型</th>
+                            <th>概要</th>
+                            <th>型</th>
+                            <th>引数名</th>
+                            <th>概要</th>
+                        </tr>
+                        <tr align="center">
+                            <td>CheckCollision</td>
+                            <td align="left">当たっているかの取得</td>
+                            <td>Collider2D*</td>
+                            <td align="left">当たった相手のコライダー</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr align="center">
+                            <td>CheckCollision</td>
+                            <td align="left">当たっているかの取得</td>
+                            <td>Collider2D*</td>
+                            <td align="left">当たった相手のコライダー</td>
+                            <td>Collider2D*</td>
+                            <td>_collider</td>
+                            <td align="left">判定対象のコライダー</td>
+                            <td>-</td>
+                        </tr>
+                        <tr align="center">
+                            <td>AddTarget</td>
+                            <td align="left">判定対象の追加</td>
+                            <td>void</td>
+                            <td>-</td>
+                            <td>Collider2D*</td>
+                            <td>_collider</td>
+                            <td align="left">判定対象のコライダー</td>
+                            <td>-</td>
+                        </tr>
+                        <tr align="center">
+                            <td>EraseTarget</td>
+                            <td align="left">判定対象の削除</td>
+                            <td>void</td>
+                            <td>-</td>
+                            <td>Collider2D*</td>
+                            <td>_collider</td>
+                            <td align="left">削除対象のコライダー</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                    <br>
+                </div>
+            </div>
+            <h3>使用例</h3>
+            <div style="margin-left: 30px">
+                <pre class="brush:cpp">
+                    #include "CreaDXTKLib/Scene.h"
+                    #include "Draw/Image.h"
+                    #include "Math/Collider2D.h"
+                    #include "Math/Vector2.h"
+
+                    using namespace CreaDXTKLib;
+                    using namespace CreaDXTKLib::Draw;
+                    using namespace CreaDXTKLib::Math;
+
+                    // シーンクラスを基底としたシーンクラスの定義
+                    class ColliderScene : public Scene
+                    {
+                    public:
+
+                        ColliderScene()
+                        {
+                            // 画像の読み込み
+                            Image::Instance().Load(L"Test", L"image.png");
+
+                            // コライダーを定義
+                            m_line1 = LineCollider(Vector2(100.0f, 100.0f), Vector2(400.0f 400.0f));
+                            m_line2 = LineCollider(Vector2(400.0f, 100.0f), m_cursorPos);
+
+                            // m_line1のターゲットにm_line2を追加
+                            m_line1.AddTarget(&m_line2);
+                        }
+
+                        ~ColliderScene()
+                        {
+                            Image::Instance().Erase(L"Test");
+                        }
+
+                        // 更新処理
+                        virtual void Update(float _elapsedTime) override
+                        {
+                            // カーソルの座標を取得
+                            m_cursorPos = Mouse::Instance().Position();
+                        }
+
+                        // 描画処理
+                        virtual void OnRender() override
+                        {
+                            // 衝突していたら画像を描画
+                            if (m_line1.CheckCollision() != nullptr)
+                            {
+                                Image::Instance().Draw(L"Test", Vector2::zero;
+                            }
+                        }
+
+                    private:
+
+                        LineCollider m_line1;
+                        LineCollider m_line2;
+
+                        Vector2 m_cursorPos;
+                    }
+                </pre>
+            </div>
+        </div>
+    </body>
+</html>

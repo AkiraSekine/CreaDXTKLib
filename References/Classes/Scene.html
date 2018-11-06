@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="../css/label.css">
+        <link rel="stylesheet" type="text/css" href="http://alexgorbatchev.com/pub/sh/current/styles/shCoreEmacs.css"/>
+        <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script>
+        <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript">SyntaxHighlighter.all();</script>
+        <title>Scene</title>
+    </head>
+    <body marginwidth="50" marginheight="50">
+        <h1><center>CreaDXTKLib</center></h1>
+        <a href="Index.html">Home</a> / <a href="Reference.html">リファレンス</a> / Scene
+        <h2>Scene</h2>
+        <br><br>
+        <div>
+            <h3>概要</h3>
+            <div style="margin-left : 30px">
+                シーン分けをするためのクラス<br>
+                ゲームの処理はこのクラスを継承させたクラスで行う<br><br>
+            </div>
+            <h3>ヘッダファイル</h3>
+            <div style="margin-left : 30px">
+                CreaDXTKLib/Scene.h<br><br>
+            </div>
+            <h3>namespace</h3>
+            <div style="margin-left : 30px">
+                CreaDXTKLib<br><br>
+            </div>
+            <h3>コンストラクタ</h3>
+            <div style="margin-left: 30px">
+                <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
+                    <tr>
+                        <th colspan="2">引数</th>
+                        <th rowspan="2">概要</th>
+                        <th rowspan="2">備考</th>
+                    </tr>
+                    <tr>
+                        <th>型</th>
+                        <th>引数名</th>
+                    </tr>
+                    <tr align="center">
+                        <td colspan="3">なし</td>
+                        <td align="left">シーンの開始処理はこのコンストラクタに記述する</td>
+                    </tr>
+                </table>
+                <br>
+            </div>
+            <h3>メソッド</h3>
+            <div style="margin-left: 30px">
+                <h4>public</h4>
+                <div style="margin-left: 30px">
+                    <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
+                        <tr>
+                            <th rowspan="2">メソッド名</th>
+                            <th rowspan="2">概要</th>
+                            <th colspan="2">返り値</th>
+                            <th colspan="3">引数</th>
+                            <th rowspan="2">備考</th>
+                        </tr>
+                        <tr>
+                            <th>型</th>
+                            <th>概要</th>
+                            <th>型</th>
+                            <th>引数名</th>
+                            <th>概要</th>
+                        </tr>
+                        <tr align="center">
+                            <td align="left">Update</td>
+                            <td align="left">更新処理</td>
+                            <td>void</td>
+                            <td>-</td>
+                            <td>float</td>
+                            <td>_elapsedTime</td>
+                            <td align="left">前フレームからの経過時間</td>
+                            <td align="left">純粋仮想関数</td>
+                        </tr>
+                        <tr align="center">
+                            <td align="left">OnRender</td>
+                            <td align="left">描画処理</td>
+                            <td>void</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td align="left">
+                                純粋仮想関数<br>
+                                シーン内の描画関係は全てこの関数内で記述する
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                </div>
+            </div>
+            <h3>使用例</h3>
+            <div style="margin-left: 30px">
+                <pre class="brush:cpp">
+                    #include "CreaDXTKLib/Scene.h"
+                    #include "Draw/Image.h"
+                    #include "Math/Vector2.h"
+
+                    using namespace CreaDXTKLib;
+                    using namespace CreaDXTKLib::Draw;
+                    using namespace CreaDXTKLib::Math;
+
+                    // シーンクラスを基底としたメインシーンクラスの定義
+                    class MainScene : public Scene
+                    {
+                    public:
+
+                        // コンストラクタに開始処理を記述
+                        MainScene()
+                        {
+                            // MainSceneで使用する画像を読み込む。
+                            Image::Instance().Load(L"image.png", L"Test");
+                        }
+
+                        // デストラクタに終了処理を記述
+                        ~MainScene()
+                        {
+                            // MainSceneが終了するので画像を破棄する。
+                            Image::Instance().Erase(L"Test");
+                        }
+
+                        // 更新処理
+                        virtual void Update(float _elapsedTime) override
+                        {
+                            // 画像を移動させる。
+                            m_imagePos += Vector2(100.0f, 0.0f) * _elapsedTime;
+                        }
+
+                        // 描画処理
+                        virtual void OnRender() override
+                        {
+                            //画像を描画する。
+                            Image::Instance().Draw(L"Test", m_imagePos);
+                        }
+                        
+                    private:
+
+                        // 画像の座標
+                        Vector2 m_imagePos = Vector2::zero;
+                    }
+                </pre>
+            </div>
+        </div>
+    </body>
+</html>
