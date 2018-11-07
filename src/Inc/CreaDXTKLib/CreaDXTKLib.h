@@ -13,7 +13,7 @@
 
 #if defined(_DEBUG) && defined(_MSVC_LANG)
 
-//#pragma comment(lib, "CreaDXTKLib_d.lib")
+#pragma comment(lib, "CreaDXTKLib_d.lib")
 #pragma comment(lib, "Draw_d.lib")
 #pragma comment(lib, "Input_d.lib")
 #pragma comment(lib, "Math_d.lib")
@@ -22,7 +22,7 @@
 
 #elif defined(_MSVC_LANG)
 
-//#pragma comment(lib, "CreaDXTKLib.lib")
+#pragma comment(lib, "CreaDXTKLib.lib")
 #pragma comment(lib, "Draw.lib")
 #pragma comment(lib, "Input.lib")
 #pragma comment(lib, "Math.lib")
