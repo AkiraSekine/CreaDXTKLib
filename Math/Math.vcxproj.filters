@@ -49,5 +49,8 @@
     <None Include="..\src\Inc\Math\Vector2.inl">
       <Filter>src\Math</Filter>
     </None>
+    <None Include="..\src\Inc\Math\Math.inl">
+      <Filter>src\Math</Filter>
+    </None>
   </ItemGroup>
 </Project>
