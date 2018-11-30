@@ -20,11 +20,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Inc\Utility\Debug.h" />
+    <ClInclude Include="..\src\Inc\Utility\Random.h" />
     <ClInclude Include="..\src\Inc\Utility\Singleton.h" />
     <ClInclude Include="..\src\Inc\Utility\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Utility\Debug.cpp" />
+    <ClCompile Include="..\src\Utility\Random.cpp" />
     <ClCompile Include="..\src\Utility\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
