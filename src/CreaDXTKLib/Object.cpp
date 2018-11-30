@@ -76,6 +76,16 @@ namespace CreaDXTKLib
         m_isActive = _isActive;
     }
 
+    Vector2 Object2D::GetImageSize() const
+    {
+        return Image::Instance().GetImageSize(m_imageHandle);
+    }
+
+    std::wstring Object2D::GetImageHandle() const
+    {
+        return m_imageHandle;
+    }
+
     wstring Object2D::ObjectName() const
     {
         return m_objectName;
