@@ -57,6 +57,7 @@
 #include "Mouse.h"
 #include "SpriteFont.h"
 #include "Audio.h"
+#include "GamePad.h"
 
 namespace DX
 {
