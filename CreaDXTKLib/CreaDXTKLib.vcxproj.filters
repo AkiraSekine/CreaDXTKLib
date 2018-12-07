@@ -47,6 +47,9 @@
     <ClCompile Include="..\src\DirectXTK\Main.cpp">
       <Filter>src\DirectXTK</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\TEST.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Inc\CreaDXTKLib\CreaDXTKLib.h">

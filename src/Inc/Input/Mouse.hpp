@@ -38,7 +38,7 @@ namespace Input
         /// </summary>
         /// <param name="_button">調べたいボタン</param>
         /// <param name="_mode">チェック方法</param>
-        /// <returns>キーがチェック方法の状態か</returns>
+        /// <returns>ボタンがチェック方法の状態か</returns>
         bool GetInput(const MouseButtons& _button, const CheckMode& _mode = CheckMode::Press);
 
         /// <summary>

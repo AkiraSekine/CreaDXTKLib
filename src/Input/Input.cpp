@@ -2,6 +2,7 @@
 
 #include "Input/Mouse.hpp"
 #include "Input/Keyboard.hpp"
+#include "Input/Controller.h"
 
 using namespace std;
 
@@ -14,7 +15,7 @@ namespace Input
         InputSet set;
 
         // データを保存する
-        set.isKey = true;
+        set.source = InputSet::Keyboard;
         set.keyButton.key = _key;
         set.value = _value;
         set.checkMode = _mode;
@@ -27,10 +28,36 @@ namespace Input
         InputSet set;
 
         // データを保存する
-        set.isKey = false;
+        set.source = InputSet::Mouse;
         set.keyButton.mouseButton = _button;
         set.value = _value;
         set.checkMode = _mode;
+
+        m_inputSets.insert(make_pair(_name, set));
+    }
+
+    void Inputs::Add(const std::wstring & _name, const int & _num, const ControllerParts & _parts, const float & _value, const CheckMode & _mode)
+    {
+        InputSet set;
+
+        // データを保存する
+        set.source = InputSet::Controller;
+        set.keyButton.parts = _parts;
+        set.value = _value;
+        set.checkMode = _mode;
+        set.num = _num;
+
+        m_inputSets.insert(make_pair(_name, set));
+    }
+
+    void Inputs::Add(const std::wstring & _name, const int & _num, const ControllerParts & _parts)
+    {
+        InputSet set;
+
+        // データを保存する
+        set.source = InputSet::Controller;
+        set.keyButton.parts = _parts;
+        set.num = _num;
 
         m_inputSets.insert(make_pair(_name, set));
     }
@@ -52,24 +79,42 @@ namespace Input
         {
             InputSet set = i->second;
 
-            // キー入力かマウス入力かで処理を分けて入力状態を取得する
-            if (set.isKey)
+            switch (set.source)
             {
+            case InputSet::Keyboard:
+
                 ret = ((float)Keyboard::Instance().GetInput(set.keyButton.key, set.checkMode) * set.value);
-            }
-            else
-            {
+
+                break;
+
+            case InputSet::Mouse:
+
                 ret = ((float)Mouse::Instance().GetInput(set.keyButton.mouseButton, set.checkMode) * set.value);
+
+                break;
+
+            case InputSet::Controller:
+
+                if (set.keyButton.parts < ControllerParts::LTrigger)
+                {
+                    ret = ((float)Controller::Instance().GetInput(set.num, set.keyButton.parts, set.checkMode) * set.value);
+                }
+                else
+                {
+                    ret = Controller::Instance().GetVelue(set.num, set.keyButton.parts);
+                }
+
+                break;
             }
 
             // 何か入力されていたら値を返す
-            if (ret != 0.f)
+            if (ret != 0.0f)
             {
                 return ret;
             }
         }
 
-        return 0.f;
+        return 0.0f;
     }
 
 } // Input

@@ -7,6 +7,7 @@
 
 #include "CreaDXTKLib/GameManager.h"
 #include "Input/Mouse.hpp"
+#include "Input/Controller.h"
 #include "Utility/Window.h"
 #include "Audio/SoundSystem.h"
 
@@ -19,6 +20,7 @@ using Microsoft::WRL::ComPtr;
 using namespace CreaDXTKLib;
 using namespace CreaDXTKLib::Utility;
 using namespace CreaDXTKLib::Audio;
+using namespace CreaDXTKLib::Input;
 
 Game::Game() :
     m_window(nullptr),
@@ -136,6 +138,8 @@ void Game::OnActivated()
     {
         OnActive();
     }
+
+    Controller::Instance().OnResume();
 }
 
 void Game::OnDeactivated()
@@ -146,6 +150,8 @@ void Game::OnDeactivated()
     {
         OnInactive();
     }
+
+    Controller::Instance().OnSuspend();
 }
 
 void Game::OnSuspending()
@@ -158,6 +164,7 @@ void Game::OnSuspending()
     }
 
     SoundSystem::Instance().GetAudioEngine()->Suspend();
+    Controller::Instance().OnSuspend();
 }
 
 void Game::OnResuming()
@@ -172,6 +179,7 @@ void Game::OnResuming()
     }
 
     SoundSystem::Instance().GetAudioEngine()->Resume();
+    Controller::Instance().OnResume();
 }
 
 void Game::OnWindowSizeChanged(int width, int height)
