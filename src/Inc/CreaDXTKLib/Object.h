@@ -43,14 +43,30 @@ namespace CreaDXTKLib
         /// オブジェクトを描画
         /// </summary>
         /// <param name="_color">加算色</param>
-        virtual void Draw(const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const final;
+        virtual void Draw(const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const;
         /// <summary>
         /// オブジェクトを描画
         /// </summary>
         /// <param name="_rect">描画矩形</param>
         /// <param name="_color">加算色</param>
         virtual void Draw(const RECT& _rect,
-            const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const final;
+            const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const;
+        /// <summary>
+        /// オブジェクトを描画
+        /// </summary>
+        /// <param name="_pivot">中心座標</param>
+        /// <param name="_color">加算色</param>
+        virtual void Draw(const CreaDXTKLib::Math::Vector2 _pivot,
+            const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const;
+        /// <summary>
+        /// オブジェクトを描画
+        /// </summary>
+        /// <param name="_rect">描画矩形</param>
+        /// <param name="_pivot">中心座標</param>
+        /// <param name="_color">加算色</param>
+        virtual void Draw(const RECT& _rect,
+            const CreaDXTKLib::Math::Vector2 _pivot,
+            const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const;
 
         /// <summary>
         /// アクティブ状態を設定
@@ -86,11 +102,6 @@ namespace CreaDXTKLib
     protected:
 
         /// <summary>
-        /// オブジェクト名
-        /// </summary>
-        std::wstring m_objectName;
-
-        /// <summary>
         /// 開始処理
         /// </summary>
         virtual void Start() { }
@@ -111,6 +122,8 @@ namespace CreaDXTKLib
         virtual void OnDisable() { }
 
     private:
+
+        std::wstring m_objectName;
 
         bool m_isActive = true;
 
