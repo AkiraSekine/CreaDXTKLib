@@ -87,7 +87,9 @@ namespace Draw
         va_end(arg);
 
         // •`‰æ‹éŒ`‚ðŽæ“¾
+        m_spriteBatch->Begin();
         RECT result = m_fonts.at(_name)->MeasureDrawBounds(newStr, Vector2::zero);
+        m_spriteBatch->End();
 
         return Vector2((float)(result.right - result.left), (float)(result.bottom - result.top));
     }
