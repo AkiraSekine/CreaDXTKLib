@@ -1,5 +1,4 @@
 #include "Utility/Window.h"
-#include "Utility/Debug.h"
 
 #include <string>
 
