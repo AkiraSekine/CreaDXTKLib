@@ -52,6 +52,8 @@ void Game::Initialize(HWND window, int width, int height)
     CreaDXTKLib::Utility::Window::Instance().SetWindowHandle(window);
     CreaDXTKLib::Input::Mouse::Instance().Initialize(window);
 
+    GameManager::Instance().Initialize(m_d3dContext, m_d3dDevice);
+
     /*
     m_timer.SetFixedTimeStep(true);
     m_timer.SetTargetElapsedSeconds(1.0 / 60);
@@ -265,8 +267,6 @@ void Game::CreateDevice()
     DX::ThrowIfFailed(context.As(&m_d3dContext));
 
     // TODO: Initialize device dependent objects here (independent of window size).
-
-    GameManager::Instance().Initialize(m_d3dContext, m_d3dDevice);
 }
 
 // Allocate all memory resources that change on a window SizeChanged event.
