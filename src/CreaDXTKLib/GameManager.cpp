@@ -1,6 +1,7 @@
 #include "CreaDXTKLib/GameManager.h"
 
 #include "CreaDXTKLib/Scene.h"
+#include "CreaDXTKLib/Object.h"
 #include "Draw/Image.h"
 #include "Input/Keyboard.hpp"
 #include "Input/Mouse.hpp"
@@ -32,6 +33,24 @@ namespace CreaDXTKLib
         SoundSystem::Instance().Update();
 
         m_nowScene->Update(_elapsedTime);
+
+        for (Object2D* object : m_objects)
+        {
+            if ((bool)object)
+            {
+                object->Update(_elapsedTime);
+            }
+
+            object->AlwaysUpdate(_elapsedTime);
+        }
+
+        for (Object2D* object : m_objects)
+        {
+            if ((bool)object)
+            {
+                object->LateUpdate(_elapsedTime);
+            }
+        }
     }
 
     void GameManager::OnRender()
@@ -44,5 +63,24 @@ namespace CreaDXTKLib
         Image::Instance().OnEnd();
         Keyboard::Instance().OnEnd();
         Mouse::Instance().OnEnd();
+    }
+
+    int GameManager::AddObject(Object2D * _object)
+    {
+        m_objects.push_back(_object);
+
+        return m_objects.size() - 1;
+    }
+
+    void GameManager::EraseObject(const int & _id)
+    {
+        m_objects.erase(m_objects.begin() + _id);
+
+        for (auto i = m_objects.begin() + _id; i != m_objects.end(); i++)
+        {
+            Object2D* object = *i;
+
+            object->id--;
+        }
     }
 }
