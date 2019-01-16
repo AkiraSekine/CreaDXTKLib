@@ -9,6 +9,11 @@ namespace CreaDXTKLib
     {
     public:
 
+        /// <summary>
+        /// オブジェクトID
+        /// </summary>
+        int id;
+
         Object2D();
         /// <param name="_imageName">画像のハンドル名</param>
         /// <param name="_position">座標</param>
@@ -36,8 +41,26 @@ namespace CreaDXTKLib
         /// <summary>
         /// 更新処理
         /// </summary>
-        /// <param name="_elapsedTime">前フレームからの経過時間</param>
+        /// <param name="_elapsedTime"></param>
         virtual void Update(float _elapsedTime) ABSTRACT;
+
+        /// <summary>
+        /// Updateの後に実行される更新処理
+        /// </summary>
+        /// <param name="_elapsedTime">前フレームからの経過時間</param>
+        virtual void LateUpdate(float _elapsedTime)
+        {
+            _elapsedTime;
+        }
+
+        /// <summary>
+        /// 非アクティブ状態でも実行される更新処理
+        /// </summary>
+        /// <param name="_elapsedTime">前フレームからの経過時間</param>
+        virtual void AlwaysUpdate(float _elapsedTime)
+        {
+            _elapsedTime;
+        }
 
         /// <summary>
         /// オブジェクトを描画

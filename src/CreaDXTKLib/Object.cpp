@@ -1,9 +1,11 @@
 #include "CreaDXTKLib/Object.h"
 
+#include "CreaDXTKLib/GameManager.h"
 #include "Draw/Image.h"
 
 using namespace std;
 using namespace DirectX;
+using namespace CreaDXTKLib;
 using namespace CreaDXTKLib::Math;
 using namespace CreaDXTKLib::Draw;
 
@@ -14,6 +16,7 @@ namespace CreaDXTKLib
         Transform2D(),
         m_objectName(L"Object")
     {
+        id = GameManager::Instance().AddObject(this);
     }
 
     Object2D::Object2D(const wstring& _imageName,
@@ -26,6 +29,7 @@ namespace CreaDXTKLib
         Transform2D(_position, _rotation, _scale, _parent),
        m_objectName(_objectName)
     {
+        id = GameManager::Instance().AddObject(this);
     }
 
     Object2D::Object2D(const wstring& _imageName,
@@ -36,10 +40,12 @@ namespace CreaDXTKLib
         Transform2D(_transform.Position(), _transform.Rotation(), _transform.Scale(), _parent),
         m_objectName(_objectName)
     {
+        id = GameManager::Instance().AddObject(this);
     }
 
     Object2D::~Object2D()
     {
+        GameManager::Instance().EraseObject(id);
     }
 
     void Object2D::Draw(const FXMVECTOR & _color) const
