@@ -34,8 +34,10 @@ namespace CreaDXTKLib
 
         m_nowScene->Update(_elapsedTime);
 
-        for (Object2D* object : m_objects)
+        for (auto obj = m_objects.begin(); obj != m_objects.end(); obj++)
         {
+            Object2D* object = *obj;
+
             if ((bool)object)
             {
                 object->Update(_elapsedTime);
@@ -44,8 +46,10 @@ namespace CreaDXTKLib
             object->AlwaysUpdate(_elapsedTime);
         }
 
-        for (Object2D* object : m_objects)
+        for (auto obj = m_objects.begin(); obj != m_objects.end(); obj++)
         {
+            Object2D* object = *obj;
+
             if ((bool)object)
             {
                 object->LateUpdate(_elapsedTime);
