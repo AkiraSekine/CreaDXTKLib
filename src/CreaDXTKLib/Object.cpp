@@ -45,7 +45,7 @@ namespace CreaDXTKLib
 
     Object2D::~Object2D()
     {
-        GameManager::Instance().EraseObject(id);
+        Destroy();
     }
 
     void Object2D::Draw(const FXMVECTOR & _color) const
@@ -100,6 +100,17 @@ namespace CreaDXTKLib
         }
 
         m_isActive = _isActive;
+    }
+
+    void Object2D::Destroy()
+    {
+        m_isActive = false;
+        m_isDestroy = true;
+    }
+
+    bool Object2D::IsDestroy()
+    {
+        return m_isDestroy;
     }
 
     Vector2 Object2D::GetImageSize() const
