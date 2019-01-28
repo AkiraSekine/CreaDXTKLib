@@ -1,11 +1,20 @@
 #include "CreaDXTKLib/Scene.h"
 
+#include "CreaDXTKLib/GameManager.h"
+
 #include <cstdlib>
 
 using namespace std;
 
+using namespace CreaDXTKLib;
+
 namespace CreaDXTKLib
 {
+    Scene::~Scene()
+    {
+        GameManager::Instance().DestroyAllObject();
+    }
+
     wstring Scene::GetSceneName()
     {
         // "class "‚ÌƒTƒCƒY‚ðŽæ“¾

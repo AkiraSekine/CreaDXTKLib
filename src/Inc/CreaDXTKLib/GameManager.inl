@@ -39,5 +39,7 @@ namespace CreaDXTKLib
         m_nowScene = nullptr;
 
         m_nowScene = new NextScene();
+
+        m_isSceneTransition = true;
     }
 }

@@ -13,7 +13,7 @@ namespace CreaDXTKLib
     {
     public:
 
-        virtual ~Scene() { }
+        virtual ~Scene();
 
         /// <summary>
         /// XVˆ—

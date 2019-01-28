@@ -98,6 +98,17 @@ namespace CreaDXTKLib
         virtual void SetActive(const bool& _isActive) final;
 
         /// <summary>
+        /// オブジェクトを破壊する
+        /// </summary>
+        virtual void Destroy() final;
+
+        /// <summary>
+        /// オブジェクトを破壊するかを取得
+        /// </summary>
+        /// <returns>オブジェクトを破壊するか</returns>
+        virtual bool IsDestroy() final;
+
+        /// <summary>
         /// 画像サイズを取得
         /// </summary>
         /// <returns>画像サイズ</returns>
@@ -149,6 +160,7 @@ namespace CreaDXTKLib
         std::wstring m_objectName;
 
         bool m_isActive = true;
+        bool m_isDestroy = false;
 
         std::wstring m_imageHandle;
 

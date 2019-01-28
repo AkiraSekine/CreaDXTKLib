@@ -72,13 +72,24 @@ namespace CreaDXTKLib
         /// <returns>ID</returns>
         int AddObject(Object2D* _object);
 
+        /// <summary>
+        /// オブジェクトを破棄
+        /// </summary>
+        /// <param name="_id">破棄するオブジェクトのID</param>
         void EraseObject(const int& _id);
+
+        /// <summary>
+        /// 全てのオブジェクトを破棄
+        /// </summary>
+        void DestroyAllObject();
 
     private:
 
         Scene * m_nowScene;
 
         std::vector<Object2D*> m_objects;
+
+        bool m_isSceneTransition;
     };
 } // CreaDXTKLib
 
