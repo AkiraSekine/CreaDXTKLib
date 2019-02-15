@@ -9,6 +9,11 @@ namespace CreaDXTKLib
     {
     public:
 
+        /// <summary>
+        /// オブジェクトID
+        /// </summary>
+        int id;
+
         Object2D();
         /// <param name="_imageName">画像のハンドル名</param>
         /// <param name="_position">座標</param>
@@ -36,27 +41,72 @@ namespace CreaDXTKLib
         /// <summary>
         /// 更新処理
         /// </summary>
-        /// <param name="_elapsedTime">前フレームからの経過時間</param>
+        /// <param name="_elapsedTime"></param>
         virtual void Update(float _elapsedTime) ABSTRACT;
+
+        /// <summary>
+        /// Updateの後に実行される更新処理
+        /// </summary>
+        /// <param name="_elapsedTime">前フレームからの経過時間</param>
+        virtual void LateUpdate(float _elapsedTime)
+        {
+            _elapsedTime;
+        }
+
+        /// <summary>
+        /// 非アクティブ状態でも実行される更新処理
+        /// </summary>
+        /// <param name="_elapsedTime">前フレームからの経過時間</param>
+        virtual void AlwaysUpdate(float _elapsedTime)
+        {
+            _elapsedTime;
+        }
 
         /// <summary>
         /// オブジェクトを描画
         /// </summary>
         /// <param name="_color">加算色</param>
-        virtual void Draw(const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const final;
+        virtual void Draw(const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const;
         /// <summary>
         /// オブジェクトを描画
         /// </summary>
         /// <param name="_rect">描画矩形</param>
         /// <param name="_color">加算色</param>
         virtual void Draw(const RECT& _rect,
-            const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const final;
+            const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const;
+        /// <summary>
+        /// オブジェクトを描画
+        /// </summary>
+        /// <param name="_pivot">中心座標</param>
+        /// <param name="_color">加算色</param>
+        virtual void Draw(const CreaDXTKLib::Math::Vector2 _pivot,
+            const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const;
+        /// <summary>
+        /// オブジェクトを描画
+        /// </summary>
+        /// <param name="_rect">描画矩形</param>
+        /// <param name="_pivot">中心座標</param>
+        /// <param name="_color">加算色</param>
+        virtual void Draw(const RECT& _rect,
+            const CreaDXTKLib::Math::Vector2 _pivot,
+            const DirectX::FXMVECTOR& _color = DirectX::Colors::White) const;
 
         /// <summary>
         /// アクティブ状態を設定
         /// </summary>
         /// <param name="_isActive">アクティブ状態か</param>
         virtual void SetActive(const bool& _isActive) final;
+
+        /// <summary>
+        /// オブジェクトを破壊する
+        /// </summary>
+        virtual void Destroy() final;
+
+        /// <summary>
+        /// オブジェクトを破壊するかを取得
+        /// </summary>
+        /// <returns>オブジェクトを破壊するか</returns>
+        virtual bool IsDestroy() final;
 
         /// <summary>
         /// 画像サイズを取得
@@ -86,11 +136,6 @@ namespace CreaDXTKLib
     protected:
 
         /// <summary>
-        /// オブジェクト名
-        /// </summary>
-        std::wstring m_objectName;
-
-        /// <summary>
         /// 開始処理
         /// </summary>
         virtual void Start() { }
@@ -112,7 +157,10 @@ namespace CreaDXTKLib
 
     private:
 
+        std::wstring m_objectName;
+
         bool m_isActive = true;
+        bool m_isDestroy = false;
 
         std::wstring m_imageHandle;
 

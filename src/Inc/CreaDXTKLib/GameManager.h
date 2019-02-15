@@ -4,9 +4,12 @@
 
 #include "../Utility/Singleton.h"
 
+#include <vector>
+
 namespace CreaDXTKLib
 {
     class Scene;
+    class Object2D;
 
     /// <summary>
     /// 全体を管理するクラス
@@ -62,9 +65,31 @@ namespace CreaDXTKLib
         /// </summary>
         void OnEnd();
 
+        /// <summary>
+        /// オブジェクトを追加
+        /// </summary>
+        /// <param name="_object">オブジェクト</param>
+        /// <returns>ID</returns>
+        int AddObject(Object2D* _object);
+
+        /// <summary>
+        /// オブジェクトを破棄
+        /// </summary>
+        /// <param name="_id">破棄するオブジェクトのID</param>
+        void EraseObject(const int& _id);
+
+        /// <summary>
+        /// 全てのオブジェクトを破棄
+        /// </summary>
+        void DestroyAllObject();
+
     private:
 
         Scene * m_nowScene;
+
+        std::vector<Object2D*> m_objects;
+
+        bool m_isSceneTransition;
     };
 } // CreaDXTKLib
 

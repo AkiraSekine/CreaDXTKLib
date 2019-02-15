@@ -76,6 +76,24 @@ namespace Draw
         m_spriteBatch->End();
     }
 
+    Vector2 Text::GetStringSize(const wstring & _name, const wstring _text, ...)
+    {
+        va_list arg;
+        wchar_t newStr[512];
+
+        // フォーマットに合わせて文字列を作成
+        va_start(arg, _text);
+        vswprintf_s(newStr, _text.c_str(), arg);
+        va_end(arg);
+
+        // 描画矩形を取得
+        m_spriteBatch->Begin();
+        RECT result = m_fonts.at(_name)->MeasureDrawBounds(newStr, Vector2::zero);
+        m_spriteBatch->End();
+
+        return Vector2((float)(result.right - result.left), (float)(result.bottom - result.top));
+    }
+
     void Text::Initialize(ComPtr<ID3D11Device1> _device, ComPtr<ID3D11DeviceContext1> _context)
     {
         m_device = _device.Get();

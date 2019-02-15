@@ -7,6 +7,7 @@
 
 #include "CreaDXTKLib/GameManager.h"
 #include "Input/Mouse.hpp"
+#include "Input/Controller.h"
 #include "Utility/Window.h"
 #include "Audio/SoundSystem.h"
 
@@ -19,6 +20,7 @@ using Microsoft::WRL::ComPtr;
 using namespace CreaDXTKLib;
 using namespace CreaDXTKLib::Utility;
 using namespace CreaDXTKLib::Audio;
+using namespace CreaDXTKLib::Input;
 
 Game::Game() :
     m_window(nullptr),
@@ -49,6 +51,8 @@ void Game::Initialize(HWND window, int width, int height)
 
     CreaDXTKLib::Utility::Window::Instance().SetWindowHandle(window);
     CreaDXTKLib::Input::Mouse::Instance().Initialize(window);
+
+    GameManager::Instance().Initialize(m_d3dContext, m_d3dDevice);
 
     /*
     m_timer.SetFixedTimeStep(true);
@@ -136,6 +140,8 @@ void Game::OnActivated()
     {
         OnActive();
     }
+
+    Controller::Instance().OnResume();
 }
 
 void Game::OnDeactivated()
@@ -146,6 +152,8 @@ void Game::OnDeactivated()
     {
         OnInactive();
     }
+
+    Controller::Instance().OnSuspend();
 }
 
 void Game::OnSuspending()
@@ -158,6 +166,7 @@ void Game::OnSuspending()
     }
 
     SoundSystem::Instance().GetAudioEngine()->Suspend();
+    Controller::Instance().OnSuspend();
 }
 
 void Game::OnResuming()
@@ -172,6 +181,7 @@ void Game::OnResuming()
     }
 
     SoundSystem::Instance().GetAudioEngine()->Resume();
+    Controller::Instance().OnResume();
 }
 
 void Game::OnWindowSizeChanged(int width, int height)
@@ -257,8 +267,6 @@ void Game::CreateDevice()
     DX::ThrowIfFailed(context.As(&m_d3dContext));
 
     // TODO: Initialize device dependent objects here (independent of window size).
-
-    GameManager::Instance().Initialize(m_d3dContext, m_d3dDevice);
 }
 
 // Allocate all memory resources that change on a window SizeChanged event.

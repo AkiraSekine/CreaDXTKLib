@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\Inc\Input\Controller.h" />
     <ClInclude Include="..\src\Inc\Input\Input.h" />
     <ClInclude Include="..\src\Inc\Input\Keyboard.hpp" />
     <ClInclude Include="..\src\Inc\Input\Mouse.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Input\Controller.cpp" />
     <ClCompile Include="..\src\Input\Input.cpp" />
     <ClCompile Include="..\src\Input\Keyboard.cpp" />
     <ClCompile Include="..\src\Input\Mouse.cpp" />

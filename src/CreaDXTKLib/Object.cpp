@@ -1,9 +1,11 @@
 #include "CreaDXTKLib/Object.h"
 
+#include "CreaDXTKLib/GameManager.h"
 #include "Draw/Image.h"
 
 using namespace std;
 using namespace DirectX;
+using namespace CreaDXTKLib;
 using namespace CreaDXTKLib::Math;
 using namespace CreaDXTKLib::Draw;
 
@@ -14,6 +16,7 @@ namespace CreaDXTKLib
         Transform2D(),
         m_objectName(L"Object")
     {
+        id = GameManager::Instance().AddObject(this);
     }
 
     Object2D::Object2D(const wstring& _imageName,
@@ -26,6 +29,7 @@ namespace CreaDXTKLib
         Transform2D(_position, _rotation, _scale, _parent),
        m_objectName(_objectName)
     {
+        id = GameManager::Instance().AddObject(this);
     }
 
     Object2D::Object2D(const wstring& _imageName,
@@ -36,27 +40,49 @@ namespace CreaDXTKLib
         Transform2D(_transform.Position(), _transform.Rotation(), _transform.Scale(), _parent),
         m_objectName(_objectName)
     {
+        id = GameManager::Instance().AddObject(this);
     }
 
     Object2D::~Object2D()
     {
+        Destroy();
     }
 
     void Object2D::Draw(const FXMVECTOR & _color) const
     {
         // 親に非アクティブの状態が無ければ描画する
-        if (CheckParentIsActive())
+        if (CheckParentIsActive() && m_isActive)
         {
-            Image::Instance().Draw(m_imageHandle, *this, _color);
+            Vector2 pivot = GetImageSize() * 0.5f;
+            Image::Instance().Draw(m_imageHandle, *this, _color, pivot);
         }
     }
 
     void Object2D::Draw(const RECT & _rect, const FXMVECTOR & _color) const
     {
         // 親に非アクティブの状態が無ければ描画する
-        if (CheckParentIsActive())
+        if (CheckParentIsActive() && m_isActive)
         {
-            Image::Instance().Draw(m_imageHandle, *this, _rect, _color);
+            Vector2 pivot = GetImageSize() * 0.5f;
+            Image::Instance().Draw(m_imageHandle, *this, _rect, _color, pivot);
+        }
+    }
+
+    void Object2D::Draw(const CreaDXTKLib::Math::Vector2 _pivot, const DirectX::FXMVECTOR & _color) const
+    {
+        // 親に非アクティブの状態が無ければ描画する
+        if(CheckParentIsActive() && m_isActive)
+        {
+            Image::Instance().Draw(m_imageHandle, *this, _color, _pivot);
+        }
+    }
+
+    void Object2D::Draw(const RECT & _rect, const CreaDXTKLib::Math::Vector2 _pivot, const DirectX::FXMVECTOR & _color) const
+    {
+        // 親に非アクティブの状態が無ければ描画する
+        if(CheckParentIsActive() && m_isActive)
+        {
+            Image::Instance().Draw(m_imageHandle, *this, _rect, _color, _pivot);
         }
     }
 
@@ -74,6 +100,17 @@ namespace CreaDXTKLib
         }
 
         m_isActive = _isActive;
+    }
+
+    void Object2D::Destroy()
+    {
+        m_isActive = false;
+        m_isDestroy = true;
+    }
+
+    bool Object2D::IsDestroy()
+    {
+        return m_isDestroy;
     }
 
     Vector2 Object2D::GetImageSize() const

@@ -39,13 +39,24 @@ namespace Utility
         /// </summary>
         /// <param name="_width">幅</param>
         /// <param name="_height">高さ</param>
-        void SetSize(int _width, int _height);
+        void SetSize(const int& _width, const int& _height);
+        /// <summary>
+        /// ウィンドウサイズを設定
+        /// </summary>
+        /// <param name="_size">サイズ</param>
+        void SetSize(const Math::Vector2& _size);
 
         /// <summary>
         /// ウィンドウの位置を設定
         /// </summary>
+        /// <param name="_x">x座標</param>
+        /// <param name="_y">y座標</param>
+        void SetPosition(const int& _x, const int& _y);
+        /// <summary>
+        /// ウィンドウの位置を設定
+        /// </summary>
         /// <param name="_position">位置</param>
-        void SetPosition(Math::Vector2& _position);
+        void SetPosition(const Math::Vector2& _position);
 
         /// <summary>
         /// ウィンドウ名を設定

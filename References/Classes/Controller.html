@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="../css/label.css">
+        <link rel="stylesheet" type="text/css" href="http://alexgorbatchev.com/pub/sh/current/styles/shCoreEmacs.css"/>
+        <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script>
+        <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript">SyntaxHighlighter.all();</script>
+        <title>Controller</title>
+    </head>
+    <body marginwidth="50" marginheight="50">
+        <h1><center>CreaDXTKLib</center></h1>
+        <a href="../Index.html">Home</a> / <a href="../Reference.html">リファレンス</a> / Mouse
+        <h2>Controller</h2>
+        <br><br>
+        <div>
+            <h3>概要</h3>
+            <div style="margin-left : 30px">
+                コントローラーの入力取得クラス<br>
+            </div>
+            <h3>ヘッダファイル</h3>
+            <div style="margin-left : 30px">
+                Input/Controller.h<br><br>
+            </div>
+            <h3>namespace</h3>
+            <div style="margin-left : 30px">
+                CreaDXTKLib::Input<br><br>
+            </div>
+            <h3>基底クラス</h3>
+            <div style="margin-left : 30px">
+                <a href="Singleton.html">Utility::Singleton</a><br><br>
+            </div>
+            <h3>メソッド</h3>
+            <div style="margin-left: 30px">
+                <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
+                    <tr>
+                        <th rowspan="2">メソッド名</th>
+                        <th rowspan="2">概要</th>
+                        <th colspan="2">返り値</th>
+                        <th colspan="3">引数</th>
+                        <th rowspan="2">備考</th>
+                    </tr>
+                    <tr>
+                        <th>型</th>
+                        <th>概要</th>
+                        <th>型</th>
+                        <th>引数名</th>
+                        <th>概要</th>
+                    </tr>
+                    <tr align="center">
+                        <td>Instance</td>
+                        <td align="left">インスタンスを取得</td>
+                        <td>Controller</td>
+                        <td align="left">Controllerクラスのインスタンス</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td align="left">
+                            静的メンバ<br>
+                            クラスを使用するために必ず呼び出す必要がある
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td rowspan="3">GetInput</td>
+                        <td align="left" rowspan="3">入力状態を取得</td>
+                        <td rowspan="3">bool</td>
+                        <td align="left" rowspan="3">ボタンがチェック方法の状態になっているか</td>
+                        <td>int</td>
+                        <td>_num</td>
+                        <td align="left">コントローラー番号</td>
+                        <td rowspan="3">-</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Input::ControllerParts</td>
+                        <td>_parts</td>
+                        <td align="left">コントローラーパーツ</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Input::CheckMode</td>
+                        <td>_mode</td>
+                        <td align="left">チェック方法</td>
+                    </tr>
+                    <tr align="center">
+                        <td rowspan="2">GetValue</td>
+                        <td align="left" rowspan="2">入力の値を取得</td>
+                        <td rowspan="2">bool</td>
+                        <td align="left" rowspan="2">パーツがチェック方法の状態になっているか</td>
+                        <td>int</td>
+                        <td>_num</td>
+                        <td align="left">コントローラー番号</td>
+                        <td rowspan="2">-</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Input::ControllerParts</td>
+                        <td>_parts</td>
+                        <td align="left">コントローラーパーツ</td>
+                    </tr>
+                    <tr align="center">
+                        <td rowspan="3">Vibration</td>
+                        <td align="left" rowspan="3">バイブレーションの仕様</td>
+                        <td rowspan="3">void</td>
+                        <td rowspan="3">-</td>
+                        <td>int</td>
+                        <td>_num</td>
+                        <td align="left">コントローラー番号</td>
+                        <td rowspan="3">-</td>
+                    </tr>
+                    <tr align="center">
+                        <td>float</td>
+                        <td>_left</td>
+                        <td align="left">左の値</td>
+                    </tr>
+                    <tr align="center">
+                        <td>float</td>
+                        <td>_right</td>
+                        <td align="left">右の値</td>
+                    </tr>
+                </table>
+                <br>
+            </div>
+            <h3>使用例</h3>
+            <div style="margin-left: 30px">
+                <pre class="brush:cpp">
+                    #include "CreaDXTKLib/Scene.h"
+                    #include "Draw/Image.h"
+                    #include "Math/Vector2.h"
+                    #include "Math/Controller.hpp"
+
+                    using namespace CreaDXTKLib;
+                    using namespace CreaDXTKLib::Draw;
+                    using namespace CreaDXTKLib::Math;
+                    using namespace CreaDXTKLib::Input;
+
+                    // シーンクラスを基底としたメインシーンクラスの定義
+                    class ControllerScene : public Scene
+                    {
+                    public:
+
+                        // コンストラクタに開始処理を記述
+                        ControllerScene()
+                        {
+                            // ControllerSceneで使用する画像を読み込む。
+                            Image::Instance().Load(L"image.png", L"Test");
+                        }
+
+                        // デストラクタに終了処理を記述
+                        ~ControllerScene()
+                        {
+                            // ControllerSceneが終了するので画像を破棄する。
+                            Image::Instance().Erase(L"Test");
+                        }
+
+                        // 更新処理
+                        virtual void Update(float _elapsedTime) override
+                        {
+                        }
+
+                        // 描画処理
+                        virtual void OnRender() override
+                        {
+                            // Aボタンが押されている間のみ画像を描画
+                            if (Controller::Instance().GetInput(0, ControllerParts::A, CheckMode::Press))
+                            {
+                                Image::Instance().Draw(L"Test", Vector2(100.0f, 100.0f));
+                            }
+                        }
+                    }
+                </pre>
+            </div>
+        </div>
+    </body>
+</html>

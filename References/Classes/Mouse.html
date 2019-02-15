@@ -12,7 +12,7 @@
     <body marginwidth="50" marginheight="50">
         <h1><center>CreaDXTKLib</center></h1>
         <a href="../Index.html">Home</a> / <a href="../Reference.html">リファレンス</a> / Mouse
-        <h2>Scene</h2>
+        <h2>Mouse</h2>
         <br><br>
         <div>
             <h3>概要</h3>
@@ -33,114 +33,111 @@
             </div>
             <h3>メソッド</h3>
             <div style="margin-left: 30px">
-                <h4>public</h4>
-                <div style="margin-left: 30px">
-                    <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
-                        <tr>
-                            <th rowspan="2">メソッド名</th>
-                            <th rowspan="2">概要</th>
-                            <th colspan="2">返り値</th>
-                            <th colspan="3">引数</th>
-                            <th rowspan="2">備考</th>
-                        </tr>
-                        <tr>
-                            <th>型</th>
-                            <th>概要</th>
-                            <th>型</th>
-                            <th>引数名</th>
-                            <th>概要</th>
-                        </tr>
-                        <tr align="center">
-                            <td>Instance</td>
-                            <td align="left">インスタンスを取得</td>
-                            <td>Mouse</td>
-                            <td align="left">Mouseクラスのインスタンス</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td align="left">
-                                静的メンバ<br>
-                                クラスを使用するために必ず呼び出す必要がある
-                            </td>
-                        </tr>
-                        <tr align="center">
-                            <td rowspan="2">GetInput</td>
-                            <td align="left" rowspan="2">入力設定を追加</td>
-                            <td rowspan="2">bool</td>
-                            <td align="left" rowspan="2">ボタンがチェック方法の状態になっているか</td>
-                            <td>Input::MouseButtons</td>
-                            <td>_button</td>
-                            <td align="left">調べたいボタン</td>
-                            <td rowspan="2">-</td>
-                        </tr>
-                        <tr align="center">
-                            <td>Input::CheckMode</td>
-                            <td>_mode</td>
-                            <td align="left">チェック方法</td>
-                        </tr>
-                        <tr align="center">
-                            <td>Position</td>
-                            <td align="left">カーソルの座標を取得</td>
-                            <td><a href="Vector2.html">Math::Vector2</a></td>
-                            <td align="left">カーソルの座標</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr align="center">
-                            <td>Position</td>
-                            <td align="left">カーソルの座標を設定</td>
-                            <td>void</td>
-                            <td>-</td>
-                            <td><a href="Vector2.html">Math::Vector2</a></td>
-                            <td>_position</td>
-                            <td align="left">新しい座標</td>
-                            <td>-</td>
-                        </tr>
-                        <tr align="center">
-                            <td>GetMoveValue</td>
-                            <td align="left">カーソルの移動値を取得</td>
-                            <td><a href="Vector2.html">Math::Vector2</a></td>
-                            <td align="left">カーソルの移動値</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr align="center">
-                            <td>GetWheelValue</td>
-                            <td align="left">マウスのホイールの回転値を取得</td>
-                            <td>int</td>
-                            <td align="left">ホイールの回転値</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr align="center">
-                            <td>CursorVisible</td>
-                            <td align="left">カーソルを表示させるかを設定</td>
-                            <td>void</td>
-                            <td>-</td>
-                            <td>bool</td>
-                            <td>_isVisible</td>
-                            <td align="left">カーソルを表示させるか</td>
-                            <td>-</td>
-                        </tr>
-                        <tr align="center">
-                            <td>CursorVisible</td>
-                            <td align="left">カーソルを表示しているかを取得</td>
-                            <td>bool</td>
-                            <td align="left">カーソルを表示しているか</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                    </table>
-                    <br>
-                </div>
+                <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
+                    <tr>
+                        <th rowspan="2">メソッド名</th>
+                        <th rowspan="2">概要</th>
+                        <th colspan="2">返り値</th>
+                        <th colspan="3">引数</th>
+                        <th rowspan="2">備考</th>
+                    </tr>
+                    <tr>
+                        <th>型</th>
+                        <th>概要</th>
+                        <th>型</th>
+                        <th>引数名</th>
+                        <th>概要</th>
+                    </tr>
+                    <tr align="center">
+                        <td>Instance</td>
+                        <td align="left">インスタンスを取得</td>
+                        <td>Mouse</td>
+                        <td align="left">Mouseクラスのインスタンス</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td align="left">
+                            静的メンバ<br>
+                            クラスを使用するために必ず呼び出す必要がある
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td rowspan="2">GetInput</td>
+                        <td align="left" rowspan="2">入力設定を追加</td>
+                        <td rowspan="2">bool</td>
+                        <td align="left" rowspan="2">ボタンがチェック方法の状態になっているか</td>
+                        <td>Input::MouseButtons</td>
+                        <td>_button</td>
+                        <td align="left">調べたいボタン</td>
+                        <td rowspan="2">-</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Input::CheckMode</td>
+                        <td>_mode</td>
+                        <td align="left">チェック方法</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Position</td>
+                        <td align="left">カーソルの座標を取得</td>
+                        <td><a href="Vector2.html">Math::Vector2</a></td>
+                        <td align="left">カーソルの座標</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Position</td>
+                        <td align="left">カーソルの座標を設定</td>
+                        <td>void</td>
+                        <td>-</td>
+                        <td><a href="Vector2.html">Math::Vector2</a></td>
+                        <td>_position</td>
+                        <td align="left">新しい座標</td>
+                        <td>-</td>
+                    </tr>
+                    <tr align="center">
+                        <td>GetMoveValue</td>
+                        <td align="left">カーソルの移動値を取得</td>
+                        <td><a href="Vector2.html">Math::Vector2</a></td>
+                        <td align="left">カーソルの移動値</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr align="center">
+                        <td>GetWheelValue</td>
+                        <td align="left">マウスのホイールの回転値を取得</td>
+                        <td>int</td>
+                        <td align="left">ホイールの回転値</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr align="center">
+                        <td>CursorVisible</td>
+                        <td align="left">カーソルを表示させるかを設定</td>
+                        <td>void</td>
+                        <td>-</td>
+                        <td>bool</td>
+                        <td>_isVisible</td>
+                        <td align="left">カーソルを表示させるか</td>
+                        <td>-</td>
+                    </tr>
+                    <tr align="center">
+                        <td>CursorVisible</td>
+                        <td align="left">カーソルを表示しているかを取得</td>
+                        <td>bool</td>
+                        <td align="left">カーソルを表示しているか</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </table>
+                <br>
             </div>
             <h3>使用例</h3>
             <div style="margin-left: 30px">

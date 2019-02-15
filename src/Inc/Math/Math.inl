@@ -29,17 +29,19 @@ namespace Math
     template<typename T>
     T Circulate(const T& _value, const T& _min, const T& _max)
     {
+        T ans = _value;
+
         while (_value > _max)
         {
-            _value -= _max - _min;
+            ans -= _max - _min;
         }
 
         while (_value < _min)
         {
-            _value += _max - _min;
+            ans += _max - _min;
         }
 
-        return _value;
+        return ans;
     }
 } // Math
 } // CreaDXTKLib

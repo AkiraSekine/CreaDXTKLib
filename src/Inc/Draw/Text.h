@@ -70,6 +70,16 @@ namespace Draw
             ...);
 
         /// <summary>
+        /// 文字列のサイズを取得
+        /// </summary>
+        /// <param name="_name">ハンドル名</param>
+        /// <param name="_text">文字列(フォーマット)</param>\
+        /// <returns>文字列のサイズ</returns>
+        Math::Vector2 GetStringSize(const std::wstring& _name,
+            const std::wstring _text,
+            ...);
+
+        /// <summary>
         /// 初期化処理
         /// </summary>
         void Initialize(Microsoft::WRL::ComPtr<ID3D11Device1> _device, Microsoft::WRL::ComPtr<ID3D11DeviceContext1> _context);
