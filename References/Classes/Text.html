@@ -8,12 +8,12 @@
         <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script>
         <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCpp.js"></script>
         <script type="text/javascript">SyntaxHighlighter.all();</script>
-        <title>Image</title>
+        <title>Text</title>
     </head>
     <body marginwidth="50" marginheight="50">
         <h1><center>CreaDXTKLib</center></h1>
         <a href="../Index.html">Home</a> / <a href="../Reference.html">リファレンス</a> / Image
-        <h2>Image</h2>
+        <h2>Text</h2>
         <br><br>
         <div>
             <h3>概要</h3>
@@ -145,6 +145,24 @@
                             <td>DirectX::FXMVECTOR</td>
                             <td>_color</td>
                             <td align="left">加算色</td>
+                        </tr>
+                        <tr align="center">
+                            <td>std::wstring</td>
+                            <td>_text</td>
+                            <td align="left">描画文字列(フォーマット)</td>
+                        </tr>
+                        <tr align="center">
+                            <td rowspan="2">GetStringSize</td>
+                            <td align="left" rowspan="2">文字列のサイズを取得</td>
+                            <td rowspan="2"><a href="Vector2.html">Math::Vector2</a></td>
+                            <td align="left" rowspan="2">文字列のサイズ</td>
+                            <td>std::wstring</td>
+                            <td>_name</td>
+                            <td align="left">ハンドル名</td>
+                            <td align="left" rowspan="2">
+                                    _colorはDirectXのColorsまたはColorを使用<br>
+                                    シーンのOnRenderメソッド内で使用する
+                            </td>
                         </tr>
                         <tr align="center">
                             <td>std::wstring</td>

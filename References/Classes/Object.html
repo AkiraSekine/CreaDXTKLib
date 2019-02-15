@@ -142,177 +142,102 @@
             </div>
             <h3>メソッド</h3>
             <div style="margin-left: 30px">
-                <h4>public</h4>
-                <div style="margin-left: 30px">
-                    <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
-                        <tr>
-                            <th rowspan="2">メソッド名</th>
-                            <th rowspan="2">概要</th>
-                            <th colspan="2">返り値</th>
-                            <th colspan="3">引数</th>
-                            <th rowspan="2">備考</th>
-                        </tr>
-                        <tr>
-                            <th>型</th>
-                            <th>概要</th>
-                            <th>型</th>
-                            <th>引数名</th>
-                            <th>概要</th>
-                        </tr>
-                        <tr align="center">
-                            <td>Update</td>
-                            <td align="left">更新処理</td>
-                            <td>void</td>
-                            <td>-</td>
-                            <td>float</td>
-                            <td>_elapsedTime</td>
-                            <td align="left">前フレームからの経過時間</td>
-                            <td align="left">純粋仮想関数</td>
-                        </tr>
-                        <tr align="center">
-                            <td>Draw</td>
-                            <td align="left">描画</td>
-                            <td>void</td>
-                            <td>-</td>
-                            <td>DirectX::FXMVECTOR</td>
-                            <td>_color</td>
-                            <td align="left">加算色</td>
-                            <td align="left">
-                                _colorはDirectXのColorsまたはColorを使用<br>
-                                オーバーライド禁止
-                            </td>
-                        </tr>
-                        <tr align="center">
-                            <td rowspan="2">Draw</td>
-                            <td align="left" rowspan="2">描画</td>
-                            <td rowspan="2">void</td>
-                            <td rowspan="2">-</td>
-                            <td>RECT</td>
-                            <td>_rect</td>
-                            <td align="left">描画矩形</td>
-                            <td align="left" rowspan="2">
-                                _colorはDirectXのColorsまたはColorを使用<br>
-                                オーバーライド禁止
-                            </td>
-                        </tr>
-                        <tr align="center">
-                            <td>DirectX::FXMVECTOR</td>
-                            <td>_color</td>
-                            <td align="left">加算色</td>
-                        </tr>
-                        <tr align="center">
-                            <td>SetActive</td>
-                            <td align="left">アクティブ状態の設定</td>
-                            <td>void</td>
-                            <td>-</td>
-                            <td>bool</td>
-                            <td>_isActive</td>
-                            <td align="left">アクティブ状態か</td>
-                            <td align="left">オーバーライド禁止</td>
-                        </tr>
-                        <tr align="center">
-                            <td>ObjectName</td>
-                            <td align="left">オブジェクト名の取得</td>
-                            <td>std::wstring</td>
-                            <td align="left">オブジェクト名</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td align="left">オーバーライド禁止</td>
-                        </tr>
-                        <tr align="center">
-                            <td>ObjectName</td>
-                            <td align="left">オブジェクト名の設定</td>
-                            <td>void</td>
-                            <td>-</td>
-                            <td>std::wstring</td>
-                            <td>_objectName</td>
-                            <td align="left">オブジェクト名</td>
-                            <td align="left">オーバーライド禁止</td>
-                        </tr>
-                        <tr align="center">
-                            <td>GetImageSize</td>
-                            <td align="left">画像サイズを取得</td>
-                            <td><a href="Vector2.html">Math::Vector2</a></td>
-                            <td align="left">画像サイズ</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td align="left">オーバーライド禁止</td>
-                        </tr>
-                        <tr align="center">
-                            <td>GetImageSize</td>
-                            <td align="left">画像ハンドルを取得</td>
-                            <td>std::wstring</td>
-                            <td align="left">画像ハンドル</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td align="left">オーバーライド禁止</td>
-                        </tr>
-                    </table>
-                    <br>
-                </div>
-                <h4>protected</h4>
-                <div style="margin-left: 30px">
-                    <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
-                        <tr>
-                            <th rowspan="2">メソッド名</th>
-                            <th rowspan="2">概要</th>
-                            <th colspan="2">返り値</th>
-                            <th colspan="3">引数</th>
-                            <th rowspan="2">備考</th>
-                        </tr>
-                        <tr>
-                            <th>型</th>
-                            <th>概要</th>
-                            <th>型</th>
-                            <th>引数名</th>
-                            <th>概要</th>
-                        </tr>
-                        <tr align="center">
-                            <td>Start</td>
-                            <td align="left">開始処理</td>
-                            <td>void</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr align="center">
-                            <td>OnDestroy</td>
-                            <td align="left">終了処理</td>
-                            <td>void</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr align="center">
-                            <td>OnEnable</td>
-                            <td align="left">アクティブ状態になった時に呼ばれる</td>
-                            <td>void</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr align="center">
-                            <td>OnDesable</td>
-                            <td align="left">非アクティブ状態になった時に呼ばれる</td>
-                            <td>void</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                    </table>
-                    <br>
-                </div>
+                <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
+                    <tr>
+                        <th rowspan="2">メソッド名</th>
+                        <th rowspan="2">概要</th>
+                        <th colspan="2">返り値</th>
+                        <th colspan="3">引数</th>
+                        <th rowspan="2">備考</th>
+                    </tr>
+                    <tr>
+                        <th>型</th>
+                        <th>概要</th>
+                        <th>型</th>
+                        <th>引数名</th>
+                        <th>概要</th>
+                    </tr>
+                    <tr align="center">
+                        <td>Draw</td>
+                        <td align="left">描画</td>
+                        <td>void</td>
+                        <td>-</td>
+                        <td>DirectX::FXMVECTOR</td>
+                        <td>_color</td>
+                        <td align="left">加算色</td>
+                        <td align="left">
+                            _colorはDirectXのColorsまたはColorを使用
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td rowspan="2">Draw</td>
+                        <td align="left" rowspan="2">描画</td>
+                        <td rowspan="2">void</td>
+                        <td rowspan="2">-</td>
+                        <td>RECT</td>
+                        <td>_rect</td>
+                        <td align="left">描画矩形</td>
+                        <td align="left" rowspan="2">
+                            _colorはDirectXのColorsまたはColorを使用
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td>DirectX::FXMVECTOR</td>
+                        <td>_color</td>
+                        <td align="left">加算色</td>
+                    </tr>
+                    <tr align="center">
+                        <td>SetActive</td>
+                        <td align="left">アクティブ状態の設定</td>
+                        <td>void</td>
+                        <td>-</td>
+                        <td>bool</td>
+                        <td>_isActive</td>
+                        <td align="left">アクティブ状態か</td>
+                        <td align="left">オーバーライド禁止</td>
+                    </tr>
+                    <tr align="center">
+                        <td>ObjectName</td>
+                        <td align="left">オブジェクト名の取得</td>
+                        <td>std::wstring</td>
+                        <td align="left">オブジェクト名</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td align="left">オーバーライド禁止</td>
+                    </tr>
+                    <tr align="center">
+                        <td>ObjectName</td>
+                        <td align="left">オブジェクト名の設定</td>
+                        <td>void</td>
+                        <td>-</td>
+                        <td>std::wstring</td>
+                        <td>_objectName</td>
+                        <td align="left">オブジェクト名</td>
+                        <td align="left">オーバーライド禁止</td>
+                    </tr>
+                    <tr align="center">
+                        <td>GetImageSize</td>
+                        <td align="left">画像サイズを取得</td>
+                        <td><a href="Vector2.html">Math::Vector2</a></td>
+                        <td align="left">画像サイズ</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td align="left">オーバーライド禁止</td>
+                    </tr>
+                    <tr align="center">
+                        <td>GetImageSize</td>
+                        <td align="left">画像ハンドルを取得</td>
+                        <td>std::wstring</td>
+                        <td align="left">画像ハンドル</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td align="left">オーバーライド禁止</td>
+                    </tr>
+                </table>
+                <br>
             </div>
             <h3>オペレーター</h3>
             <div style="margin-left : 30px">
@@ -327,6 +252,43 @@
                     </tr>
                 </table>
                 <br>
+            </div>
+            <h3>イベント</h3>
+            <div style="margin-left: 30px">
+                <table border="1" bordercolor="#000000" style="border-collapse:collapse" cellpadding="5">
+                    <tr>
+                        <th>宣言</th>
+                        <th>概要</th>
+                    </tr>
+                    <tr>
+                        <td>virtual void Update(float _elapsedTime)</td>
+                        <td>毎フレーム呼ばれる処理</td>
+                    </tr>
+                    <tr>
+                        <td>virtual void LateUpdate(float _elapsedTime)</td>
+                        <td>Updateの後に呼ばれる処理</td>
+                    </tr>
+                    <tr>
+                        <td>virtual void AlwaysUpdate(float _elapsedTime)</td>
+                        <td>非アクティブ状態でも実行される更新処理</td>
+                    </tr>
+                    <tr>
+                        <td>virtual void Start()</td>
+                        <td>オブジェクト生成時に呼ばれる処理</td>
+                    </tr>
+                    <tr>
+                        <td>virtual void OnDestroy()</td>
+                        <td>オブジェクトが破棄される時に呼ばれる処理</td>
+                    </tr>
+                    <tr>
+                        <td>virtual void OnEnable()</td>
+                        <td>アクティブ状態になった時に呼ばれる処理</td>
+                    </tr>
+                    <tr>
+                        <td>virtual void OnDisable()</td>
+                        <td>非アクティブ状態になった時に呼ばれる処理</td>
+                    </tr>
+                </table>
             </div>
             <h3>使用例</h3>
             <div style="margin-left: 30px">
