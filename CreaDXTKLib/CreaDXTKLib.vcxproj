@@ -26,7 +26,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
@@ -201,7 +201,6 @@
     <ClCompile Include="..\src\CreaDXTKLib\Scene.cpp" />
     <ClCompile Include="..\src\DirectXTK\Game.cpp" />
     <ClCompile Include="..\src\DirectXTK\Main.cpp" />
-    <ClCompile Include="..\src\TEST.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Inc\CreaDXTKLib\CreaDXTKLib.h" />
