@@ -7,21 +7,21 @@
         <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script>
         <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCpp.js"></script>
         <script type="text/javascript">SyntaxHighlighter.all();</script>
-        <title>Mouse</title>
+        <title>Controller</title>
     </head>
     <body marginwidth="50" marginheight="50">
         <h1><center>CreaDXTKLib</center></h1>
         <a href="../Index.html">Home</a> / <a href="../Reference.html">リファレンス</a> / Mouse
-        <h2>Mouse</h2>
+        <h2>Controller</h2>
         <br><br>
         <div>
             <h3>概要</h3>
             <div style="margin-left : 30px">
-                マウスの入力取得クラス<br>
+                コントローラーの入力取得クラス<br>
             </div>
             <h3>ヘッダファイル</h3>
             <div style="margin-left : 30px">
-                Input/Mouse.hpp<br><br>
+                Input/Controller.h<br><br>
             </div>
             <h3>namespace</h3>
             <div style="margin-left : 30px">
@@ -51,8 +51,8 @@
                     <tr align="center">
                         <td>Instance</td>
                         <td align="left">インスタンスを取得</td>
-                        <td>Mouse</td>
-                        <td align="left">Mouseクラスのインスタンス</td>
+                        <td>Controller</td>
+                        <td align="left">Controllerクラスのインスタンス</td>
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
@@ -62,14 +62,19 @@
                         </td>
                     </tr>
                     <tr align="center">
-                        <td rowspan="2">GetInput</td>
-                        <td align="left" rowspan="2">入力設定を追加</td>
-                        <td rowspan="2">bool</td>
-                        <td align="left" rowspan="2">ボタンがチェック方法の状態になっているか</td>
-                        <td>Input::MouseButtons</td>
-                        <td>_button</td>
-                        <td align="left">調べたいボタン</td>
-                        <td rowspan="2">-</td>
+                        <td rowspan="3">GetInput</td>
+                        <td align="left" rowspan="3">入力状態を取得</td>
+                        <td rowspan="3">bool</td>
+                        <td align="left" rowspan="3">ボタンがチェック方法の状態になっているか</td>
+                        <td>int</td>
+                        <td>_num</td>
+                        <td align="left">コントローラー番号</td>
+                        <td rowspan="3">-</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Input::ControllerParts</td>
+                        <td>_parts</td>
+                        <td align="left">コントローラーパーツ</td>
                     </tr>
                     <tr align="center">
                         <td>Input::CheckMode</td>
@@ -77,64 +82,39 @@
                         <td align="left">チェック方法</td>
                     </tr>
                     <tr align="center">
-                        <td>Position</td>
-                        <td align="left">カーソルの座標を取得</td>
-                        <td><a href="Vector2.html">Math::Vector2</a></td>
-                        <td align="left">カーソルの座標</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                    <tr align="center">
-                        <td>Position</td>
-                        <td align="left">カーソルの座標を設定</td>
-                        <td>void</td>
-                        <td>-</td>
-                        <td><a href="Vector2.html">Math::Vector2</a></td>
-                        <td>_position</td>
-                        <td align="left">新しい座標</td>
-                        <td>-</td>
-                    </tr>
-                    <tr align="center">
-                        <td>GetMoveValue</td>
-                        <td align="left">カーソルの移動値を取得</td>
-                        <td><a href="Vector2.html">Math::Vector2</a></td>
-                        <td align="left">カーソルの移動値</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                    <tr align="center">
-                        <td>GetWheelValue</td>
-                        <td align="left">マウスのホイールの回転値を取得</td>
+                        <td rowspan="2">GetValue</td>
+                        <td align="left" rowspan="2">入力の値を取得</td>
+                        <td rowspan="2">bool</td>
+                        <td align="left" rowspan="2">パーツがチェック方法の状態になっているか</td>
                         <td>int</td>
-                        <td align="left">ホイールの回転値</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td>_num</td>
+                        <td align="left">コントローラー番号</td>
+                        <td rowspan="2">-</td>
                     </tr>
                     <tr align="center">
-                        <td>CursorVisible</td>
-                        <td align="left">カーソルを表示させるかを設定</td>
-                        <td>void</td>
-                        <td>-</td>
-                        <td>bool</td>
-                        <td>_isVisible</td>
-                        <td align="left">カーソルを表示させるか</td>
-                        <td>-</td>
+                        <td>Input::ControllerParts</td>
+                        <td>_parts</td>
+                        <td align="left">コントローラーパーツ</td>
                     </tr>
                     <tr align="center">
-                        <td>CursorVisible</td>
-                        <td align="left">カーソルを表示しているかを取得</td>
-                        <td>bool</td>
-                        <td align="left">カーソルを表示しているか</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td rowspan="3">Vibration</td>
+                        <td align="left" rowspan="3">バイブレーションの仕様</td>
+                        <td rowspan="3">void</td>
+                        <td rowspan="3">-</td>
+                        <td>int</td>
+                        <td>_num</td>
+                        <td align="left">コントローラー番号</td>
+                        <td rowspan="3">-</td>
+                    </tr>
+                    <tr align="center">
+                        <td>float</td>
+                        <td>_left</td>
+                        <td align="left">左の値</td>
+                    </tr>
+                    <tr align="center">
+                        <td>float</td>
+                        <td>_right</td>
+                        <td align="left">右の値</td>
                     </tr>
                 </table>
                 <br>
@@ -145,7 +125,7 @@
                     #include "CreaDXTKLib/Scene.h"
                     #include "Draw/Image.h"
                     #include "Math/Vector2.h"
-                    #include "Math/Mouse.hpp"
+                    #include "Math/Controller.hpp"
 
                     using namespace CreaDXTKLib;
                     using namespace CreaDXTKLib::Draw;
@@ -153,21 +133,21 @@
                     using namespace CreaDXTKLib::Input;
 
                     // シーンクラスを基底としたメインシーンクラスの定義
-                    class MouseScene : public Scene
+                    class ControllerScene : public Scene
                     {
                     public:
 
                         // コンストラクタに開始処理を記述
-                        MouseScene()
+                        ControllerScene()
                         {
-                            // MouseSceneで使用する画像を読み込む。
+                            // ControllerSceneで使用する画像を読み込む。
                             Image::Instance().Load(L"image.png", L"Test");
                         }
 
                         // デストラクタに終了処理を記述
-                        ~MouseScene()
+                        ~ControllerScene()
                         {
-                            // MouseSceneが終了するので画像を破棄する。
+                            // ControllerSceneが終了するので画像を破棄する。
                             Image::Instance().Erase(L"Test");
                         }
 
@@ -179,8 +159,8 @@
                         // 描画処理
                         virtual void OnRender() override
                         {
-                            // マウスの左ボタンが押されている間のみ画像を描画
-                            if (Mouse::Instance().GetInput(MouseButtons::Left))
+                            // Aボタンが押されている間のみ画像を描画
+                            if (Controller::Instance().GetInput(0, ControllerParts::A, CheckMode::Press))
                             {
                                 Image::Instance().Draw(L"Test", Vector2(100.0f, 100.0f));
                             }
